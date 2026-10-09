@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Haxhom Media</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
 <style>
@@ -34,7 +35,8 @@ p{margin:0}
 :focus-visible{outline:3px solid var(--rec);outline-offset:2px}
 
 header .wrap{display:flex;justify-content:space-between;align-items:center;padding-block:18px;gap:12px;flex-wrap:wrap}
-.brand{font-family:var(--display);font-weight:800;font-size:1.15rem;letter-spacing:-.01em}
+.brand{font-family:var(--display);font-weight:800;font-size:1.15rem;letter-spacing:-.01em;display:inline-flex;align-items:center;gap:10px;color:var(--ink);text-decoration:none}
+.brand .mark{width:26px;height:27px;flex-shrink:0}
 .rec{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:.75rem;letter-spacing:.1em}
 .rec::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--rec);animation:blink 1.6s steps(1) infinite}
 @keyframes blink{50%{opacity:.25}}
@@ -116,7 +118,7 @@ footer{padding-block:28px}
 
 <header>
   <div class="wrap">
-    <span class="brand">Haxhom Media</span>
+    <a class="brand" href="./"><svg class="mark" viewBox="0 0 480 500" aria-hidden="true"><rect width="140" height="500" rx="28" fill="currentColor"/><rect x="340" width="140" height="500" rx="28" fill="currentColor"/><rect x="140" y="222" width="200" height="56" fill="var(--rec)"/><circle cx="240" cy="250" r="75" fill="var(--rec)"/></svg><span>Haxhom Media</span></a>
     <span class="rec">REC</span>
   </div>
 </header>
