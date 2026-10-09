@@ -19,14 +19,6 @@
   document.addEventListener('keydown',function(e){if(lb.hidden)return;if(e.key==='Escape')close();if(e.key==='ArrowRight')show(i+1);if(e.key==='ArrowLeft')show(i-1)});
 })();
 
-(function(){var svg=document.getElementById('handsvg'),col='Crvena',fin='sjaj';
- try{var s=sessionStorage.getItem('salonm_boja');var b=document.getElementById('b');if(b&&s)b.value=s}catch(e){}
- if(!svg)return;var out=document.getElementById('choice');
- function upd(){out.textContent=col+' · '+fin;try{sessionStorage.setItem('salonm_boja',col+' · '+fin)}catch(e){}}
- document.querySelectorAll('.dot').forEach(function(d){d.addEventListener('click',function(){document.querySelectorAll('.dot').forEach(function(x){x.setAttribute('aria-pressed',String(x===d))});document.documentElement.style.setProperty('--polish',d.dataset.c);col=d.dataset.n;upd()})});
- document.querySelectorAll('.fins button').forEach(function(f){f.addEventListener('click',function(){document.querySelectorAll('.fins button').forEach(function(x){x.setAttribute('aria-pressed',String(x===f))});svg.classList.remove('fin-mat','fin-glitter');if(f.dataset.f!=='sjaj')svg.classList.add('fin-'+f.dataset.f);fin=f.textContent.toLowerCase();upd()})});
-})();
-
 (function(){var H={"0": [12, 19], "1": [12, 19], "2": [12, 19], "3": [8, 15], "4": [8, 15], "5": [7, 12]},el=document.querySelectorAll('[data-open]');if(!el.length)return;
  var d=new Date(),wd=(d.getDay()+6)%7,h=d.getHours()+d.getMinutes()/60,t=H[wd],txt;
  if(t&&h>=t[0]&&h<t[1])txt='Danas radimo do '+t[1]+':00';
