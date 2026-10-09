@@ -1,0 +1,460 @@
+<!doctype html>
+<html lang="hr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Brežina Gradnja · Kuće u Zagorju od temelja do ključa</title>
+<meta name="description" content="Demo stranica (druga verzija): obiteljske kuće, adaptacije i fasade po Zagorju. Izradio Haxhom Media.">
+<meta name="robots" content="noindex">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#F3F4F0" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#101813" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%231E3A2B'/%3E%3Cpath d='M7 16.5 16 9l9 7.5V25H7z' fill='none' stroke='%23F3F4F0' stroke-width='2.4' stroke-linejoin='round'/%3E%3Cpath d='M13.5 25v-5h5v5' fill='%23D9932B'/%3E%3C/svg%3E">
+<link rel="preload" href="f/geist.woff" as="font" type="font/woff" crossorigin>
+<link rel="preconnect" href="https://images.unsplash.com">
+<script src="https://unpkg.com/@phosphor-icons/web@2.1.1" defer></script>
+<style>
+/* Design read: local builder landing for Zagorje families, warm-photographic trust-first language.
+   Dials: VARIANCE 7, MOTION 5, DENSITY 4. Palette: Forest (deep green, cool off-white, single amber accent).
+   Radius rule: interactive elements are pills, image containers 20px, inputs 12px. */
+@font-face{font-family:"Geist";src:url("f/geist.woff") format("woff");font-weight:100 900;font-display:swap}
+:root{
+  --bg:#F3F4F0;
+  --surface:#FBFBF9;
+  --tint:#E3E9E2;
+  --ink:#15201A;
+  --muted:#4F5D55;
+  --line:#CBD3CC;
+  --forest:#1E3A2B;
+  --forest-ink:#F3F4F0;
+  --accent:#D9932B;
+  --accent-ink:#1A1408;
+  --shadow:0 24px 48px -28px rgba(30,58,43,.45);
+  --r-img:20px;--r-in:12px;
+  --font:"Geist",ui-sans-serif,system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --bg:#101813;--surface:#172119;--tint:#1C2A21;--ink:#E8ECE6;--muted:#A8B4AC;--line:#2C3B31;
+    --forest:#2C5440;--forest-ink:#F3F4F0;--accent:#E7A440;--accent-ink:#1A1408;
+    --shadow:0 24px 48px -28px rgba(0,0,0,.7);
+  }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:88px;scroll-padding-bottom:88px;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+h1,h2,h3{margin:0;line-height:1.04;letter-spacing:-.035em;font-weight:650;text-wrap:balance}
+p{margin:0}
+.wrap{width:min(1280px,100% - 40px);margin-inline:auto}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+[hidden]{display:none!important}
+.skip{position:absolute;left:12px;top:-60px;z-index:100;background:var(--accent);color:var(--accent-ink);padding:10px 18px;border-radius:999px;font-weight:600;text-decoration:none}
+.skip:focus{top:12px}
+#sadrzaj:focus{outline:none}
+.ph{font-size:1.15em;line-height:1;vertical-align:-.15em}
+
+.demo{background:var(--forest);color:var(--forest-ink);font-size:.85rem;text-align:center;padding:7px 16px}
+.demo a{color:var(--accent)}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 26px;border-radius:999px;font:inherit;font-weight:600;text-decoration:none;cursor:pointer;border:1px solid transparent;white-space:nowrap;transition:transform .15s ease,background-color .2s ease}
+.btn:active{transform:scale(.98)}
+.btn.p{background:var(--accent);color:var(--accent-ink)}
+.btn.p:hover{background:color-mix(in srgb,var(--accent) 88%,#fff)}
+.btn.g{border-color:var(--line);color:var(--ink);background:transparent}
+.btn.g:hover{background:var(--tint)}
+
+/* header */
+header.top{position:sticky;top:0;z-index:30;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid color-mix(in srgb,var(--line) 60%,transparent)}
+.bar{display:flex;align-items:center;gap:28px;height:72px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:650;font-size:1.1rem;letter-spacing:-.02em;text-decoration:none;margin-right:auto}
+.logo svg{width:32px;height:32px}
+.nav{display:flex;gap:28px;font-weight:500}
+.nav a{text-decoration:none;color:var(--muted)}
+.nav a:hover{color:var(--ink)}
+.bar .btn{min-height:44px;padding:0 20px}
+.burger{display:none;width:46px;height:46px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--ink);cursor:pointer;font-size:1.3rem}
+.mnav{display:none}
+
+/* hero */
+.hero{padding-block:clamp(36px,6vw,80px) 72px}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,6fr);gap:clamp(28px,5vw,72px);align-items:center}
+.hero h1{font-size:clamp(2.4rem,4.4vw,3.7rem)}
+.hero .sub{color:var(--muted);font-size:1.18rem;max-width:36ch;margin-top:22px}
+.ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.shots{position:relative;padding:0 0 56px 56px}
+.shots .main{border-radius:var(--r-img);aspect-ratio:4/3;object-fit:cover;width:100%;box-shadow:var(--shadow)}
+.shots .small{position:absolute;left:0;bottom:0;width:42%;aspect-ratio:1;object-fit:cover;border-radius:var(--r-img);border:6px solid var(--bg);box-shadow:var(--shadow)}
+@media (prefers-reduced-motion:no-preference){
+  .shots .main{animation:in 1s cubic-bezier(.16,1,.3,1) both}
+  .shots .small{animation:in 1s cubic-bezier(.16,1,.3,1) .18s both}
+  @keyframes in{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+}
+
+section.blk{padding-block:clamp(72px,9vw,128px)}
+.sh{max-width:22ch;font-size:clamp(2.1rem,4vw,3.3rem)}
+.sp{color:var(--muted);max-width:56ch;margin-top:16px;font-size:1.08rem}
+
+/* services bento: 4 items, 4 cells */
+.bento{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));grid-template-rows:minmax(300px,auto) auto auto;gap:16px;margin-top:44px}
+.cell{position:relative;border-radius:var(--r-img);overflow:hidden;background:var(--surface);display:flex;flex-direction:column}
+.cell img{width:100%;height:100%;object-fit:cover;flex:1;min-height:180px}
+.cell .tx{padding:22px 24px 24px}
+.cell h3{font-size:1.45rem}
+.cell p{color:var(--muted);margin-top:6px;max-width:44ch}
+.c1{grid-column:span 7;grid-row:span 2}
+.c2{grid-column:span 5}
+.c3{grid-column:span 5;flex-direction:row;align-items:center;gap:20px;background:var(--accent);color:var(--accent-ink);justify-content:space-between;padding:22px}
+.c3 p{color:var(--accent-ink);opacity:.85}
+.c3 .ph{font-size:2.4rem}
+.c4{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center}
+.c4 img{height:100%;max-height:320px}
+.c4 .tx{padding:clamp(22px,4vw,44px)}
+.c4 h3{font-size:clamp(1.45rem,2.4vw,2rem)}
+.c3 h3{font-size:1.3rem}
+
+/* process: sticky stack */
+.stack{margin-top:44px;display:grid;gap:24px}
+.card{position:sticky;top:104px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);border-radius:var(--r-img);overflow:hidden;background:var(--surface);border:1px solid var(--line);min-height:380px;box-shadow:var(--shadow);transform-origin:top center}
+.card:nth-child(2){top:120px}.card:nth-child(3){top:136px}.card:nth-child(4){top:152px}
+.card .tx{padding:clamp(24px,4vw,48px);display:flex;flex-direction:column;justify-content:center}
+.card h3{font-size:clamp(1.7rem,3vw,2.4rem)}
+.card p{color:var(--muted);margin-top:14px;max-width:40ch;font-size:1.08rem}
+.card img{width:100%;height:100%;object-fit:cover}
+.card:nth-child(even) .tx{order:2}
+@supports (animation-timeline:view()){
+  @media (prefers-reduced-motion:no-preference){
+    .card{animation:shrink linear both;animation-timeline:view();animation-range:exit-crossing 0% exit-crossing 60%}
+    .card:last-child{animation:none}
+    @keyframes shrink{to{transform:scale(.94);filter:brightness(.92)}}
+  }
+}
+
+/* promise band */
+.band{background:var(--tint)}
+.promise{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(24px,4vw,56px)}
+.promise .ph{font-size:2rem;color:var(--forest)}
+@media (prefers-color-scheme:dark){.promise .ph{color:var(--accent)}}
+.promise h3{font-size:1.5rem;margin-top:14px}
+.promise p{color:var(--muted);margin-top:8px}
+
+/* projects: horizontal scroll-snap */
+.rail{display:grid;grid-auto-flow:column;grid-auto-columns:min(78%,520px);gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:16px;margin-top:44px;overscroll-behavior-x:contain;scrollbar-width:thin}
+.proj{scroll-snap-align:start}
+.proj img{border-radius:var(--r-img);aspect-ratio:4/3;object-fit:cover;width:100%}
+.proj h3{font-size:1.35rem;margin-top:16px}
+.proj p{color:var(--muted);margin-top:4px}
+.proj .st{font-weight:600;color:var(--ink)}
+.rail-head{display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap}
+.arrows{display:flex;gap:8px}
+.arrows button{width:48px;height:48px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--ink);cursor:pointer;font-size:1.2rem}
+.arrows button:hover{background:var(--tint)}
+.note{color:var(--muted);font-size:.92rem;margin-top:14px}
+
+/* faq */
+.faq > *{max-width:820px}
+details{border-bottom:1px solid var(--line)}
+details:first-of-type{margin-top:32px}
+summary{list-style:none;cursor:pointer;padding:22px 48px 22px 0;font-weight:600;font-size:1.15rem;position:relative}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";position:absolute;right:6px;top:50%;transform:translateY(-50%);font-size:1.6rem;font-weight:400;transition:transform .25s}
+details[open] summary::after{transform:translateY(-50%) rotate(45deg)}
+details p{padding:0 0 22px;color:var(--muted);max-width:62ch}
+
+/* contact */
+.contact .wrap{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(28px,5vw,64px);align-items:start}
+form{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-img);padding:clamp(22px,4vw,40px);display:grid;gap:20px}
+fieldset{border:0;margin:0;padding:0}
+legend{font-weight:600;margin-bottom:10px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip input{position:absolute;opacity:0;pointer-events:none}
+.chip span{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border-radius:999px;border:1px solid var(--line);cursor:pointer;font-weight:500;transition:background-color .15s,border-color .15s}
+.chip input:checked+span{background:var(--forest);border-color:var(--forest);color:var(--forest-ink)}
+.chip input:focus-visible+span{outline:3px solid var(--accent);outline-offset:2px}
+.f{display:grid;gap:8px}
+.f label{font-weight:600;font-size:.95rem}
+.f input,.f textarea{font:inherit;font-size:1rem;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:var(--r-in);padding:13px 14px;width:100%}
+.f input::placeholder,.f textarea::placeholder{color:color-mix(in srgb,var(--muted) 85%,transparent)}
+.f input:focus-visible,.f textarea:focus-visible{outline:3px solid var(--accent);outline-offset:1px;border-color:var(--forest)}
+.f input[aria-invalid="true"]{border-color:#B3261E}
+.f textarea{min-height:120px;resize:vertical}
+.f .help{color:var(--muted);font-size:.88rem}
+.f .err{color:#B3261E;font-size:.88rem;font-weight:600}
+@media (prefers-color-scheme:dark){.f .err{color:#F2B8B5}.f input[aria-invalid="true"]{border-color:#F2B8B5}}
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.ok{border-radius:var(--r-in);background:var(--tint);padding:14px 16px;font-weight:600}
+.aside img{border-radius:var(--r-img);aspect-ratio:4/5;object-fit:cover;width:100%}
+.lines{display:grid;gap:14px;margin-top:22px}
+.lines a{display:flex;align-items:center;gap:12px;text-decoration:none;font-weight:600;font-size:1.1rem}
+.lines .ph{color:var(--accent);font-size:1.4rem}
+.area{color:var(--muted);margin-top:18px}
+
+footer{border-top:1px solid var(--line);padding:28px 0 calc(28px + env(safe-area-inset-bottom));color:var(--muted);font-size:.92rem}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+footer a{color:var(--ink)}
+.mbar{display:none}
+
+@media (max-width:1024px){
+  .bento{grid-template-columns:repeat(6,minmax(0,1fr));grid-template-rows:auto}
+  .c1{grid-column:span 6;grid-row:auto}
+  .c2{grid-column:span 6}
+  .c3{grid-column:span 6}
+  .c4{grid-column:span 6}
+}
+@media (max-width:860px){
+  .nav,.bar .btn{display:none}
+  .burger{display:inline-grid;place-items:center}
+  .mnav{display:grid;position:absolute;left:0;right:0;top:100%;background:var(--bg);border-bottom:1px solid var(--line);padding:6px 20px 20px}
+  .mnav a{padding:14px 0;border-bottom:1px solid var(--line);text-decoration:none;font-weight:600;font-size:1.15rem}
+  .mnav .btn{margin-top:16px;border-bottom:0}
+  .hero .wrap,.contact .wrap{grid-template-columns:minmax(0,1fr)}
+  .shots{padding:0 0 40px 40px}
+  .card{grid-template-columns:minmax(0,1fr);top:84px;min-height:0}
+  .card:nth-child(2){top:96px}.card:nth-child(3){top:108px}.card:nth-child(4){top:120px}
+  .card img{aspect-ratio:16/9;height:auto}
+  .card:nth-child(even) .tx{order:0}
+  .promise{grid-template-columns:minmax(0,1fr)}
+  .aside img{aspect-ratio:16/9}
+}
+@media (max-width:640px){
+  .bento{grid-template-columns:minmax(0,1fr)}
+  .c1,.c2,.c3,.c4{grid-column:auto}
+  .c4{grid-template-columns:minmax(0,1fr)}
+  .c4 img{max-height:none}
+  .c3{flex-direction:row;align-items:center;gap:16px}
+  .two{grid-template-columns:minmax(0,1fr)}
+  .ctas .btn{flex:1 1 100%}
+  .mbar{display:grid;grid-template-columns:auto 1fr;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:40;padding:8px 12px calc(8px + env(safe-area-inset-bottom));background:var(--bg);border-top:1px solid var(--line)}
+  .mbar .btn{min-height:48px}
+  body{padding-bottom:72px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#sadrzaj">Preskoči na sadržaj</a>
+<div class="demo">Demo, druga verzija: Brežina Gradnja je izmišljena firma. Stranicu je izradio <a href="../">Haxhom Media</a>.</div>
+
+<header class="top">
+  <div class="wrap bar">
+    <a class="logo" href="#" aria-label="Brežina Gradnja, na vrh">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#1E3A2B"/><path d="M7 16.5 16 9l9 7.5V25H7z" fill="none" stroke="#F3F4F0" stroke-width="2.4" stroke-linejoin="round"/><path d="M13.5 25v-5h5v5" fill="#D9932B"/></svg>
+      Brežina Gradnja
+    </a>
+    <nav class="nav" aria-label="Glavna navigacija">
+      <a href="#usluge">Usluge</a>
+      <a href="#postupak">Postupak</a>
+      <a href="#radovi">Radovi</a>
+      <a href="#pitanja">Pitanja</a>
+    </nav>
+    <a class="btn p" href="#upit">Zatražite ponudu</a>
+    <button class="burger" type="button" aria-expanded="false" aria-controls="mnav" aria-label="Otvori izbornik"><i class="ph ph-list" aria-hidden="true"></i></button>
+  </div>
+  <nav class="mnav" id="mnav" hidden aria-label="Mobilna navigacija">
+    <a href="#usluge">Usluge</a>
+    <a href="#postupak">Postupak</a>
+    <a href="#radovi">Radovi</a>
+    <a href="#pitanja">Pitanja</a>
+    <a class="btn p" href="#upit">Zatražite ponudu</a>
+  </nav>
+</header>
+
+<main id="sadrzaj" tabindex="-1">
+<section class="hero" aria-labelledby="h1">
+  <div class="wrap">
+    <div>
+      <h1 id="h1">Kuća u Zagorju, od temelja do ključa.</h1>
+      <p class="sub">Obiteljske kuće, adaptacije i fasade. Jedan izvođač, jasna ponuda i rokovi koje držimo.</p>
+      <div class="ctas">
+        <a class="btn p" href="#upit">Zatražite ponudu</a>
+        <a class="btn g" href="#radovi">Pogledajte radove</a>
+      </div>
+    </div>
+    <div class="shots">
+      <img class="main" src="https://images.unsplash.com/photo-1783125127100-89c21c31b6bb?auto=format&fit=crop&w=1400&q=70" width="1400" height="1050" alt="Moderna kuća s velikim staklenim stijenama i uređenim travnjakom" fetchpriority="high">
+      <img class="small" src="https://images.unsplash.com/photo-1778438387226-73b14195c492?auto=format&fit=crop&w=600&h=600&q=70" width="600" height="600" alt="Kuća u izgradnji s drvenim gredama krovišta" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<section class="blk" id="usluge" aria-labelledby="h-usluge" style="padding-top:24px">
+  <div class="wrap">
+    <h2 class="sh" id="h-usluge">Cijela kuća ili samo dio posla.</h2>
+    <p class="sp">Uz svaku uslugu dobijete troškovnik po stavkama, pa točno znate za što plaćate.</p>
+    <div class="bento">
+      <article class="cell c1">
+        <img src="https://images.unsplash.com/photo-1778164920913-dbcf62cca52f?auto=format&fit=crop&w=1200&q=70" width="1200" height="617" alt="Gotova kuća sa sivim krovom među drvećem" loading="lazy">
+        <div class="tx"><h3>Kuća ključ u ruke</h3><p>Od iskopa do useljenja: temelji, zidovi, krovište, instalacije, fasada i podovi. Jedan ugovor i jedan rok.</p></div>
+      </article>
+      <article class="cell c2">
+        <img src="https://images.unsplash.com/photo-1593786267440-550458cc882a?auto=format&fit=crop&w=900&q=70" width="900" height="675" alt="Dvokatnica u izgradnji sa skelom" loading="lazy">
+        <div class="tx"><h3>Roh-bau</h3><p>Temelji, zidovi, ploče i krovište s pokrovom. Unutarnje radove poslije birate sami.</p></div>
+      </article>
+      <article class="cell c3">
+        <i class="ph ph-paint-roller" aria-hidden="true"></i>
+        <div><h3>Fasade</h3><p>Izolacija 10 do 15&nbsp;cm, skela i završna žbuka.</p></div>
+      </article>
+      <article class="cell c4">
+        <img src="https://images.unsplash.com/photo-1779982618480-b23737ac98a2?auto=format&fit=crop&w=800&q=70" width="800" height="533" alt="Stara kuća od opeke s crijepom i zelenim vratima" loading="lazy">
+        <div class="tx"><h3>Adaptacije i obnove</h3><p>Stare zagorske kuće, dogradnje i nadogradnje.</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="blk" id="postupak" aria-labelledby="h-postupak" style="padding-top:0">
+  <div class="wrap">
+    <h2 class="sh" id="h-postupak">Od prvog poziva do ključeva.</h2>
+    <p class="sp">Četiri koraka, uvijek istim redom. U svakom znate što se događa i koliko košta.</p>
+    <div class="stack">
+      <article class="card">
+        <div class="tx"><h3>Dolazimo na teren</h3><p>Pogledamo parcelu ili kuću, projekt i pristup gradilištu. Izlazak je besplatan i bez obveze.</p></div>
+        <img src="https://images.unsplash.com/photo-1760129745103-91c4022ed5fb?auto=format&fit=crop&w=1000&q=70" width="1000" height="667" alt="Kuće na zelenom brežuljku" loading="lazy">
+      </article>
+      <article class="card">
+        <div class="tx"><h3>Dobijete troškovnik</h3><p>Ponuda po stavkama, bez skrivenih troškova. Kad je potpišete, rok i cijena idu u ugovor i krećemo.</p></div>
+        <img src="https://images.unsplash.com/photo-1784721016809-9975b251c25c?auto=format&fit=crop&w=1000&q=70" width="1000" height="667" alt="Početak radova na gradilištu" loading="lazy">
+      </article>
+      <article class="card">
+        <div class="tx"><h3>Gradimo</h3><p>Radimo po dogovorenom planu, a svaki tjedan dobijete fotografije napretka na mobitel.</p></div>
+        <img src="https://images.unsplash.com/photo-1749883278588-837f6fc6c93c?auto=format&fit=crop&w=1000&q=70" width="1000" height="667" alt="Kuća u izgradnji sa skelom oko krova" loading="lazy">
+      </article>
+      <article class="card">
+        <div class="tx"><h3>Predajemo ključeve</h3><p>Zajedno pregledamo kuću, potpišemo zapisnik i dobivate jamstvo na izvedene radove.</p></div>
+        <img src="https://images.unsplash.com/photo-1783125126700-f7426cd71a40?auto=format&fit=crop&w=1000&q=70" width="1000" height="667" alt="Gotova prazna soba s bijelim zidom i zidnim svjetiljkama" loading="lazy">
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="blk band" aria-labelledby="h-obecanje">
+  <div class="wrap">
+    <h2 class="sh" id="h-obecanje" style="margin-bottom:44px">Što dobijete s nama.</h2>
+    <div class="promise">
+      <div><i class="ph ph-receipt" aria-hidden="true"></i><h3>Cijena u ugovoru</h3><p>Troškovnik po stavkama. Ono što potpišete, to i platite.</p></div>
+      <div><i class="ph ph-camera" aria-hidden="true"></i><h3>Fotografije svaki tjedan</h3><p>Vidite napredak i kad niste na gradilištu.</p></div>
+      <div><i class="ph ph-seal-check" aria-hidden="true"></i><h3>Jamstvo na radove</h3><p>Nakon primopredaje ostajemo dostupni za sve što treba.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="blk" id="radovi" aria-labelledby="h-radovi">
+  <div class="wrap">
+    <div class="rail-head">
+      <div><h2 class="sh" id="h-radovi">Odabrani radovi.</h2><p class="sp">Primjeri projekata. Na pravoj stranici ovdje su fotografije s vaših gradilišta.</p></div>
+      <div class="arrows"><button type="button" data-dir="-1" aria-label="Prethodni projekt"><i class="ph ph-caret-left" aria-hidden="true"></i></button><button type="button" data-dir="1" aria-label="Sljedeći projekt"><i class="ph ph-caret-right" aria-hidden="true"></i></button></div>
+    </div>
+    <div class="rail" id="rail" tabindex="0" aria-label="Projekti, pomičite vodoravno">
+      <article class="proj">
+        <img src="https://images.unsplash.com/photo-1783125127100-89c21c31b6bb?auto=format&fit=crop&w=1000&h=750&q=70" width="1000" height="750" alt="Moderna kuća s travnjakom" loading="lazy">
+        <h3>Kuća Bedekovčina</h3>
+        <p><span class="st">Završeno.</span> 162&nbsp;m², ključ u ruke, 9 mjeseci.</p>
+      </article>
+      <article class="proj">
+        <img src="https://images.unsplash.com/photo-1779982618480-b23737ac98a2?auto=format&fit=crop&w=1000&h=750&q=70" width="1000" height="750" alt="Obnovljena kuća od opeke s crijepom" loading="lazy">
+        <h3>Obnova kuće, Zlatar</h3>
+        <p><span class="st">Završeno.</span> 96&nbsp;m², obnova, 5 mjeseci.</p>
+      </article>
+      <article class="proj">
+        <img src="https://images.unsplash.com/photo-1593786267440-550458cc882a?auto=format&fit=crop&w=1000&h=750&q=70" width="1000" height="750" alt="Dvokatnica u izgradnji sa skelom" loading="lazy">
+        <h3>Kuća Zabok</h3>
+        <p><span class="st">U izgradnji.</span> 148&nbsp;m², roh-bau, rok ožujak 2027.</p>
+      </article>
+    </div>
+    <p class="note">Brojke i projekti na ovoj demo stranici su primjeri.</p>
+  </div>
+</section>
+
+<section class="blk" id="pitanja" aria-labelledby="h-pitanja" style="padding-top:0">
+  <div class="wrap faq">
+    <h2 class="sh" id="h-pitanja">Česta pitanja.</h2>
+    <details><summary>Koliko traje gradnja kuće?</summary><p>Ovisi o veličini i opsegu radova. Točan rok upisujemo u ponudu i ugovor.</p></details>
+    <details><summary>Trebam li dozvolu prije nego što se javim?</summary><p>Ne. Javite se i dok tek planirate, pa ćemo vam reći koji papiri trebaju i kojim redom.</p></details>
+    <details><summary>Radite li manje poslove?</summary><p>Da. Možete nas angažirati samo za roh-bau, fasadu ili obnovu dijela kuće.</p></details>
+    <details><summary>Gdje radite?</summary><p>U cijeloj Krapinsko-zagorskoj županiji: Zabok, Zlatar, Krapina, Oroslavje, Donja Stubica i okolica.</p></details>
+  </div>
+</section>
+
+<section class="blk contact" id="upit" aria-labelledby="h-upit" style="padding-top:0">
+  <div class="wrap">
+    <div>
+      <h2 class="sh" id="h-upit">Zatražite ponudu.</h2>
+      <p class="sp" style="margin-bottom:28px">Javljamo se u roku od dva radna dana i dogovaramo izlazak na teren.</p>
+      <form id="form" novalidate>
+        <fieldset>
+          <legend>Što planirate?</legend>
+          <div class="chips">
+            <label class="chip"><input type="radio" name="vrsta" value="Kuća ključ u ruke" checked><span>Kuća ključ u ruke</span></label>
+            <label class="chip"><input type="radio" name="vrsta" value="Roh-bau"><span>Roh-bau</span></label>
+            <label class="chip"><input type="radio" name="vrsta" value="Adaptacija"><span>Adaptacija</span></label>
+            <label class="chip"><input type="radio" name="vrsta" value="Fasada"><span>Fasada</span></label>
+          </div>
+        </fieldset>
+        <div class="two">
+          <div class="f"><label for="mjesto">Mjesto gradnje</label><input id="mjesto" name="mjesto" autocomplete="address-level2" placeholder="npr. Zabok…"></div>
+          <div class="f"><label for="m2">Površina</label><input id="m2" name="m2" inputmode="numeric" placeholder="npr. 120 m²…" aria-describedby="m2-h"><span class="help" id="m2-h">Ako još ne znate, ostavite prazno.</span></div>
+        </div>
+        <div class="f"><label for="opis">Opišite projekt</label><textarea id="opis" name="opis" placeholder="npr. Kuća oko 120 m², imamo dozvolu, krećemo na proljeće…"></textarea></div>
+        <div class="two">
+          <div class="f"><label for="ime">Ime i prezime</label><input id="ime" name="ime" autocomplete="name" required aria-describedby="ime-e"><span class="err" id="ime-e" hidden>Upišite ime i prezime.</span></div>
+          <div class="f"><label for="tel">Telefon</label><input id="tel" name="tel" type="tel" autocomplete="tel" required aria-describedby="tel-e"><span class="err" id="tel-e" hidden>Upišite broj telefona da vas možemo nazvati.</span></div>
+        </div>
+        <button class="btn p" type="submit" style="justify-self:start">Zatražite ponudu</button>
+        <p class="ok" id="ok" role="status" hidden>Upit je zaprimljen. Ovo je demo, pa ništa nije poslano. Na pravoj stranici upit stiže ravno na mail firme.</p>
+      </form>
+    </div>
+    <aside class="aside" aria-label="Kontakt">
+      <img src="https://images.unsplash.com/photo-1783125126700-f7426cd71a40?auto=format&fit=crop&w=800&h=1000&q=70" width="800" height="1000" alt="Svijetla prazna soba nakon završnih radova" loading="lazy">
+      <div class="lines">
+        <a href="tel:+38500000000"><i class="ph ph-phone" aria-hidden="true"></i>+385&nbsp;00&nbsp;000&nbsp;0000</a>
+        <a href="mailto:info@brezina-gradnja.example"><i class="ph ph-envelope-simple" aria-hidden="true"></i>info@brezina-gradnja.example</a>
+      </div>
+      <p class="area">Radimo po cijeloj Krapinsko-zagorskoj županiji.</p>
+    </aside>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Brežina Gradnja je izmišljena firma za prikaz rada.</span>
+    <span>Dizajn i izrada: <a href="../">Haxhom Media</a></span>
+  </div>
+</footer>
+
+<div class="mbar" aria-label="Brzi kontakt">
+  <a class="btn g" href="tel:+38500000000" aria-label="Nazovite"><i class="ph ph-phone" aria-hidden="true"></i>Nazovite</a>
+  <a class="btn p" href="#upit">Zatražite ponudu</a>
+</div>
+
+<script>
+(function(){
+  var b=document.querySelector('.burger'),m=document.getElementById('mnav');
+  function setMenu(open){m.hidden=!open;b.setAttribute('aria-expanded',String(open));b.setAttribute('aria-label',open?'Zatvori izbornik':'Otvori izbornik')}
+  b.addEventListener('click',function(){setMenu(m.hidden)});
+  m.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){setMenu(false)})});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!m.hidden){setMenu(false);b.focus()}});
+
+  var rail=document.getElementById('rail');
+  document.querySelectorAll('.arrows button').forEach(function(btn){btn.addEventListener('click',function(){
+    var card=rail.querySelector('.proj');var step=card?card.getBoundingClientRect().width+20:400;
+    rail.scrollBy({left:step*+btn.dataset.dir,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
+  })});
+
+  var f=document.getElementById('form');
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    var bad=null;
+    ['ime','tel'].forEach(function(n){var el=f[n],ok=!!el.value.trim();el.setAttribute('aria-invalid',String(!ok));document.getElementById(n+'-e').hidden=ok;if(!ok&&!bad)bad=el});
+    if(bad){bad.focus();return}
+    document.getElementById('ok').hidden=false;
+  });
+})();
+</script>
+</body>
+</html>
