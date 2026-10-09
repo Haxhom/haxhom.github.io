@@ -24,3 +24,12 @@
  if(t&&h>=t[0]&&h<t[1])txt='Danas radimo do '+t[1]+':00';
  else{for(var k=0;k<8;k++){var w=(wd+k)%7,x=H[w];if(x&&(k>0||h<x[0])){var dn=['ponedjeljak','utorak','srijedu','četvrtak','petak','subotu','nedjelju'][w];txt=(k===0?'Otvaramo danas u ':k===1?'Otvaramo sutra u ':'Otvaramo u '+dn+' u ')+x[0]+':00';break}}}
  el.forEach(function(e){e.textContent=txt;e.classList.toggle('isopen',!!(t&&h>=t[0]&&h<t[1]))})})();
+
+(function(){var b=document.querySelector('[data-sburger]'),m=document.querySelector('[data-smnav]'),h=document.querySelector('header.s');if(!b||!m)return;
+ var red=matchMedia('(prefers-reduced-motion: reduce)').matches;
+ function open(){m.hidden=false;h.classList.add('menu-open');b.setAttribute('aria-expanded','true');b.style.color='#fff';requestAnimationFrame(function(){requestAnimationFrame(function(){m.classList.add('on')})});document.body.style.overflow='hidden'}
+ function close(){m.classList.remove('on');b.setAttribute('aria-expanded','false');document.body.style.overflow='';setTimeout(function(){m.hidden=true;h.classList.remove('menu-open');b.style.color=''},red?0:550)}
+ b.addEventListener('click',function(){m.classList.contains('on')?close():open()});
+ document.addEventListener('keydown',function(e){if(e.key==='Escape'&&m.classList.contains('on'))close()});
+ m.querySelectorAll('a').forEach(function(a){a.addEventListener('click',close)});
+})();

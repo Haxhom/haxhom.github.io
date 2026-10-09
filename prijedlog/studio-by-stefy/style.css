@@ -50,5 +50,27 @@ section{padding-block:80px}
 .grid img{width:100%;aspect-ratio:4/5;object-fit:cover;filter:grayscale(1);transition:filter .4s,transform .4s}
 footer{background:var(--ink);color:#a9a39d;padding-block:26px;font-size:.88rem;border-top:1px solid #2a2a2a}
 footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}footer .cr{flex-basis:100%;font-size:.78rem}
+/*X*/
+/* animated menu */
+.burger.sb{position:relative;width:44px;height:44px;display:none;z-index:40;color:inherit}
+.burger.sb i{position:absolute;left:11px;right:11px;height:2px;background:currentColor;border-radius:2px;transition:transform .35s cubic-bezier(.7,0,.2,1),opacity .2s}
+.burger.sb i:nth-child(1){top:15px}.burger.sb i:nth-child(2){top:21px}.burger.sb i:nth-child(3){top:27px}
+.burger.sb[aria-expanded="true"] i:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.burger.sb[aria-expanded="true"] i:nth-child(2){opacity:0;transform:scaleX(.2)}
+.burger.sb[aria-expanded="true"] i:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+.mnav.sm{position:fixed;inset:0;z-index:35;background:var(--ink);padding:110px 24px 40px;display:flex;flex-direction:column;gap:6px;
+ clip-path:circle(0% at calc(100% - 42px) 40px);transition:clip-path .55s cubic-bezier(.7,0,.2,1)}
+.mnav.sm.on{clip-path:circle(150% at calc(100% - 42px) 40px)}
+.mnav.sm a{color:#fff;font:400 clamp(3rem,15vw,4.6rem)/1.05 var(--disp);text-decoration:none;opacity:0;transform:translateY(24px);transition:opacity .4s,transform .5s cubic-bezier(.2,.7,.2,1)}
+.mnav.sm a[aria-current]{color:var(--accent);font-style:italic}
+.mnav.sm.on a{opacity:1;transform:none}
+.mnav.sm.on a:nth-of-type(1){transition-delay:.18s}.mnav.sm.on a:nth-of-type(2){transition-delay:.26s}
+.mnav.sm .mfoot{margin-top:auto;color:#a9a39d;opacity:0;transition:opacity .4s .35s}.mnav.sm.on .mfoot{opacity:1}
+header.s.menu-open{color:#fff}
+header.s .mnav.sm{background:var(--ink)}header.s .mnav.sm a{color:#fff}header.s .mnav.sm a[aria-current]{color:var(--accent)}
+header.s.menu-open .brand{position:relative;z-index:40}
+@media (max-width:820px){.burger.sb{display:block}}
+@media (prefers-reduced-motion:reduce){.mnav.sm{transition:none}.mnav.sm a,.mnav.sm .mfoot{transition:none}}
+
 @media (max-width:820px){.sn{display:none}.burger{display:block}.two{grid-template-columns:1fr;gap:34px}.strip{grid-template-columns:1fr 1fr}.grid{grid-template-columns:1fr 1fr}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
