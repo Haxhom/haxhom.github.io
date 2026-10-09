@@ -87,6 +87,19 @@ section{padding-block:56px}
 .copy{font:inherit;font-size:.85rem;padding:8px 14px;background:var(--bg);color:var(--ink);border:0;cursor:pointer;font-weight:600}
 
 footer{padding-block:28px}
+.note{color:var(--muted);max-width:60ch;margin:-10px 0 24px}
+.concepts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.concept{display:flex;flex-direction:column;gap:8px;padding:20px;background:var(--surface);border:1px solid var(--line);text-decoration:none;color:var(--ink);position:relative;transition:transform .2s,border-color .2s}
+.concept::before{content:"";position:absolute;left:0;top:0;bottom:0;width:0;background:var(--rec);transition:width .2s}
+.concept:hover,.concept:focus-visible{transform:translateY(-3px);border-color:var(--ink)}
+.concept:hover::before,.concept:focus-visible::before{width:4px}
+.concept h3{font-size:1.25rem}
+.concept p{color:var(--muted);font-size:.95rem}
+.concept .go{margin-top:auto;font-weight:600;padding-top:6px}
+@media (max-width:860px){.concepts{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:540px){.concepts{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){.concept,.concept::before{transition:none}}
+
 
 @media (max-width:760px){
   .work,.about{grid-template-columns:1fr}
@@ -156,6 +169,81 @@ footer{padding-block:28px}
         <h3>Automatizacija i botovi</h3>
         <p>Discord botovi za zajednice i alati koji štede vrijeme. Isto znanje koristim za web i animacije.</p>
       </article>
+    </div>
+  </div>
+</section>
+
+<section id="koncepti">
+  <div class="wrap">
+    <div class="head"><h2>Koncepti</h2><span class="tc">11 prijedloga</span></div>
+    <p class="note">Prijedlozi web stranica koje sam napravio za firme iz Zagorja. Ovo su moji koncepti, a ne službene stranice tih firmi.</p>
+    <div class="concepts">
+      <a class="concept" href="prijedlog/zagorje-kanal/">
+        <span class="tc">K01 · Odštopavanje · Zabok</span>
+        <h3>Zagorje Kanal</h3>
+        <p>Odabir kvara „Što se dogodilo?” i brzi poziv u jednom dodiru.</p>
+        <span class="go">Otvori →</span>
+      </a>
+      <a class="concept" href="prijedlog/kokotova-hiza/">
+        <span class="tc">K02 · Kuća za odmor · Konjščina</span>
+        <h3>Kokotova hiža</h3>
+        <p>Stranica koja prati dan od zore do noći, album fotografija i upit u obliku pisma.</p>
+        <span class="go">Otvori →</span>
+      </a>
+      <a class="concept" href="prijedlog/draganic/">
+        <span class="tc">K03 · Obrtnik · Sv. Križ Začretje</span>
+        <h3>Završni radovi Draganić</h3>
+        <p>Klizač prije i poslije te kalkulator pločica za brzu procjenu.</p>
+        <span class="go">Otvori →</span>
+      </a>
+      <a class="concept" href="prijedlog/ferero/">
+        <span class="tc">K04 · Frizerski salon · Zabok</span>
+        <h3>Salon Ferero</h3>
+        <p>Lookbook frizura, cjenik složen kao jelovnik i odabir termina.</p>
+        <span class="go">Otvori →</span>
+      </a>
+      <a class="concept" href="prijedlog/magic-styling/">
+        <span class="tc">K05 · Frizerski salon · Zabok</span>
+        <h3>Magic styling</h3>
+        <p>Pregled u stilu storyja i rezervacija kroz razgovor.</p>
+        <span class="go">Otvori →</span>
+      </a>
+      <a class="concept" href="prijedlog/grunt/">
+        <span class="tc">K06 · Kuća za odmor · Veliko Trgovišće</span>
+        <h3>Grunt</h3>
+        <p>Redizajn postojeće stranice s kalendarom za rezervaciju.</p>
+        <span class="go">Otvori →</span>
+      </a>
+      <a class="concept" href="prijedlog/studio-by-stefy/">
+        <span class="tc">K07 · Frizerski salon · Zlatar</span>
+        <h3>Studio by Stefy</h3>
+        <p>Crno-bijeli editorijalni stil s animiranim izbornikom.</p>
+        <span class="go">Otvori →</span>
+      </a>
+      <a class="concept" href="prijedlog/moj-salon/">
+        <span class="tc">K08 · Frizerski salon · Krapina</span>
+        <h3>Moj salon</h3>
+        <p>Razigrana stranica s kratkim kvizom za odabir usluge.</p>
+        <span class="go">Otvori →</span>
+      </a>
+      <a class="concept" href="prijedlog/salon-m/">
+        <span class="tc">K09 · Kosa i nokti · Krapina</span>
+        <h3>Salon ljepote M</h3>
+        <p>Dvoja vrata na početku: kosa ili nokti, svaka sa svojim cjenikom.</p>
+        <span class="go">Otvori →</span>
+      </a>
+      <a class="concept" href="prijedlog/frizer-daniel/">
+        <span class="tc">K10 · Frizer · Donja Stubica</span>
+        <h3>Frizer Daniel</h3>
+        <p>„Šišanje bez suza” za djecu i diploma za prvo šišanje.</p>
+        <span class="go">Otvori →</span>
+      </a>
+      <a class="concept" href="prijedlog/style-by-love/">
+        <span class="tc">K11 · Frizerski salon · Krapina</span>
+        <h3>Style by love</h3>
+        <p>Ploča inspiracije: spremite frizure i pošaljite ih uz termin.</p>
+        <span class="go">Otvori →</span>
+      </a>
     </div>
   </div>
 </section>
