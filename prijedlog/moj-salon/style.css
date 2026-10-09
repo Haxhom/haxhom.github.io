@@ -1,0 +1,58 @@
+[hidden]{display:none!important}*{box-sizing:border-box}html{scroll-behavior:smooth}img{max-width:100%;display:block}p,h1,h2,h3,h4{margin:0}a{color:inherit}button{font:inherit}.concept{background:#111;color:#eee;font:13px/1.4 system-ui,sans-serif;text-align:center;padding:7px 16px}.concept b{color:var(--accent)}.lb{position:fixed;inset:0;z-index:80;background:rgba(6,6,6,.94);display:grid;place-items:center;padding:20px}.lb figure{margin:0}.lb img{max-height:80vh;width:auto;max-width:100%}.lb p{color:#fff;text-align:center;margin-top:10px;font-family:system-ui,sans-serif}.lbx{position:absolute;top:calc(14px + env(safe-area-inset-top,0px));right:16px;background:#fff;color:#111;border:0;font-weight:600;padding:8px 14px;cursor:pointer}.lbn{position:absolute;top:50%;transform:translateY(-50%);width:46px;height:46px;border:0;background:rgba(255,255,255,.9);color:#111;font-size:1.5rem;cursor:pointer}.lbp{left:10px}.lbnx{right:10px}
+/* Layout: a friendly hair-check card. Answer three questions, get a recommendation. Warm terracotta-free palette: sage and ink on paper. */
+:root{--bg:#F2F4EF;--card:#FFFFFF;--ink:#1F2A22;--muted:#5F6B62;--line:#D9DFD6;--accent:#2F7D5B;--on-accent:#fff;--sun:#F3C64B;
+ --disp:"Fredoka",system-ui,sans-serif;--body:"Nunito",system-ui,sans-serif;color-scheme:light}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 var(--body)}
+.wrap{max-width:1080px;margin:0 auto;padding-inline:20px}
+h1,h2,h3{font-family:var(--disp);font-weight:600;line-height:1.05;text-wrap:balance}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+header.m .wrap{display:flex;align-items:center;justify-content:space-between;gap:14px;min-height:70px}
+.brand{text-decoration:none;font:600 1.6rem var(--disp);display:flex;align-items:center;gap:8px}
+.brand i{width:30px;height:30px;border-radius:10px;background:var(--accent);display:grid;place-items:center;color:#fff;font-style:normal;font-size:1rem}
+.mn{display:flex;gap:6px}.mn a{text-decoration:none;font-weight:700;padding:8px 14px;border-radius:999px;color:var(--muted)}.mn a[aria-current]{background:var(--card);color:var(--ink);box-shadow:0 2px 0 var(--line)}
+.burger{display:none;background:none;border:0;font-size:1.5rem;cursor:pointer}
+.mnav{display:grid;padding:4px 20px 14px}.mnav a{text-decoration:none;font:600 1.6rem var(--disp);padding:5px 0}
+.hero{display:grid;grid-template-columns:1fr 1.1fr;gap:34px;align-items:start;padding-block:24px 50px}
+.hero h1{font-size:clamp(2.6rem,6.5vw,4.4rem)}
+.hero h1 mark{background:linear-gradient(transparent 60%,var(--sun) 60%);color:inherit}
+.hero .lead{color:var(--muted);margin-top:14px;max-width:40ch}
+.hero img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:26px;margin-top:22px}
+.quiz{background:var(--card);border-radius:28px;padding:26px;box-shadow:0 20px 50px -30px #1f2a2266;display:grid;gap:16px}
+.quiz .bar{height:8px;background:var(--line);border-radius:8px;overflow:hidden}.quiz .bar i{display:block;height:100%;width:0;background:var(--accent);transition:width .3s;border-radius:8px}
+.quiz h2{font-size:1.6rem}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.opts button{border:2px solid var(--line);background:var(--bg);border-radius:18px;padding:16px;text-align:left;cursor:pointer;font:700 1rem var(--body);color:var(--ink);display:grid;gap:2px}
+.opts button small{font-weight:400;color:var(--muted)}
+.opts button:hover{border-color:var(--accent)}
+.res{display:grid;gap:10px}
+.res .tag{justify-self:start;background:var(--sun);font-weight:800;padding:4px 12px;border-radius:999px;font-size:.85rem}
+.res h3{font-size:1.9rem}
+.res ul{margin:0;padding-left:20px;color:var(--muted)}
+.row{display:flex;gap:10px;flex-wrap:wrap}
+.btn{display:inline-block;background:var(--accent);color:var(--on-accent);text-decoration:none;font-weight:800;padding:13px 20px;border-radius:14px;border:0;cursor:pointer;font-size:1rem}
+.btn.ghost{background:var(--bg);color:var(--ink)}
+section{padding-block:56px}
+.h2{font-size:clamp(2rem,4.5vw,2.8rem);margin-bottom:22px}
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.tile{background:var(--card);border-radius:22px;padding:20px;display:grid;gap:8px}
+.tile .e{font-size:1.8rem}.tile p{color:var(--muted);font-size:.95rem}
+.info{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.box{background:var(--card);border-radius:22px;padding:24px}
+.hrs{display:grid;grid-template-columns:auto 1fr;gap:6px 20px;margin:12px 0 0;font-variant-numeric:tabular-nums}.hrs dt{color:var(--muted)}.hrs dd{margin:0;font-weight:700}
+.openp{display:inline-flex;gap:8px;align-items:center;font-weight:700;font-size:.9rem;background:var(--card);padding:6px 12px;border-radius:999px}
+.openp::before{content:"";width:9px;height:9px;border-radius:50%;background:#b8beb6}.openp.isopen::before{background:#2BB673}
+.ph{padding-block:34px 10px}.ph h1{font-size:clamp(2.4rem,6vw,3.8rem)}.ph p{color:var(--muted);margin-top:8px}
+.rg{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;padding-bottom:60px}
+.rg button{all:unset;cursor:zoom-in;aspect-ratio:4/5;border-radius:24px;overflow:hidden;background:var(--card)}
+.rg button:focus-visible{outline:3px solid var(--accent)}.rg img{width:100%;height:100%;object-fit:cover}
+form{background:var(--card);border-radius:28px;padding:24px;display:grid;gap:14px}
+label{display:grid;gap:6px;font-weight:700;font-size:.92rem}
+input,select,textarea{font:16px var(--body);padding:12px;border:2px solid var(--line);border-radius:14px;background:var(--bg);color:var(--ink);width:100%}
+textarea{min-height:100px}
+.note{background:#FFF4CF;padding:12px;border-radius:12px}
+.cg{display:grid;grid-template-columns:1fr 1.2fr;gap:16px;padding-bottom:60px}
+footer{padding-block:28px;color:var(--muted);font-size:.9rem;border-top:1px solid var(--line)}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}footer .cr{flex-basis:100%;font-size:.78rem}
+@media (max-width:860px){.mn{display:none}.burger{display:block}.hero,.info,.cg{grid-template-columns:1fr}.tiles{grid-template-columns:1fr 1fr}.rg{grid-template-columns:1fr 1fr}}
+@media (max-width:440px){.opts{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}

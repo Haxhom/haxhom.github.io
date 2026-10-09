@@ -1,0 +1,52 @@
+[hidden]{display:none!important}*{box-sizing:border-box}html{scroll-behavior:smooth}img{max-width:100%;display:block}p,h1,h2,h3,h4{margin:0}a{color:inherit}button{font:inherit}.concept{background:#111;color:#eee;font:13px/1.4 system-ui,sans-serif;text-align:center;padding:7px 16px}.concept b{color:var(--accent)}.lb{position:fixed;inset:0;z-index:80;background:rgba(6,6,6,.94);display:grid;place-items:center;padding:20px}.lb figure{margin:0}.lb img{max-height:80vh;width:auto;max-width:100%}.lb p{color:#fff;text-align:center;margin-top:10px;font-family:system-ui,sans-serif}.lbx{position:absolute;top:calc(14px + env(safe-area-inset-top,0px));right:16px;background:#fff;color:#111;border:0;font-weight:600;padding:8px 14px;cursor:pointer}.lbn{position:absolute;top:50%;transform:translateY(-50%);width:46px;height:46px;border:0;background:rgba(255,255,255,.9);color:#111;font-size:1.5rem;cursor:pointer}.lbp{left:10px}.lbnx{right:10px}
+/* Layout: a pin board. Save looks you love with a heart, then send your board with the booking. Blush paper, cherry accent. */
+:root{--bg:#FFF5F4;--card:#FFFFFF;--ink:#2A1416;--muted:#8A6C6F;--line:#F2DAD8;--accent:#D7263D;--on-accent:#fff;
+ --disp:"Pacifico",cursive;--h:"DM Sans",system-ui,sans-serif;--body:"DM Sans",system-ui,sans-serif;color-scheme:light}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 var(--body)}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:20px}
+h1,h2,h3{font-family:var(--h);font-weight:700;letter-spacing:-.03em;line-height:1.02;text-wrap:balance}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+header.l{position:sticky;top:0;z-index:30;background:#fff5f4ee;backdrop-filter:blur(8px)}
+header.l .wrap{display:flex;align-items:center;justify-content:space-between;gap:14px;min-height:68px}
+.brand{text-decoration:none;font:400 1.6rem var(--disp);color:var(--accent)}
+.ln{display:flex;gap:6px}.ln a{text-decoration:none;font-weight:700;padding:8px 14px;border-radius:999px;color:var(--muted)}.ln a[aria-current]{background:var(--ink);color:#fff}
+.bcount{display:inline-flex;align-items:center;gap:6px;text-decoration:none;font-weight:700;background:var(--accent);color:#fff;padding:8px 14px;border-radius:999px}
+.burger{display:none;background:none;border:0;font-size:1.4rem;cursor:pointer}
+.mnav{display:grid;padding:4px 20px 14px}.mnav a{text-decoration:none;font:700 1.5rem var(--h);padding:5px 0}
+.top{padding-block:26px 20px;display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap}
+.top h1{font-size:clamp(2.4rem,6vw,4.4rem);max-width:15ch}
+.top h1 em{font:400 1.05em var(--disp);color:var(--accent)}
+.top p{color:var(--muted);max-width:38ch}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.chips button{border:0;background:var(--card);border-radius:999px;padding:8px 14px;font-weight:700;cursor:pointer;color:var(--ink)}
+.chips button[aria-pressed="true"]{background:var(--ink);color:#fff}
+.pins{columns:4 220px;column-gap:14px;padding-bottom:40px}
+.pin{break-inside:avoid;margin-bottom:14px;position:relative;border-radius:22px;overflow:hidden;background:var(--card)}
+.pin img{width:100%;height:auto;display:block}
+.pin:nth-child(3n) img{aspect-ratio:3/4;object-fit:cover}.pin:nth-child(3n+1) img{aspect-ratio:4/5;object-fit:cover}.pin:nth-child(3n+2) img{aspect-ratio:1/1;object-fit:cover}
+.pin span{position:absolute;left:10px;bottom:10px;background:#fffffff0;padding:4px 10px;border-radius:999px;font-weight:700;font-size:.82rem}
+.heart{position:absolute;top:10px;right:10px;width:42px;height:42px;border-radius:50%;border:0;background:#fffffff0;cursor:pointer;font-size:1.2rem;display:grid;place-items:center;color:var(--muted);transition:transform .15s}
+.heart[aria-pressed="true"]{background:var(--accent);color:#fff;transform:scale(1.08)}
+.tray{position:sticky;bottom:0;z-index:20;background:var(--ink);color:#fff;padding:12px 20px calc(12px + env(safe-area-inset-bottom,0px));display:flex;align-items:center;justify-content:space-between;gap:12px}
+.tray .th{display:flex;gap:6px;overflow:hidden}
+.tray .th img{width:40px;height:40px;border-radius:10px;object-fit:cover}
+.tray a{background:var(--accent);color:#fff;text-decoration:none;font-weight:700;padding:10px 16px;border-radius:999px;white-space:nowrap}
+.ph{padding-block:34px 10px}.ph h1{font-size:clamp(2.4rem,6vw,3.8rem)}.ph p{color:var(--muted);margin-top:8px;max-width:52ch}
+.sgrid{display:grid;grid-template-columns:1.2fr 1fr;gap:16px;padding-block:20px 60px}
+.box{background:var(--card);border-radius:24px;padding:24px}
+.box h3{font-size:1.5rem;margin-bottom:10px}.box p{color:var(--muted)}
+.hrs{display:grid;grid-template-columns:auto 1fr;gap:6px 20px;margin:12px 0 0;font-variant-numeric:tabular-nums}.hrs dt{color:var(--muted)}.hrs dd{margin:0;font-weight:700}
+.openp{display:inline-flex;gap:8px;align-items:center;font-weight:700;font-size:.9rem;background:var(--card);padding:6px 12px;border-radius:999px}.openp::before{content:"";width:8px;height:8px;border-radius:50%;background:#cdb9ba}.openp.isopen::before{background:#2BB673}
+.svc{display:grid;gap:0}.svc div{display:flex;justify-content:space-between;gap:14px;padding:12px 0;border-bottom:1px solid var(--line)}.svc div:last-child{border-bottom:0}.svc b{font-weight:700}.svc span{color:var(--muted)}
+form{background:var(--card);border-radius:28px;padding:24px;display:grid;gap:14px;max-width:660px;margin:10px auto 70px}
+label{display:grid;gap:6px;font-weight:700;font-size:.92rem}
+input,select,textarea{font:16px var(--body);padding:12px;border:1px solid var(--line);border-radius:14px;background:var(--bg);color:var(--ink);width:100%}
+textarea{min-height:90px}
+.saved{display:flex;gap:8px;flex-wrap:wrap}.saved img{width:64px;height:64px;border-radius:14px;object-fit:cover}
+.saved p{color:var(--muted)}
+.btn{border:0;background:var(--accent);color:#fff;font-weight:700;padding:14px;border-radius:14px;cursor:pointer;font-size:1rem}
+.note{background:var(--bg);padding:12px;border-radius:12px}
+footer{border-top:1px solid var(--line);padding-block:28px;color:var(--muted);font-size:.9rem}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}footer .cr{flex-basis:100%;font-size:.78rem}
+@media (max-width:840px){.ln{display:none}.burger{display:block}.sgrid{grid-template-columns:1fr}.pins{columns:2 140px}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
