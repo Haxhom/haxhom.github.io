@@ -2,14 +2,16 @@
 <html lang="hr">
 <head>
 <meta charset="utf-8">
+<meta name="theme-color" content="#FBF6EE">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
 <title>Rezervacija · Kokotova hiža</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya:wght@700&family=Alegreya+Sans:wght@400;500;700&family=Caveat:wght@600&display=swap">
-<link rel="stylesheet" href="style.css?v=2">
+<link rel="stylesheet" href="style.css?v=3">
 </head>
 <body>
+<a class="skip" href="#sadrzaj">Preskoči na sadržaj</a>
 <div class="concept"><b>KONCEPT</b> · Prijedlog web stranice koji je izradio Haxhom Media. Ovo nije službena stranica.</div>
 <header class="bk"><div class="wrap">
 <a class="brand" href="index.html"><svg viewBox="0 0 30 30" aria-hidden="true"><path d="M15 6c-5 0-7 6-7 11s3 9 7 9 7-4 7-9-2-11-7-11z" fill="#E2A63B"/><path d="M15 6c0-2 1-4 3-4" stroke="#4b6b3a" stroke-width="2" fill="none"/><path d="M18 3c2 0 4 1 4 3-2 0-4-1-4-3z" fill="#6b8f4e"/></svg>Kokotova hiža</a>
@@ -17,7 +19,7 @@
 <a class="bcta" href="rezervacija.html">Rezervacija</a>
 <button class="burger" data-burger aria-expanded="false" aria-label="Izbornik">☰</button>
 </div><nav class="mnav" data-mnav hidden aria-label="Mobilna navigacija"><a href="index.html">Priča</a><a href="galerija.html">Album</a><a href="rezervacija.html" aria-current="page">Rezervacija</a></nav></header>
-<main>
+<main id="sadrzaj" tabindex="-1">
 
 <section class="ph"><div class="wrap"><h1>Pišite domaćici</h1><p>Popunite pismo i pošaljite upit. Odgovor stiže izravno od domaćina.</p></div></section>
 <div class="wrap"><form class="letter" data-demo novalidate>
@@ -27,7 +29,7 @@
  <p><label for="po">Poruka</label><textarea id="po">Čuli smo za priču o djedu Kokotu i jedva čekamo vidjeti kuću s kruškom.</textarea></p>
  <p class="sig">Srdačan pozdrav, <label for="im">Ime</label><input id="im" value="obitelj Horvat"></p>
  <p style="font:500 1rem var(--body)">Odgovor nam pošaljite na <label for="em">E-mail</label><input id="em" type="email" value="horvat@primjer.hr" style="font:500 1rem var(--body)"></p>
- <button type="submit">Pošalji pismo</button><p class="note" id="note" hidden>Ovo je koncept, upit nije poslan. Na pravoj stranici stiže ravno na vaš mail ili mobitel.</p>
+ <button type="submit">Pošalji pismo</button><p class="note" id="note" role="status" hidden>Ovo je koncept, upit nije poslan. Na pravoj stranici stiže ravno na vaš mail ili mobitel.</p>
 </form></div>
 <p class="contactline">Radije telefonom?<b>091 616 6663</b>duda.oresec@gmail.com</p>
 

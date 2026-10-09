@@ -2,14 +2,16 @@
 <html lang="hr">
 <head>
 <meta charset="utf-8">
+<meta name="theme-color" content="#EDEEEF">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
 <title>Kontakt · LMS Autoservis</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@600;800&family=Saira:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=1">
 </head>
 <body>
+<a class="skip" href="#sadrzaj">Preskoči na sadržaj</a>
 <div class="concept"><b>KONCEPT</b> · Prijedlog web stranice koji je izradio Haxhom Media. Ovo nije službena stranica.</div>
 <header class="site"><div class="wrap">
   <a class="logo" href="index.html"><span class="dot"></span><span>LMS Autoservis<small>Zlatar · vl. Luka Sviben</small></span></a>
@@ -17,7 +19,7 @@
   <a class="hbtn" href="tel:+385915938174">091 593 8174</a>
   <button class="burger" aria-label="Izbornik" aria-expanded="false">☰</button>
 </div><nav class="mnav" aria-label="Mobilna navigacija"><a href="index.html" data-p="index.html">Početna</a><a href="usluge.html" data-p="usluge.html">Usluge</a><a href="galerija.html" data-p="galerija.html">Galerija</a><a href="kontakt.html" data-p="kontakt.html">Kontakt</a></nav></header>
-<main>
+<main id="sadrzaj" tabindex="-1">
 
 <div class="page-hero"><div class="wrap"><p class="kicker">Kontakt</p><h1>Dogovorite termin</h1><p>Najbrže je nazvati. Za manje hitno pošaljite upit.</p></div></div>
 <section style="padding-top:20px"><div class="wrap contact">
@@ -26,7 +28,7 @@
     <div class="r2"><label for="v">Vozilo<input id="v" value="VW Golf 7, 2016."></label><label for="km">Kilometraža<input id="km" value="182000" inputmode="numeric"></label></div>
     <label for="p">Problem<textarea id="p">Upalila se lampica motora i auto slabije vuče na uzbrdici.</textarea></label>
     <label for="im">Ime i mobitel<input id="im" value="Tomislav, 099 000 0000"></label>
-    <button class="btn fill" type="submit">Pošalji upit</button><p class="note" id="note" hidden>Ovo je koncept, upit nije poslan. Na pravoj stranici stiže ravno na vaš mail ili mobitel.</p>
+    <button class="btn fill" type="submit">Pošalji upit</button><p class="note" id="note" role="status" hidden>Ovo je koncept, upit nije poslan. Na pravoj stranici stiže ravno na vaš mail ili mobitel.</p>
   </form>
 </div></section>
 </main>

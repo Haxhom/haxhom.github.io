@@ -2,21 +2,23 @@
 <html lang="hr">
 <head>
 <meta charset="utf-8">
+<meta name="theme-color" content="#FFFFFF">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
 <title>Termin · Ferero</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@700;800&family=Nunito+Sans:wght@400;600;800&display=swap">
-<link rel="stylesheet" href="style.css?v=2">
+<link rel="stylesheet" href="style.css?v=3">
 </head>
 <body>
+<a class="skip" href="#sadrzaj">Preskoči na sadržaj</a>
 <div class="concept"><b>KONCEPT</b> · Prijedlog web stranice koji je izradio Haxhom Media. Ovo nije službena stranica.</div>
 <header class="mg"><div class="wrap">
 <a class="brand" href="index.html"><i aria-hidden="true"></i>ferero</a>
 <nav class="mnav-d" aria-label="Navigacija"><a href="index.html">Salon</a><a href="feed.html">Radovi</a><a href="termin.html" aria-current="page">Termin</a></nav>
 <button class="burger" data-burger aria-expanded="false" aria-label="Izbornik">☰</button>
 </div><nav class="mnav" data-mnav hidden aria-label="Mobilna navigacija"><a href="index.html">Salon</a><a href="feed.html">Radovi</a><a href="termin.html" aria-current="page">Termin</a></nav></header>
-<main>
+<main id="sadrzaj" tabindex="-1">
 
 <section class="ph" style="text-align:center"><div class="wrap"><h1>Pišite nam</h1><p>Rezervacija kao poruka. Odaberite odgovore, a mi potvrđujemo termin.</p></div></section>
 <form class="chat" data-demo novalidate>
@@ -30,7 +32,7 @@
  <div class="opts" data-step="t" id="o3" hidden><button type="button">Prijepodne</button><button type="button">Poslijepodne</button></div>
  <p class="msg me" id="a3" hidden></p>
  <div id="q4" hidden style="display:grid;gap:8px"><p class="msg them">Zadnje: vaše ime i broj mobitela?</p><label for="im">Ime i mobitel</label><div class="send"><input id="im" value="Lea, 091 000 0000"><button type="submit">Pošalji</button></div></div>
- <p class="note" id="note" hidden>Ovo je koncept, upit nije poslan. Na pravoj stranici stiže ravno na vaš mail ili mobitel.</p>
+ <p class="note" id="note" role="status" hidden>Ovo je koncept, upit nije poslan. Na pravoj stranici stiže ravno na vaš mail ili mobitel.</p>
 </form>
 
 </main>

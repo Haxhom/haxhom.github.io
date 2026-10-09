@@ -2,14 +2,16 @@
 <html lang="hr">
 <head>
 <meta charset="utf-8">
+<meta name="theme-color" content="#EFEAEC">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
 <title>Termin · Ferero</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,500;1,500&family=Karla:wght@400;500;700&display=swap">
-<link rel="stylesheet" href="style.css?v=2">
+<link rel="stylesheet" href="style.css?v=3">
 </head>
 <body>
+<a class="skip" href="#sadrzaj">Preskoči na sadržaj</a>
 <div class="concept"><b>KONCEPT</b> · Prijedlog web stranice koji je izradio Haxhom Media. Ovo nije službena stranica.</div>
 <header class="fe"><div class="wrap">
 <nav class="fnav" aria-label="Navigacija"><a href="index.html">Lookbook</a><a href="cjenik.html">Cjenik</a><a href="termin.html" aria-current="page">Termin</a></nav>
@@ -17,7 +19,7 @@
 <a class="brand" href="index.html">Ferero<small>Salon ljepote · Zabok</small></a>
 <a class="fr" href="termin.html">Termin</a>
 </div><nav class="mnav" data-mnav hidden aria-label="Mobilna navigacija"><a href="index.html">Lookbook</a><a href="cjenik.html">Cjenik</a><a href="termin.html" aria-current="page">Termin</a></nav></header>
-<main>
+<main id="sadrzaj" tabindex="-1">
 
 <section class="ph"><div class="wrap"><h1>Rezervirajte termin</h1><p>Odaberite uslugu, dan i vrijeme. Potvrdu dobivate porukom.</p></div></section>
 <div class="wrap"><form class="book" data-demo novalidate>
@@ -26,7 +28,7 @@
  <div><h2>3 · Vrijeme</h2><div class="chips" id="time" style="margin-top:10px"></div></div>
  <div class="sum" aria-live="polite"><span class="sc" style="color:#c9b6cb">Vaš termin</span><b id="sumt">—</b></div>
  <label for="im">Ime i mobitel<input id="im" value="Lea, 091 000 0000"></label>
- <button class="btn" type="submit">Pošalji zahtjev</button><p class="note" id="note" hidden>Ovo je koncept, upit nije poslan. Na pravoj stranici stiže ravno na vaš mail ili mobitel.</p>
+ <button class="btn" type="submit">Pošalji zahtjev</button><p class="note" id="note" role="status" hidden>Ovo je koncept, upit nije poslan. Na pravoj stranici stiže ravno na vaš mail ili mobitel.</p>
 </form></div>
 
 </main>

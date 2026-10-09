@@ -56,3 +56,4 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 @media (max-width:860px){.mn{display:none}.burger{display:block}.hero,.info,.cg{grid-template-columns:1fr}.tiles{grid-template-columns:1fr 1fr}.rg{grid-template-columns:1fr 1fr}}
 @media (max-width:440px){.opts{grid-template-columns:1fr}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+.skip{position:absolute;left:12px;top:-80px;z-index:1000;background:#111;color:#fff;padding:10px 16px;border-radius:8px;font-weight:700;text-decoration:none}.skip:focus{top:12px}main:focus{outline:none}

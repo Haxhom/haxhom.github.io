@@ -84,3 +84,4 @@ footer .cr{flex-basis:100%;font-size:.78rem}
 }
 @media (max-width:420px){.r2{grid-template-columns:1fr}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+.skip{position:absolute;left:12px;top:-80px;z-index:1000;background:#111;color:#fff;padding:10px 16px;border-radius:8px;font-weight:700;text-decoration:none}.skip:focus{top:12px}main:focus{outline:none}

@@ -2,6 +2,7 @@
 <html lang="hr">
 <head>
 <meta charset="utf-8">
+<meta name="theme-color" content="#ECEEF2">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Haxhom Media</title>
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -110,10 +111,11 @@ footer{padding-block:28px}
   .track{grid-template-columns:56px 1fr}
 }
 @media (prefers-reduced-motion:reduce){.rec::before{animation:none}}
-</style>
+.skip{position:absolute;left:12px;top:-80px;z-index:1000;background:#111;color:#fff;padding:10px 16px;border-radius:8px;font-weight:700;text-decoration:none}.skip:focus{top:12px}main:focus{outline:none}</style>
 <style>img{max-width:100%}[hidden]{display:none!important}body{margin:0}</style>
 </head>
 <body>
+<a class="skip" href="#sadrzaj">Preskoči na sadržaj</a>
 
 
 <header>
@@ -123,7 +125,7 @@ footer{padding-block:28px}
   </div>
 </header>
 
-<main>
+<main id="sadrzaj" tabindex="-1">
 <div class="hero">
   <div class="wrap">
     <p class="tc">00:00:00:01 · Zagorje, Hrvatska</p>
