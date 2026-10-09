@@ -6,28 +6,24 @@
 <meta name="robots" content="noindex, nofollow">
 <title>Galerija · Grunt</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,500;1,6..72,500&family=Public+Sans:wght@400;600;700;800&display=swap">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div class="concept"><b>KONCEPT</b> · Prijedlog web stranice koji je izradio Haxhom Media. Ovo nije službena stranica.</div>
-<header class="site"><div class="wrap">
-  <a class="logo" href="index.html"><span class="dot"></span><span>Grunt<small>Kuća za odmor</small></span></a>
-  <nav class="main" aria-label="Glavna navigacija"><a href="index.html" data-p="index.html">Početna</a><a href="kuca.html" data-p="kuca.html">Kuća</a><a href="galerija.html" aria-current="page">Galerija</a><a href="rezervacija.html" data-p="rezervacija.html">Rezervacija</a></nav>
-  <a class="hbtn" href="rezervacija.html">Rezerviraj</a>
-  <button class="burger" aria-label="Izbornik" aria-expanded="false">☰</button>
-</div><nav class="mnav" aria-label="Mobilna navigacija"><a href="index.html" data-p="index.html">Početna</a><a href="kuca.html" data-p="kuca.html">Kuća</a><a href="galerija.html" data-p="galerija.html">Galerija</a><a href="rezervacija.html" data-p="rezervacija.html">Rezervacija</a></nav></header>
+<header class="gr"><div class="wrap">
+<a class="brand" href="index.html">Grunt</a>
+<nav class="gnav" aria-label="Navigacija"><a href="index.html">Rezervacija</a><a href="kuca.html">Kuća</a><a href="galerija.html" aria-current="page">Galerija</a></nav>
+<button class="burger" data-burger aria-expanded="false" aria-label="Izbornik">☰</button>
+</div><nav class="mnav" data-mnav hidden aria-label="Mobilna navigacija"><a href="index.html">Rezervacija</a><a href="kuca.html">Kuća</a><a href="galerija.html" aria-current="page">Galerija</a></nav></header>
 <main>
 
-<div class="page-hero"><div class="wrap"><p class="kicker">Galerija</p><h1>Kuća i okolica</h1><p>Ovdje idu vaše fotografije. Kliknite za uvećanje, strelicama listate.</p></div></div>
-<section style="padding-top:20px"><div class="wrap"><div class="gallery"><button type="button"><img src="https://images.unsplash.com/photo-1627750168257-9a7d3965ef8b?auto=format&fit=crop&w=900&q=72" alt="Kuća među borovima" loading="lazy"></button><button type="button"><img src="https://images.unsplash.com/photo-1696860740793-1bb7bf33cdc1?auto=format&fit=crop&w=900&q=72" alt="Boravak s kaminom" loading="lazy"></button><button type="button"><img src="https://images.unsplash.com/photo-1693298020278-a3f59c8cee94?auto=format&fit=crop&w=900&q=72" alt="Kuća u šumi" loading="lazy"></button><button type="button"><img src="https://images.unsplash.com/photo-1664369058082-ee8e36028106?auto=format&fit=crop&w=900&q=72" alt="Dnevni boravak" loading="lazy"></button><button type="button"><img src="https://images.unsplash.com/photo-1693298025144-44309c60e8a8?auto=format&fit=crop&w=900&q=72" alt="Pogled na kuću" loading="lazy"></button><button type="button"><img src="https://images.unsplash.com/photo-1727706572437-4fcda0cbd66f?auto=format&fit=crop&w=900&q=72" alt="Spavaća soba" loading="lazy"></button><button type="button"><img src="https://images.unsplash.com/photo-1566754844421-9bc834baf4a3?auto=format&fit=crop&w=900&q=72" alt="Kuća i drveće" loading="lazy"></button><button type="button"><img src="https://images.unsplash.com/photo-1645242075656-e4e435b7a5f5?auto=format&fit=crop&w=900&q=72" alt="Unutrašnjost" loading="lazy"></button><button type="button"><img src="https://images.unsplash.com/photo-1693298025107-f1729daf904b?auto=format&fit=crop&w=900&q=72" alt="Šuma oko kuće" loading="lazy"></button></div><div class="lb" hidden role="dialog" aria-label="Uvećana fotografija"><button type="button" class="x">Zatvori</button><button type="button" class="nv pv" aria-label="Prethodna">‹</button><button type="button" class="nv nx" aria-label="Sljedeća">›</button><div><img src="" alt=""><p></p></div></div></div></section>
+<section class="ph"><div class="wrap"><p class="eb">Galerija</p><h1>Kuća i šuma</h1><p>Ovdje idu vaše fotografije. Kliknite za uvećanje.</p></div></section>
+<div class="wrap"><div class="gal"><button type="button" data-lbitem><img src="https://images.unsplash.com/photo-1627750168257-9a7d3965ef8b?auto=format&fit=crop&w=800&q=72" alt="Kuća među borovima" loading="lazy"></button><button type="button" data-lbitem><img src="https://images.unsplash.com/photo-1696860740793-1bb7bf33cdc1?auto=format&fit=crop&w=800&q=72" alt="Boravak s kaminom" loading="lazy"></button><button type="button" data-lbitem><img src="https://images.unsplash.com/photo-1693298020278-a3f59c8cee94?auto=format&fit=crop&w=800&q=72" alt="Kuća u šumi" loading="lazy"></button><button type="button" data-lbitem><img src="https://images.unsplash.com/photo-1664369058082-ee8e36028106?auto=format&fit=crop&w=800&q=72" alt="Dnevni boravak" loading="lazy"></button><button type="button" data-lbitem><img src="https://images.unsplash.com/photo-1693298025144-44309c60e8a8?auto=format&fit=crop&w=800&q=72" alt="Pogled na kuću" loading="lazy"></button><button type="button" data-lbitem><img src="https://images.unsplash.com/photo-1727706572437-4fcda0cbd66f?auto=format&fit=crop&w=800&q=72" alt="Spavaća soba" loading="lazy"></button><button type="button" data-lbitem><img src="https://images.unsplash.com/photo-1566754844421-9bc834baf4a3?auto=format&fit=crop&w=800&q=72" alt="Kuća i drveće" loading="lazy"></button><button type="button" data-lbitem><img src="https://images.unsplash.com/photo-1645242075656-e4e435b7a5f5?auto=format&fit=crop&w=800&q=72" alt="Unutrašnjost" loading="lazy"></button><button type="button" data-lbitem><img src="https://images.unsplash.com/photo-1693298025107-f1729daf904b?auto=format&fit=crop&w=800&q=72" alt="Šuma oko kuće" loading="lazy"></button></div></div>
+<div class="lb" data-lb hidden role="dialog" aria-label="Uvećana fotografija"><button type="button" class="lbx" data-x>Zatvori</button><button type="button" class="lbn lbp" data-prev aria-label="Prethodna">‹</button><button type="button" class="lbn lbnx" data-next aria-label="Sljedeća">›</button><figure><img src="" alt=""><p></p></figure></div>
+
 </main>
-<footer><div class="wrap">
-  <div><h3>Kuća za odmor Grunt</h3><p>Drvena kuća za odmor u prirodi, Vladimira Nazora 20b, Veliko Trgovišće.</p></div>
-  <div><h3>Stranice</h3><nav><a href="index.html" data-p="index.html">Početna</a><a href="kuca.html" data-p="kuca.html">Kuća</a><a href="galerija.html" data-p="galerija.html">Galerija</a><a href="rezervacija.html" data-p="rezervacija.html">Rezervacija</a></nav></div>
-  <div><h3>Kontakt</h3><p>099 452 2331<br>info@grunt.hr</p></div>
-  <p class="credit">Koncept: Haxhom Media · haxhom.github.io · Fotografije: Unsplash, zamjenjuju se vašim fotografijama.</p>
-</div></footer>
+<footer><div class="wrap"><div><b>Kuća za odmor Grunt</b><br>Vladimira Nazora 20b, Veliko Trgovišće</div><div>099 452 2331<br>info@grunt.hr</div><p class="cr">Koncept: Haxhom Media · haxhom.github.io · Fotografije: Unsplash, zamjenjuju se vašim fotografijama.</p></div></footer>
 <script src="site.js"></script>
 </body>
 </html>

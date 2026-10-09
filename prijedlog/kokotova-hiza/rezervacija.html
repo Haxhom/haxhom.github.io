@@ -6,37 +6,33 @@
 <meta name="robots" content="noindex, nofollow">
 <title>Rezervacija · Kokotova hiža</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Work+Sans:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya:wght@700&family=Alegreya+Sans:wght@400;500;700&family=Caveat:wght@600&display=swap">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div class="concept"><b>KONCEPT</b> · Prijedlog web stranice koji je izradio Haxhom Media. Ovo nije službena stranica.</div>
-<header class="site"><div class="wrap">
-  <a class="logo" href="index.html"><span class="dot"></span><span>Kokotova hiža<small>Klimen · Konjščina</small></span></a>
-  <nav class="main" aria-label="Glavna navigacija"><a href="index.html" data-p="index.html">Početna</a><a href="kuca.html" data-p="kuca.html">Kuća</a><a href="galerija.html" data-p="galerija.html">Galerija</a><a href="rezervacija.html" aria-current="page">Rezervacija</a></nav>
-  <a class="hbtn" href="rezervacija.html">Rezervacija</a>
-  <button class="burger" aria-label="Izbornik" aria-expanded="false">☰</button>
-</div><nav class="mnav" aria-label="Mobilna navigacija"><a href="index.html" data-p="index.html">Početna</a><a href="kuca.html" data-p="kuca.html">Kuća</a><a href="galerija.html" data-p="galerija.html">Galerija</a><a href="rezervacija.html" data-p="rezervacija.html">Rezervacija</a></nav></header>
+<header class="bk"><div class="wrap">
+<a class="brand" href="index.html"><svg viewBox="0 0 30 30" aria-hidden="true"><path d="M15 6c-5 0-7 6-7 11s3 9 7 9 7-4 7-9-2-11-7-11z" fill="#E2A63B"/><path d="M15 6c0-2 1-4 3-4" stroke="#4b6b3a" stroke-width="2" fill="none"/><path d="M18 3c2 0 4 1 4 3-2 0-4-1-4-3z" fill="#6b8f4e"/></svg>Kokotova hiža</a>
+<nav class="bnav" aria-label="Navigacija"><a href="index.html">Priča</a><a href="galerija.html">Album</a><a href="rezervacija.html" aria-current="page">Rezervacija</a></nav>
+<a class="bcta" href="rezervacija.html">Rezervacija</a>
+<button class="burger" data-burger aria-expanded="false" aria-label="Izbornik">☰</button>
+</div><nav class="mnav" data-mnav hidden aria-label="Mobilna navigacija"><a href="index.html">Priča</a><a href="galerija.html">Album</a><a href="rezervacija.html" aria-current="page">Rezervacija</a></nav></header>
 <main>
 
-<div class="page-hero"><div class="wrap"><p class="kicker">Rezervacija</p><h1>Rezervirajte direktno</h1><p>Direktnim upitom dogovarate termin izravno s domaćinima, bez posrednika.</p></div></div>
-<section style="padding-top:20px"><div class="wrap contact">
-  <div class="cbox reveal"><div><p class="l">Telefon</p><p class="v">091 616 6663</p></div><div><p class="l">E-mail</p><p class="v" style="font-size:1.15rem">duda.oresec@gmail.com</p></div><div><p class="l">Adresa</p><p>Klimen 92, 49282 Konjščina</p></div></div>
-  <form class="reveal" novalidate>
-    <div class="r2"><label for="d1">Dolazak<input id="d1" type="date" value="2026-11-13"></label><label for="d2">Odlazak<input id="d2" type="date" value="2026-11-15"></label></div>
-    <div class="r2"><label for="g">Broj gostiju<input id="g" type="number" min="1" value="4"></label><label for="pv">Povod<select id="pv"><option>Odmor</option><option>Rođendan / proslava</option><option>Obiteljsko okupljanje</option></select></label></div>
-    <label for="im">Ime i e-mail<input id="im" value="Petra, petra@primjer.hr"></label>
-    <label for="po">Poruka<textarea id="po">Zanima nas vikend za četvero odraslih, dolazimo u petak navečer.</textarea></label>
-    <button class="btn fill" type="submit">Pošalji upit</button><p class="note" id="note" hidden>Ovo je koncept, upit nije poslan. Na pravoj stranici stiže ravno na vaš mail ili mobitel.</p>
-  </form>
-</div></section>
+<section class="ph"><div class="wrap"><h1>Pišite domaćici</h1><p>Popunite pismo i pošaljite upit. Odgovor stiže izravno od domaćina.</p></div></section>
+<div class="wrap"><form class="letter" data-demo novalidate>
+ <p>Draga Dubravka,</p>
+ <p>htjeli bismo doći od <label for="d1">Dolazak</label><input id="d1" type="date" value="2026-11-13"> do <label for="d2">Odlazak</label><input id="d2" type="date" value="2026-11-15">,</p>
+ <p>bit će nas <label for="g">Broj gostiju</label><input id="g" type="number" min="1" value="6" style="width:3.2ch">, a povod je <label for="pv">Povod</label><select id="pv"><option>odmor</option><option>rođendan</option><option>obiteljsko okupljanje</option><option>proslava</option></select>.</p>
+ <p><label for="po">Poruka</label><textarea id="po">Čuli smo za priču o djedu Kokotu i jedva čekamo vidjeti kuću s kruškom.</textarea></p>
+ <p class="sig">Srdačan pozdrav, <label for="im">Ime</label><input id="im" value="obitelj Horvat"></p>
+ <p style="font:500 1rem var(--body)">Odgovor nam pošaljite na <label for="em">E-mail</label><input id="em" type="email" value="horvat@primjer.hr" style="font:500 1rem var(--body)"></p>
+ <button type="submit">Pošalji pismo</button><p class="note" id="note" hidden>Ovo je koncept, upit nije poslan. Na pravoj stranici stiže ravno na vaš mail ili mobitel.</p>
+</form></div>
+<p class="contactline">Radije telefonom?<b>091 616 6663</b>duda.oresec@gmail.com</p>
+
 </main>
-<footer><div class="wrap">
-  <div><h3>Kokotova hiža</h3><p>Kuća za odmor u etno okruženju na vrhu Klimena, Gornja Konjščina.</p></div>
-  <div><h3>Stranice</h3><nav><a href="index.html" data-p="index.html">Početna</a><a href="kuca.html" data-p="kuca.html">Kuća</a><a href="galerija.html" data-p="galerija.html">Galerija</a><a href="rezervacija.html" data-p="rezervacija.html">Rezervacija</a></nav></div>
-  <div><h3>Kontakt</h3><p>091 616 6663<br>duda.oresec@gmail.com</p></div>
-  <p class="credit">Koncept: Haxhom Media · haxhom.github.io · Fotografije: Unsplash, zamjenjuju se vašim fotografijama.</p>
-</div></footer>
+<footer><div class="wrap"><div><b>Kokotova hiža</b><br>Klimen 92, 49282 Konjščina</div><div>091 616 6663<br>duda.oresec@gmail.com</div><p class="cr">Koncept: Haxhom Media · haxhom.github.io · Fotografije: Unsplash, zamjenjuju se vašim fotografijama.</p></div></footer>
 <script src="site.js"></script>
 </body>
 </html>

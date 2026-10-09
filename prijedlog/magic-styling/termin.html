@@ -6,36 +6,35 @@
 <meta name="robots" content="noindex, nofollow">
 <title>Termin · Magic</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;800&family=Figtree:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@700;800&family=Nunito+Sans:wght@400;600;800&display=swap">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div class="concept"><b>KONCEPT</b> · Prijedlog web stranice koji je izradio Haxhom Media. Ovo nije službena stranica.</div>
-<header class="site"><div class="wrap">
-  <a class="logo" href="index.html"><span class="dot"></span><span>MAGIC<small>Frizerski studio · Zabok</small></span></a>
-  <nav class="main" aria-label="Glavna navigacija"><a href="index.html" data-p="index.html">Početna</a><a href="usluge.html" data-p="usluge.html">Usluge</a><a href="galerija.html" data-p="galerija.html">Galerija</a><a href="termin.html" aria-current="page">Termin</a></nav>
-  <a class="hbtn" href="termin.html">Termin</a>
-  <button class="burger" aria-label="Izbornik" aria-expanded="false">☰</button>
-</div><nav class="mnav" aria-label="Mobilna navigacija"><a href="index.html" data-p="index.html">Početna</a><a href="usluge.html" data-p="usluge.html">Usluge</a><a href="galerija.html" data-p="galerija.html">Galerija</a><a href="termin.html" data-p="termin.html">Termin</a></nav></header>
+<header class="mg"><div class="wrap">
+<a class="brand" href="index.html"><i aria-hidden="true"></i>magic</a>
+<nav class="mnav-d" aria-label="Navigacija"><a href="index.html">Studio</a><a href="feed.html">Feed</a><a href="termin.html" aria-current="page">Termin</a></nav>
+<button class="burger" data-burger aria-expanded="false" aria-label="Izbornik">☰</button>
+</div><nav class="mnav" data-mnav hidden aria-label="Mobilna navigacija"><a href="index.html">Studio</a><a href="feed.html">Feed</a><a href="termin.html" aria-current="page">Termin</a></nav></header>
 <main>
 
-<div class="page-hero"><div class="wrap"><p class="kicker">Termin</p><h1>Rezerviraj termin</h1><p>Pošaljite željeni termin, a potvrdu dobivate porukom.</p></div></div>
-<section style="padding-top:20px"><div class="wrap contact">
-  <div class="cbox reveal"><div><p class="l">Telefon</p><p class="v">098 907 3253</p></div><div><p class="l">Adresa</p><p>Matije Gupca 67, 49210 Zabok</p></div><div><p class="l">Radno vrijeme</p><dl class="hours"><dt>Pon – pet</dt><dd>8:30 – 19:30</dd><dt>Sub</dt><dd>8:00 – 13:00</dd><dt>Ned</dt><dd>zatvoreno</dd></dl></div></div>
-  <form class="reveal" novalidate>
-    <label for="u">Usluga<select id="u"><option>Žensko šišanje</option><option>Šišanje kovrčave kose</option><option>Bojanje</option><option>Fen i valovi</option><option>Svečana frizura</option></select></label>
-    <div class="r2"><label for="d">Datum<input id="d" type="date" value="2026-10-17"></label><label for="t">Vrijeme<input id="t" type="time" value="10:30"></label></div>
-    <label for="im">Ime i mobitel<input id="im" value="Mia, 098 000 0000"></label>
-    <button class="btn fill" type="submit">Pošalji zahtjev</button><p class="note" id="note" hidden>Ovo je koncept, upit nije poslan. Na pravoj stranici stiže ravno na vaš mail ili mobitel.</p>
-  </form>
-</div></section>
+<section class="ph" style="text-align:center"><div class="wrap"><h1>Pišite nam</h1><p>Rezervacija kao poruka. Odaberite odgovore, a mi potvrđujemo termin.</p></div></section>
+<form class="chat" data-demo novalidate>
+ <p class="msg them">Bok! 👋 Koju uslugu želite?</p>
+ <div class="opts" data-step="u"><button type="button">Šišanje</button><button type="button">Fen i valovi</button><button type="button">Bojanje</button><button type="button">Svečana frizura</button><button type="button">Kovrče</button></div>
+ <p class="msg me" id="a1" hidden></p>
+ <p class="msg them" id="q2" hidden>Super. Koji dan vam odgovara?</p>
+ <div class="opts" data-step="d" id="o2" hidden><button type="button">Pon</button><button type="button">Uto</button><button type="button">Sri</button><button type="button">Čet</button><button type="button">Pet</button><button type="button">Sub</button></div>
+ <p class="msg me" id="a2" hidden></p>
+ <p class="msg them" id="q3" hidden>Prije ili poslije podne?</p>
+ <div class="opts" data-step="t" id="o3" hidden><button type="button">Prijepodne</button><button type="button">Poslijepodne</button></div>
+ <p class="msg me" id="a3" hidden></p>
+ <div id="q4" hidden style="display:grid;gap:8px"><p class="msg them">Zadnje: vaše ime i broj mobitela?</p><label for="im">Ime i mobitel</label><div class="send"><input id="im" value="Mia, 098 000 0000"><button type="submit">Pošalji</button></div></div>
+ <p class="note" id="note" hidden>Ovo je koncept, upit nije poslan. Na pravoj stranici stiže ravno na vaš mail ili mobitel.</p>
+</form>
+
 </main>
-<footer><div class="wrap">
-  <div><h3>Magic styling j.d.o.o.</h3><p>Frizerski studio, Matije Gupca 67, Zabok. Instagram: @frizerskistudiomagic</p></div>
-  <div><h3>Stranice</h3><nav><a href="index.html" data-p="index.html">Početna</a><a href="usluge.html" data-p="usluge.html">Usluge</a><a href="galerija.html" data-p="galerija.html">Galerija</a><a href="termin.html" data-p="termin.html">Termin</a></nav></div>
-  <div><h3>Kontakt</h3><p>098 907 3253<br>@frizerskistudiomagic</p></div>
-  <p class="credit">Koncept: Haxhom Media · haxhom.github.io · Fotografije: Unsplash, zamjenjuju se vašim fotografijama.</p>
-</div></footer>
+<footer><div class="wrap"><div><b>Magic styling j.d.o.o.</b><br>Matije Gupca 67, 49210 Zabok</div><div>098 907 3253<br>@frizerskistudiomagic</div><p class="cr">Koncept: Haxhom Media · haxhom.github.io · Fotografije: Unsplash, zamjenjuju se vašim fotografijama.</p></div></footer>
 <script src="site.js"></script>
 </body>
 </html>

@@ -4,47 +4,49 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
-<title>Grunt · Kuća za odmor u Zagorju</title>
+<title>Grunt · Kuća za odmor u šumi</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,500;1,6..72,500&family=Public+Sans:wght@400;600;700;800&display=swap">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div class="concept"><b>KONCEPT</b> · Prijedlog web stranice koji je izradio Haxhom Media. Ovo nije službena stranica.</div>
-<header class="site"><div class="wrap">
-  <a class="logo" href="index.html"><span class="dot"></span><span>Grunt<small>Kuća za odmor</small></span></a>
-  <nav class="main" aria-label="Glavna navigacija"><a href="index.html" aria-current="page">Početna</a><a href="kuca.html" data-p="kuca.html">Kuća</a><a href="galerija.html" data-p="galerija.html">Galerija</a><a href="rezervacija.html" data-p="rezervacija.html">Rezervacija</a></nav>
-  <a class="hbtn" href="rezervacija.html">Rezerviraj</a>
-  <button class="burger" aria-label="Izbornik" aria-expanded="false">☰</button>
-</div><nav class="mnav" aria-label="Mobilna navigacija"><a href="index.html" data-p="index.html">Početna</a><a href="kuca.html" data-p="kuca.html">Kuća</a><a href="galerija.html" data-p="galerija.html">Galerija</a><a href="rezervacija.html" data-p="rezervacija.html">Rezervacija</a></nav></header>
+<header class="gr"><div class="wrap">
+<a class="brand" href="index.html">Grunt</a>
+<nav class="gnav" aria-label="Navigacija"><a href="index.html" aria-current="page">Rezervacija</a><a href="kuca.html">Kuća</a><a href="galerija.html">Galerija</a></nav>
+<button class="burger" data-burger aria-expanded="false" aria-label="Izbornik">☰</button>
+</div><nav class="mnav" data-mnav hidden aria-label="Mobilna navigacija"><a href="index.html" aria-current="page">Rezervacija</a><a href="kuca.html">Kuća</a><a href="galerija.html">Galerija</a></nav></header>
 <main>
 
-<div class="hero split"><div class="wrap">
-  <div><p class="kicker">Veliko Trgovišće · Zagorje</p>
-    <h1>Drvena kuća <em>usred šume</em>, blizu Zagreba</h1>
-    <p class="lead muted" style="margin-top:18px">Mir, tišina i priroda za odmor nakon stresnog tjedna. Velika okućnica, moderna kuhinja i prostrana spavaća soba na katu.</p>
-    <div class="ctas" style="margin-top:26px"><a class="btn fill" href="rezervacija.html">Rezervirajte direktno</a><a class="btn" href="galerija.html">Galerija</a></div>
-    <div class="trust" style="margin-top:26px"><div><b>4.9</b>ocjena na Googleu</div><div><b>34</b>recenzije</div><div><b>Pet friendly</b>velika okućnica</div></div></div>
-  <div class="ph"><img src="https://images.unsplash.com/photo-1627750168257-9a7d3965ef8b?auto=format&fit=crop&w=1400&q=72" alt="Drvena kuća među borovima"></div>
-</div></div>
-<section class="alt"><div class="wrap">
-  <p class="kicker">Zašto Grunt</p><h2 class="h2">Gosti najviše hvale</h2>
-  <div class="cards"><article class="card reveal"><div class="ph"><img src="https://images.unsplash.com/photo-1696860740793-1bb7bf33cdc1?auto=format&fit=crop&w=1400&q=72" alt="Dnevni boravak s kaminom" loading="lazy"></div><div class="b"><h3>Toplu atmosferu</h3><p>Drvo, kamin i mir. Kuća u kojoj se vrijeme uspori.</p></div></article><article class="card reveal"><div class="ph"><img src="https://images.unsplash.com/photo-1566754844421-9bc834baf4a3?auto=format&fit=crop&w=1400&q=72" alt="Kuća okružena drvećem" loading="lazy"></div><div class="b"><h3>Tišinu prirode</h3><p>Kuća je u šumi, daleko od gradske buke, a opet blizu Zagreba.</p></div></article><article class="card reveal"><div class="ph"><img src="https://images.unsplash.com/photo-1693298020278-a3f59c8cee94?auto=format&fit=crop&w=1400&q=72" alt="Kuća u šumi" loading="lazy"></div><div class="b"><h3>Prostor za sve</h3><p>Velika okućnica, pet friendly i opremljena za obitelji i proslave.</p></div></article></div>
+<section class="hero">
+ <div class="left">
+  <p class="eb">Veliko Trgovišće · Hrvatsko zagorje</p>
+  <h1>Drvena kuća u šumi. <i>Odaberite datume.</i></h1>
+  <div class="cal" id="cal">
+   <div class="hd"><button type="button" id="prev" aria-label="Prethodni mjesec">‹</button><h2 id="mon" aria-live="polite"></h2><button type="button" id="next" aria-label="Sljedeći mjesec">›</button></div>
+   <div class="dows"><span>Pon</span><span>Uto</span><span>Sri</span><span>Čet</span><span>Pet</span><span>Sub</span><span>Ned</span></div>
+   <div class="days" id="days" role="grid" aria-label="Kalendar"></div>
+   <div class="legend"><span><i style="background:var(--accent)"></i>vaš odabir</span><span><i style="background:var(--busy)"></i>zauzeto (primjer)</span></div>
+   <div class="sum" aria-live="polite"><b id="sumt">Odaberite dolazak</b><a href="#upit" id="go" aria-disabled="true">Pošalji upit</a></div>
+  </div>
+ </div>
+ <div class="img"><img src="https://images.unsplash.com/photo-1627750168257-9a7d3965ef8b?auto=format&fit=crop&w=1400&q=72" alt="Drvena kuća među borovima"><div class="badge"><div><b>4.9</b><span>Google, 34 recenzije</span></div><div><b>🐾</b><span>pet friendly</span></div></div></div>
+</section>
+
+<section class="req" id="upit"><div class="wrap">
+ <div><p class="eb" style="color:#8fa3b0">Direktna rezervacija</p><h2>Bez posrednika i provizije</h2><p>Upit stiže izravno vlasnicima. Odgovor dobivate na mail ili telefon.</p>
+  <div class="ct"><b>099 452 2331</b><span>info@grunt.hr</span></div></div>
+ <form data-demo novalidate>
+  <div class="r2"><label for="d1">Dolazak<input id="d1" type="date"></label><label for="d2">Odlazak<input id="d2" type="date"></label></div>
+  <div class="r2"><label for="g">Gosti<input id="g" type="number" min="1" value="4"></label><label for="pet">Ljubimac<select id="pet"><option>Ne</option><option>Da, pas</option><option>Da, mačka</option></select></label></div>
+  <label for="im">Ime i e-mail<input id="im" value="Ivan, ivan@primjer.hr"></label>
+  <label for="po">Poruka<textarea id="po">Slavimo rođendan, bit će nas četvero i pas.</textarea></label>
+  <button class="btn" type="submit">Pošalji upit</button><p class="note" id="note" hidden>Ovo je koncept, upit nije poslan. Na pravoj stranici stiže ravno na vaš mail ili mobitel.</p>
+ </form>
 </div></section>
-<section><div class="wrap split2">
-  <div class="reveal"><p class="kicker">Rezervirajte direktno</p><h2 class="h2">Bez provizije posrednika</h2>
-    <p class="muted">Kad gost rezervira preko vaše stranice, cijeli iznos ostaje vama. Booking ostaje za strane goste, a stalni gosti i preporuke dolaze direktno.</p>
-    <ul class="feats"><li>Kalendar slobodnih termina</li><li>Upit za rezervaciju ravno na vaš mail</li><li>Novosti i posebne ponude na jednom mjestu</li></ul></div>
-  <img class="reveal" src="https://images.unsplash.com/photo-1645242075656-e4e435b7a5f5?auto=format&fit=crop&w=1400&q=72" alt="Unutrašnjost kuće" loading="lazy">
-</div></section>
-<div class="cta"><div class="wrap"><h2>Slobodni termini?</h2><a class="btn fill" href="rezervacija.html">Rezervirajte direktno</a></div></div>
+
 </main>
-<footer><div class="wrap">
-  <div><h3>Kuća za odmor Grunt</h3><p>Drvena kuća za odmor u prirodi, Vladimira Nazora 20b, Veliko Trgovišće.</p></div>
-  <div><h3>Stranice</h3><nav><a href="index.html" data-p="index.html">Početna</a><a href="kuca.html" data-p="kuca.html">Kuća</a><a href="galerija.html" data-p="galerija.html">Galerija</a><a href="rezervacija.html" data-p="rezervacija.html">Rezervacija</a></nav></div>
-  <div><h3>Kontakt</h3><p>099 452 2331<br>info@grunt.hr</p></div>
-  <p class="credit">Koncept: Haxhom Media · haxhom.github.io · Fotografije: Unsplash, zamjenjuju se vašim fotografijama.</p>
-</div></footer>
+<footer><div class="wrap"><div><b>Kuća za odmor Grunt</b><br>Vladimira Nazora 20b, Veliko Trgovišće</div><div>099 452 2331<br>info@grunt.hr</div><p class="cr">Koncept: Haxhom Media · haxhom.github.io · Fotografije: Unsplash, zamjenjuju se vašim fotografijama.</p></div></footer>
 <script src="site.js"></script>
 </body>
 </html>

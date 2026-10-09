@@ -6,43 +6,33 @@
 <meta name="robots" content="noindex, nofollow">
 <title>Kontakt · Draganić</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&family=Familjen+Grotesk:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="concept"><b>KONCEPT</b> · Prijedlog web stranice koji je izradio Haxhom Media. Ovo nije službena stranica firme.</div>
-<header class="site"><div class="wrap">
-  <a class="logo" href="index.html"><span class="mark"><i></i><i></i><i></i><i></i></span><span><strong>Draganić</strong><small>Završni radovi</small></span></a>
-  <nav class="main" aria-label="Glavna navigacija"><a href="index.html">Početna</a><a href="usluge.html">Usluge</a><a href="galerija.html">Galerija</a><a href="kontakt.html" aria-current="page">Kontakt</a></nav>
-  <a class="hbtn" href="tel:+385958631202">095 863 1202</a>
-  <button class="burger" aria-label="Izbornik" aria-expanded="false">☰</button>
-</div><nav class="mnav" aria-label="Mobilna navigacija"><a href="index.html">Početna</a><a href="usluge.html">Usluge</a><a href="galerija.html">Galerija</a><a href="kontakt.html">Kontakt</a></nav></header>
+<div class="concept"><b>KONCEPT</b> · Prijedlog web stranice koji je izradio Haxhom Media. Ovo nije službena stranica.</div>
+<header class="tl"><div class="wrap">
+<a class="brand" href="index.html"><i aria-hidden="true"><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b></i>Draganić</a>
+<nav class="tnav" aria-label="Navigacija"><a href="index.html">Početna</a><a href="radovi.html">Radovi</a><a href="kontakt.html" aria-current="page">Kontakt</a></nav>
+<a class="tcall" href="tel:+385958631202">095 863 1202</a>
+<button class="burger" data-burger aria-expanded="false" aria-label="Izbornik">☰</button>
+</div><nav class="mnav" data-mnav hidden aria-label="Mobilna navigacija"><a href="index.html">Početna</a><a href="radovi.html">Radovi</a><a href="kontakt.html" aria-current="page">Kontakt</a></nav></header>
 <main>
 
-<div class="page-hero"><div class="wrap"><p class="eyebrow">Kontakt</p><h1>Recite nam što planirate</h1><p>Pošaljite upit ili nazovite, dogovorit ćemo izlazak na teren.</p></div></div>
-<section style="padding-top:20px"><div class="wrap contact">
-  <div class="cbox reveal">
-    <div><p class="l">Telefon</p><p class="v">095 863 1202</p></div>
-    <div><p class="l">Kontakt osoba</p><p>Darko Draganić</p></div>
-    <div><p class="l">Adresa</p><p>Mirkovec 24 D<br>49223 Sveti Križ Začretje</p></div>
-  </div>
-  <form class="reveal" novalidate>
-    <div class="r2"><label for="ime">Ime<input id="ime" value="Ana"></label><label for="mj">Mjesto<input id="mj" value="Krapina"></label></div>
-    <label for="v">Vrsta radova<select id="v"><option>Adaptacija kupaonice</option><option>Podne pločice</option><option>Kamen i dvorište</option><option>Mozaik</option></select></label>
-    <label for="m">Površina (m²)<input id="m" value="7" inputmode="decimal"></label>
-    <label for="o">Opis<textarea id="o">Kupaonica oko 7 m², htjeli bismo tuš kadu umjesto kade i velike pločice 60 × 120.</textarea></label>
-    <button class="btn fill" type="submit">Pošalji upit</button>
-    <p class="note" id="note" hidden>Ovo je koncept, upit nije poslan. Na pravoj stranici stiže vam ravno na mail ili mobitel.</p>
-  </form>
-</div></section>
+<section class="ph"><div class="wrap"><p class="mono">Kontakt</p><h1>Recite što planirate</h1><p>Dogovorit ćemo izlazak na teren.</p></div></section>
+<section style="padding-top:10px"><div class="wrap"><div class="cg">
+ <div><p class="mono">Telefon</p><p class="v">095 863 1202</p><p class="mono">Kontakt osoba</p><p>Darko Draganić</p><p class="mono">Adresa</p><p>Mirkovec 24 D, 49223 Sveti Križ Začretje</p></div>
+ <form data-demo novalidate>
+  <div class="r2"><label for="im">Ime<input id="im" value="Ana"></label><label for="mj">Mjesto<input id="mj" value="Krapina"></label></div>
+  <label for="vr">Vrsta radova<select id="vr"><option>Kupaonica ključ u ruke</option><option>Podne pločice</option><option>Mozaik</option><option>Kamen i dvorište</option></select></label>
+  <label for="m">Površina (m²)<input id="m" value="7" inputmode="decimal"></label>
+  <label for="o">Opis<textarea id="o">Kupaonica oko 7 m², tuš kada umjesto kade, pločice 60 × 120.</textarea></label>
+  <button class="btn" type="submit">Pošalji upit</button><p class="note" id="note" hidden>Ovo je koncept, upit nije poslan. Na pravoj stranici stiže ravno na vaš mail ili mobitel.</p>
+ </form>
+</div></div></section>
 
 </main>
-<footer><div class="wrap">
-  <div><h3>Završni radovi Draganić j.d.o.o.</h3><p>Pločice, kupaonice, kamen i popločavanje dvorišta. Mirkovec 24 D, 49223 Sveti Križ Začretje.</p></div>
-  <div><h3>Stranice</h3><nav><a href="index.html">Početna</a><a href="usluge.html">Usluge</a><a href="galerija.html">Galerija</a><a href="kontakt.html">Kontakt</a></nav></div>
-  <div><h3>Kontakt</h3><p>Darko Draganić<br>095 863 1202</p></div>
-  <p class="credit">Koncept: Haxhom Media · haxhom.github.io · Fotografije: Unsplash, zamjenjuju se fotografijama vaših radova.</p>
-</div></footer>
+<footer><div class="wrap"><div><b>Završni radovi Draganić j.d.o.o.</b><br>Mirkovec 24 D, 49223 Sveti Križ Začretje</div><div>Darko Draganić<br>095 863 1202</div><p class="cr">Koncept: Haxhom Media · haxhom.github.io · Fotografije: Unsplash, zamjenjuju se vašim fotografijama.</p></div></footer>
 <script src="site.js"></script>
 </body>
 </html>

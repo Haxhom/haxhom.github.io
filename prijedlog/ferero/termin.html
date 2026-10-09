@@ -6,36 +6,31 @@
 <meta name="robots" content="noindex, nofollow">
 <title>Termin · Ferero</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Italiana&family=Jost:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,500;1,500&family=Karla:wght@400;500;700&display=swap">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div class="concept"><b>KONCEPT</b> · Prijedlog web stranice koji je izradio Haxhom Media. Ovo nije službena stranica.</div>
-<header class="site"><div class="wrap">
-  <a class="logo" href="index.html"><span class="dot"></span><span>Ferero<small>Salon ljepote · Zabok</small></span></a>
-  <nav class="main" aria-label="Glavna navigacija"><a href="index.html" data-p="index.html">Početna</a><a href="usluge.html" data-p="usluge.html">Usluge</a><a href="galerija.html" data-p="galerija.html">Galerija</a><a href="termin.html" aria-current="page">Termin</a></nav>
-  <a class="hbtn" href="termin.html">Termin</a>
-  <button class="burger" aria-label="Izbornik" aria-expanded="false">☰</button>
-</div><nav class="mnav" aria-label="Mobilna navigacija"><a href="index.html" data-p="index.html">Početna</a><a href="usluge.html" data-p="usluge.html">Usluge</a><a href="galerija.html" data-p="galerija.html">Galerija</a><a href="termin.html" data-p="termin.html">Termin</a></nav></header>
+<header class="fe"><div class="wrap">
+<nav class="fnav" aria-label="Navigacija"><a href="index.html">Lookbook</a><a href="cjenik.html">Cjenik</a><a href="termin.html" aria-current="page">Termin</a></nav>
+<button class="burger" data-burger aria-expanded="false" aria-label="Izbornik">☰</button>
+<a class="brand" href="index.html">Ferero<small>Salon ljepote · Zabok</small></a>
+<a class="fr" href="termin.html">Termin</a>
+</div><nav class="mnav" data-mnav hidden aria-label="Mobilna navigacija"><a href="index.html">Lookbook</a><a href="cjenik.html">Cjenik</a><a href="termin.html" aria-current="page">Termin</a></nav></header>
 <main>
 
-<div class="page-hero"><div class="wrap"><p class="kicker">Termin</p><h1>Rezervirajte termin</h1><p>Pošaljite željeni termin, a mi potvrđujemo porukom.</p></div></div>
-<section style="padding-top:20px"><div class="wrap contact">
-  <div class="cbox reveal"><div><p class="l">Telefon</p><p class="v">099 517 3277</p></div><div><p class="l">Adresa</p><p>Matije Gupca 74, 49210 Zabok</p></div><div><p class="l">Radno vrijeme</p><dl class="hours"><dt>Pon</dt><dd>9 – 16</dd><dt>Uto</dt><dd>12 – 20</dd><dt>Sri</dt><dd>12 – 18</dd><dt>Čet</dt><dd>12 – 20</dd><dt>Pet</dt><dd>9 – 16</dd><dt>Sub</dt><dd>8 – 13</dd><dt>Ned</dt><dd>zatvoreno</dd></dl></div></div>
-  <form class="reveal" novalidate>
-    <label for="u">Usluga<select id="u"><option>Žensko šišanje</option><option>Bojanje</option><option>Pramenovi</option><option>Svečana frizura</option><option>Nokti</option></select></label>
-    <div class="r2"><label for="d">Datum<input id="d" type="date" value="2026-10-16"></label><label for="t">Vrijeme<input id="t" type="time" value="14:00"></label></div>
-    <label for="im">Ime i mobitel<input id="im" value="Lea, 091 000 0000"></label>
-    <button class="btn fill" type="submit">Pošalji zahtjev</button><p class="note" id="note" hidden>Ovo je koncept, upit nije poslan. Na pravoj stranici stiže ravno na vaš mail ili mobitel.</p>
-  </form>
-</div></section>
+<section class="ph"><div class="wrap"><h1>Rezervirajte termin</h1><p>Odaberite uslugu, dan i vrijeme. Potvrdu dobivate porukom.</p></div></section>
+<div class="wrap"><form class="book" data-demo novalidate>
+ <div><h2>1 · Usluga</h2><div class="chips" id="svc" style="margin-top:10px"><button type="button" aria-pressed="true">Šišanje</button><button type="button" aria-pressed="false">Boja</button><button type="button" aria-pressed="false">Pramenovi</button><button type="button" aria-pressed="false">Svečana frizura</button><button type="button" aria-pressed="false">Nokti</button></div></div>
+ <div><h2>2 · Dan</h2><div class="chips" id="day" style="margin-top:10px"><button type="button" data-a="9" data-b="16" aria-pressed="false">Pon</button><button type="button" data-a="12" data-b="20" aria-pressed="true">Uto</button><button type="button" data-a="12" data-b="18" aria-pressed="false">Sri</button><button type="button" data-a="12" data-b="20" aria-pressed="false">Čet</button><button type="button" data-a="9" data-b="16" aria-pressed="false">Pet</button><button type="button" data-a="8" data-b="13" aria-pressed="false">Sub</button></div></div>
+ <div><h2>3 · Vrijeme</h2><div class="chips" id="time" style="margin-top:10px"></div></div>
+ <div class="sum" aria-live="polite"><span class="sc" style="color:#c9b6cb">Vaš termin</span><b id="sumt">—</b></div>
+ <label for="im">Ime i mobitel<input id="im" value="Lea, 091 000 0000"></label>
+ <button class="btn" type="submit">Pošalji zahtjev</button><p class="note" id="note" hidden>Ovo je koncept, upit nije poslan. Na pravoj stranici stiže ravno na vaš mail ili mobitel.</p>
+</form></div>
+
 </main>
-<footer><div class="wrap">
-  <div><h3>Salon ljepote Ferero</h3><p>Kosa i nokti na jednom mjestu. Matije Gupca 74, Zabok.</p></div>
-  <div><h3>Stranice</h3><nav><a href="index.html" data-p="index.html">Početna</a><a href="usluge.html" data-p="usluge.html">Usluge</a><a href="galerija.html" data-p="galerija.html">Galerija</a><a href="termin.html" data-p="termin.html">Termin</a></nav></div>
-  <div><h3>Kontakt</h3><p>099 517 3277<br>Matije Gupca 74, Zabok</p></div>
-  <p class="credit">Koncept: Haxhom Media · haxhom.github.io · Fotografije: Unsplash, zamjenjuju se vašim fotografijama.</p>
-</div></footer>
+<footer><div class="wrap"><div><b>Salon ljepote Ferero</b><br>Matije Gupca 74, 49210 Zabok</div><div>099 517 3277</div><p class="cr">Koncept: Haxhom Media · haxhom.github.io · Fotografije: Unsplash, zamjenjuju se vašim fotografijama.</p></div></footer>
 <script src="site.js"></script>
 </body>
 </html>
