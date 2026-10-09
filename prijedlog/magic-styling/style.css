@@ -1,4 +1,4 @@
-/* Layout: bold editorial, dark-first. Deep ink with emerald, curls as the hero. */
+/* Layout: bold editorial, dark-first. Deep ink with emerald. */
 :root{--bg:#F2F4F2;--surface:#FFFFFF;--ink:#101513;--muted:#5B6661;--line:#DCE2DE;--accent:#0F8A5F;--on-accent:#F0FFF8;--deep:#0E1512;--on-deep:#EAF2EE;--hbg:#0E1512;--hfg:#EAF2EE;--dw:800;--dls:-.02em;--r:0;--dotr:0;--emstyle:normal;--heroop:.55;--display:"Unbounded",system-ui,sans-serif;--body:"Figtree",system-ui,sans-serif}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0B100E;--surface:#131A17;--ink:#E9F0EC;--muted:#98A6A0;--line:#22302A;--accent:#2BC48A;--on-accent:#04170F;--deep:#060A08;--on-deep:#EAF2EE;--hbg:#060A08;--hfg:#EAF2EE;color-scheme:dark}}
 :root[data-theme="dark"]{--bg:#0B100E;--surface:#131A17;--ink:#E9F0EC;--muted:#98A6A0;--line:#22302A;--accent:#2BC48A;--on-accent:#04170F;--deep:#060A08;--on-deep:#EAF2EE;--hbg:#060A08;--hfg:#EAF2EE;color-scheme:dark}
