@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="hr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Brežina Gradnja</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: site-board header, then plans-and-specs blocks like a building permit folder; one signal-yellow accent */
+:root{
+  --bg:#E4E7E5;        /* poured concrete, faint green bias */
+  --surface:#F2F4F2;
+  --ink:#1B2023;
+  --muted:#5A6462;
+  --line:#C3C9C6;
+  --signal:#E8B923;    /* site-safety yellow */
+  --hill:#2E4A3B;      /* Zagorje hills */
+  --on-hill:#EEF2EF;
+  --blueprint:#2E4A3B;
+  --display:"Big Shoulders Display", "Arial Narrow", Impact, sans-serif;
+  --body:"IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#141819;--surface:#1C2223;--ink:#E5E9E7;--muted:#9AA5A2;--line:#2F3838;
+  --signal:#F0C43A;--hill:#24392E;--on-hill:#E5ECE8;--blueprint:#8FB8A0;color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#141819;--surface:#1C2223;--ink:#E5E9E7;--muted:#9AA5A2;--line:#2F3838;
+  --signal:#F0C43A;--hill:#24392E;--on-hill:#E5ECE8;--blueprint:#8FB8A0;color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6}
+.wrap{max-width:1080px;margin:0 auto;padding-inline:20px}
+h1,h2,h3{font-family:var(--display);line-height:1;text-wrap:balance;margin:0;letter-spacing:.01em}
+h2{font-size:clamp(2rem,5vw,3rem);text-transform:uppercase}
+h3{font-size:1.5rem;text-transform:uppercase}
+p{margin:0}
+.label{font-family:var(--mono);font-size:.75rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--signal);outline-offset:2px}
+
+.demo-bar{background:var(--ink);color:var(--bg);font-family:var(--mono);font-size:.75rem;text-align:center;padding:8px 16px;letter-spacing:.04em}
+.demo-bar strong{color:var(--signal)}
+
+header.top{border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-block:16px;flex-wrap:wrap}
+.logo{font-family:var(--display);font-weight:900;font-size:1.6rem;text-transform:uppercase;display:flex;align-items:center;gap:10px}
+.logo i{display:inline-block;width:22px;height:22px;background:var(--signal);clip-path:polygon(50% 0,100% 45%,100% 100%,0 100%,0 45%)}
+nav{display:flex;gap:20px;flex-wrap:wrap;font-size:.95rem}
+nav a{text-decoration:none;color:var(--muted)}
+nav a:hover{color:var(--ink)}
+
+/* hero = the site board you see on every Croatian gradilište */
+.hero{padding-block:48px 56px}
+.hero .wrap{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center}
+.hero h1{font-size:clamp(3rem,10vw,6.2rem);text-transform:uppercase;font-weight:900}
+.hero h1 span{background:linear-gradient(transparent 62%,var(--signal) 62%,var(--signal) 90%,transparent 90%)}
+.hero p.lead{font-size:1.15rem;color:var(--muted);max-width:42ch;margin-top:20px}
+.cta-row{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap}
+.btn{display:inline-block;font-weight:600;padding:14px 22px;border:2px solid var(--ink);text-decoration:none;font-size:1rem;cursor:pointer;background:none;color:var(--ink);font-family:var(--body)}
+.btn.primary{background:var(--ink);color:var(--bg)}
+.btn:hover{transform:translateY(-1px)}
+
+.board{background:var(--hill);color:var(--on-hill);padding:24px;border:6px solid var(--signal);min-width:0}
+.board .label{color:var(--on-hill);opacity:.75}
+.board dl{display:grid;grid-template-columns:auto 1fr;gap:10px 18px;margin:16px 0 0;font-size:.95rem}
+.board dt{font-family:var(--mono);font-size:.75rem;text-transform:uppercase;letter-spacing:.08em;opacity:.75;padding-top:3px}
+.board dd{margin:0;font-weight:500}
+.board .title{font-family:var(--display);font-size:1.8rem;text-transform:uppercase;margin-top:6px}
+
+section{padding-block:64px;border-top:1px solid var(--line)}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:32px}
+.section-head p{max-width:48ch;color:var(--muted)}
+
+/* services as a permit-style spec table */
+.services{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);background:var(--surface)}
+.service{padding:24px;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:12px;min-width:0}
+.service:last-child{border-right:0}
+.service ul{margin:0;padding-left:18px;color:var(--muted);font-size:.95rem}
+.service .code{font-family:var(--mono);font-size:.75rem;color:var(--muted)}
+
+/* projects with drawn elevations instead of stock photos */
+.projects{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.project{background:var(--surface);border:1px solid var(--line);display:flex;flex-direction:column;min-width:0}
+.project svg{display:block;width:100%;height:auto;border-bottom:1px solid var(--line);background:
+  linear-gradient(var(--line) 1px,transparent 1px) 0 0/20px 20px,
+  linear-gradient(90deg,var(--line) 1px,transparent 1px) 0 0/20px 20px}
+.project .body{padding:18px;display:flex;flex-direction:column;gap:10px}
+.specs{display:flex;gap:16px;flex-wrap:wrap;font-family:var(--mono);font-size:.8rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.tag{align-self:flex-start;font-family:var(--mono);font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;padding:3px 8px;border:1px solid var(--ink)}
+.tag.done{background:var(--ink);color:var(--bg)}
+
+/* process: a real sequence, so numbers are earned */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;counter-reset:s}
+.step{padding:20px 20px 20px 0;border-top:4px solid var(--ink);min-width:0}
+.step + .step{padding-left:20px}
+.step .num{font-family:var(--display);font-size:2.6rem;color:var(--signal);-webkit-text-stroke:1px var(--ink);line-height:1}
+.step h3{margin:8px 0 6px;font-size:1.25rem}
+.step p{color:var(--muted);font-size:.95rem}
+
+/* contact */
+.contact{display:grid;grid-template-columns:1fr 1.2fr;gap:40px}
+.contact-info{display:flex;flex-direction:column;gap:18px}
+.contact-info .val{font-size:1.15rem;font-weight:500;user-select:all}
+form{display:grid;gap:14px;background:var(--surface);padding:24px;border:1px solid var(--line)}
+label{display:grid;gap:6px;font-size:.9rem;font-weight:500}
+input,select,textarea{font:inherit;padding:11px 12px;border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:0;width:100%}
+textarea{min-height:110px;resize:vertical}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.form-note{font-size:.9rem;padding:12px;background:var(--hill);color:var(--on-hill)}
+
+footer{border-top:1px solid var(--line);padding-block:28px;font-size:.85rem;color:var(--muted)}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+@media (max-width:820px){
+  .hero .wrap,.contact{grid-template-columns:1fr}
+  .services,.projects{grid-template-columns:1fr}
+  .service{border-right:0;border-bottom:1px solid var(--line)}
+  .service:last-child{border-bottom:0}
+  .steps{grid-template-columns:1fr 1fr;row-gap:12px}
+  .step,.step + .step{padding:16px 12px 16px 0}
+  nav{display:none}
+}
+@media (max-width:440px){.steps,.row2{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){.btn:hover{transform:none}}
+</style>
+<style>img{max-width:100%}[hidden]{display:none!important}body{margin:0}</style>
+</head>
+<body>
+
+
+<div class="demo-bar"><strong>DEMO</strong> · Izmišljena firma, primjer web stranice · izradio Haxhom Media</div>
+
+<header class="top">
+  <div class="wrap">
+    <div class="logo"><i></i>Brežina Gradnja</div>
+    <nav aria-label="Glavna navigacija">
+      <a href="#usluge">Usluge</a><a href="#radovi">Radovi</a><a href="#postupak">Kako radimo</a><a href="#kontakt">Kontakt</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<div class="hero">
+  <div class="wrap">
+    <div>
+      <p class="label">Krapinsko-zagorska županija</p>
+      <h1>Gradimo <span>kuće</span> od temelja do ključa</h1>
+      <p class="lead">Obiteljske kuće, adaptacije i fasade po cijelom Zagorju. Jedan izvođač, jasna ponuda i rokovi koje držimo.</p>
+      <div class="cta-row">
+        <a class="btn primary" href="#kontakt">Zatražite ponudu</a>
+        <a class="btn" href="#radovi">Pogledajte radove</a>
+      </div>
+    </div>
+    <aside class="board" aria-label="Ploča gradilišta">
+      <p class="label">Ploča gradilišta</p>
+      <p class="title">Obiteljska kuća, Zabok</p>
+      <dl>
+        <dt>Investitor</dt><dd>Privatni investitor</dd>
+        <dt>Izvođač</dt><dd>Brežina Gradnja d.o.o.</dd>
+        <dt>Površina</dt><dd>148 m² BRP</dd>
+        <dt>Faza</dt><dd>Visoki roh-bau, krovište</dd>
+        <dt>Rok</dt><dd>Ožujak 2027.</dd>
+      </dl>
+    </aside>
+  </div>
+</div>
+
+<section id="usluge">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Usluge</h2>
+      <p>Radimo sve faze gradnje, a možete nas angažirati i samo za dio posla.</p>
+    </div>
+    <div class="services">
+      <div class="service">
+        <span class="code">FAZA A</span>
+        <h3>Roh-bau</h3>
+        <ul><li>Iskop i temelji</li><li>Zidanje i armirano-betonske ploče</li><li>Krovište i pokrov</li></ul>
+      </div>
+      <div class="service">
+        <span class="code">FAZA B</span>
+        <h3>Ključ u ruke</h3>
+        <ul><li>Fasada s izolacijom 10–15 cm</li><li>Instalacije i estrisi</li><li>Završni radovi i podovi</li></ul>
+      </div>
+      <div class="service">
+        <span class="code">OBNOVA</span>
+        <h3>Adaptacije</h3>
+        <ul><li>Obnova starih zagorskih kuća</li><li>Energetska obnova fasade</li><li>Dogradnje i nadogradnje</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="radovi">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Odabrani radovi</h2>
+      <p>Primjeri projekata. Na pravoj stranici ovdje idu fotografije i video s gradilišta.</p>
+    </div>
+    <div class="projects">
+      <article class="project">
+        <svg viewBox="0 0 300 180" role="img" aria-label="Nacrt pročelja obiteljske kuće">
+          <g fill="none" stroke="var(--blueprint)" stroke-width="2">
+            <path d="M60 150 V85 L150 35 L240 85 V150 Z"/><rect x="85" y="100" width="34" height="30"/><rect x="181" y="100" width="34" height="30"/><rect x="138" y="108" width="24" height="42"/><line x1="40" y1="150" x2="260" y2="150"/>
+          </g>
+        </svg>
+        <div class="body">
+          <span class="tag done">Završeno</span>
+          <h3>Kuća Bedekovčina</h3>
+          <div class="specs"><span>162 m²</span><span>Ključ u ruke</span><span>9 mj.</span></div>
+        </div>
+      </article>
+      <article class="project">
+        <svg viewBox="0 0 300 180" role="img" aria-label="Nacrt obnove stare kuće s trijemom">
+          <g fill="none" stroke="var(--blueprint)" stroke-width="2">
+            <path d="M50 150 V90 L130 45 L210 90 V150 Z"/><path d="M210 150 V105 H260 V150"/><line x1="210" y1="105" x2="260" y2="105"/><rect x="75" y="105" width="28" height="26"/><rect x="155" y="105" width="28" height="26"/><line x1="30" y1="150" x2="275" y2="150"/>
+          </g>
+        </svg>
+        <div class="body">
+          <span class="tag done">Završeno</span>
+          <h3>Obnova, Zlatar</h3>
+          <div class="specs"><span>96 m²</span><span>Adaptacija</span><span>5 mj.</span></div>
+        </div>
+      </article>
+      <article class="project">
+        <svg viewBox="0 0 300 180" role="img" aria-label="Nacrt kuće u izgradnji s istaknutim krovištem">
+          <g fill="none" stroke="var(--blueprint)" stroke-width="2">
+            <path d="M55 150 V80 H245 V150"/><path d="M45 80 L150 40 L255 80" stroke-dasharray="6 5"/><line x1="100" y1="80" x2="100" y2="150"/><line x1="200" y1="80" x2="200" y2="150"/><line x1="35" y1="150" x2="265" y2="150"/>
+          </g>
+        </svg>
+        <div class="body">
+          <span class="tag">U izgradnji</span>
+          <h3>Kuća Zabok</h3>
+          <div class="specs"><span>148 m²</span><span>Roh-bau</span><span>do 03/2027</span></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="postupak">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Kako radimo</h2>
+      <p>Od prvog poziva do primopredaje znate što se događa i koliko košta.</p>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="num">1</div><h3>Izlazak na teren</h3><p>Pogledamo parcelu ili objekt i projekt, besplatno.</p></div>
+      <div class="step"><div class="num">2</div><h3>Troškovnik</h3><p>Dobijete ponudu po stavkama, bez skrivenih troškova.</p></div>
+      <div class="step"><div class="num">3</div><h3>Izvođenje</h3><p>Radimo po dogovorenom planu i šaljemo fotografije napretka.</p></div>
+      <div class="step"><div class="num">4</div><h3>Primopredaja</h3><p>Zajednički pregled, zapisnik i jamstvo na izvedene radove.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="kontakt">
+  <div class="wrap contact">
+    <div class="contact-info">
+      <h2>Zatražite ponudu</h2>
+      <div><p class="label">Telefon</p><p class="val">+385 00 000 0000</p></div>
+      <div><p class="label">E-mail</p><p class="val">info@brezina-gradnja.example</p></div>
+      <div><p class="label">Područje rada</p><p class="val">Zabok, Zlatar, Krapina, Oroslavje i okolica</p></div>
+    </div>
+    <form id="upit" novalidate>
+      <div class="row2">
+        <label for="ime">Ime i prezime<input id="ime" name="ime" value="Ivana K." required></label>
+        <label for="mjesto">Mjesto gradnje<input id="mjesto" name="mjesto" value="Oroslavje"></label>
+      </div>
+      <label for="vrsta">Vrsta radova
+        <select id="vrsta" name="vrsta">
+          <option>Novogradnja, ključ u ruke</option><option>Roh-bau</option><option>Adaptacija ili obnova</option><option>Fasada</option>
+        </select>
+      </label>
+      <label for="poruka">Opis projekta<textarea id="poruka" name="poruka">Kuća oko 120 m², imamo građevinsku dozvolu, htjeli bismo krenuti na proljeće.</textarea></label>
+      <button class="btn primary" type="submit">Pošalji upit</button>
+      <p class="form-note" id="note" hidden>Ovo je demo stranica, upit nije poslan. Na pravoj stranici stiže ravno na mail firme.</p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Brežina Gradnja je izmišljena firma za prikaz rada.</span>
+    <span>Dizajn i izrada: Haxhom Media</span>
+  </div>
+</footer>
+
+<script>
+document.getElementById('upit').addEventListener('submit',function(e){
+  e.preventDefault();
+  document.getElementById('note').hidden=false;
+});
+</script>
+
+</body>
+</html>

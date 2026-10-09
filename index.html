@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="hr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Haxhom Media</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: an edit timeline. Sections read like clips with timecodes; one REC-red accent */
+:root{
+  --bg:#ECEEF2;
+  --surface:#F7F8FA;
+  --ink:#14161C;
+  --muted:#5C6170;
+  --line:#CDD1DA;
+  --rec:#D8382E;
+  --track:#DCE0E8;
+  --display:"Bricolage Grotesque","Arial Black",system-ui,sans-serif;
+  --body:"Figtree","Segoe UI",system-ui,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#111318;--surface:#191C23;--ink:#ECEEF3;--muted:#99A0AF;--line:#2B303B;--rec:#F0544A;--track:#222631;color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#111318;--surface:#191C23;--ink:#ECEEF3;--muted:#99A0AF;--line:#2B303B;--rec:#F0544A;--track:#222631;color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding-inline:20px}
+h1,h2,h3{font-family:var(--display);margin:0;line-height:1.02;text-wrap:balance}
+p{margin:0}
+.tc{font-family:var(--mono);font-size:.75rem;color:var(--muted);letter-spacing:.06em;font-variant-numeric:tabular-nums}
+:focus-visible{outline:3px solid var(--rec);outline-offset:2px}
+
+header .wrap{display:flex;justify-content:space-between;align-items:center;padding-block:18px;gap:12px;flex-wrap:wrap}
+.brand{font-family:var(--display);font-weight:800;font-size:1.15rem;letter-spacing:-.01em}
+.rec{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:.75rem;letter-spacing:.1em}
+.rec::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--rec);animation:blink 1.6s steps(1) infinite}
+@keyframes blink{50%{opacity:.25}}
+
+.hero{padding-block:40px 56px}
+.hero h1{font-size:clamp(3rem,11vw,7rem);font-weight:800;letter-spacing:-.03em}
+.hero h1 em{font-style:normal;color:var(--rec)}
+.hero .lead{font-size:1.2rem;color:var(--muted);max-width:46ch;margin-top:22px}
+.hero .meta{display:flex;gap:18px;flex-wrap:wrap;margin-top:26px}
+.btn{display:inline-block;padding:13px 22px;font-weight:600;border:2px solid var(--ink);text-decoration:none;color:var(--ink);background:none;font:inherit;font-weight:600;cursor:pointer}
+.btn.fill{background:var(--ink);color:var(--bg)}
+
+/* timeline ruler under the hero */
+.ruler{height:34px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:
+  repeating-linear-gradient(90deg,var(--line) 0 1px,transparent 1px 12px);position:relative;overflow:hidden}
+.ruler::after{content:"";position:absolute;top:0;bottom:0;left:38%;width:2px;background:var(--rec)}
+
+section{padding-block:56px}
+.head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:26px}
+.head h2{font-size:clamp(1.9rem,5vw,2.8rem);letter-spacing:-.02em}
+
+/* services as stacked tracks */
+.tracks{display:grid;gap:10px}
+.track{display:grid;grid-template-columns:90px 1fr;align-items:stretch;background:var(--track);min-width:0}
+.track .lane{font-family:var(--mono);font-size:.8rem;display:flex;align-items:center;justify-content:center;border-right:1px solid var(--line);color:var(--muted)}
+.clip{padding:18px 20px;background:var(--surface);margin:6px;border-left:4px solid var(--ink);min-width:0}
+.clip h3{font-size:1.3rem}
+.clip p{color:var(--muted);margin-top:6px}
+
+.work{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.card{background:var(--surface);border:1px solid var(--line);padding:22px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.card h3{font-size:1.35rem}
+.card p{color:var(--muted)}
+.card a.link{margin-top:auto;font-weight:600;color:var(--ink)}
+.status{align-self:flex-start;font-family:var(--mono);font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;padding:3px 8px;border:1px solid var(--line)}
+.status.live{border-color:var(--rec);color:var(--rec)}
+
+.about{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+.about p{color:var(--muted);max-width:60ch}
+.facts{display:grid;gap:12px;align-content:start}
+.fact{display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid var(--line);padding-bottom:10px}
+.fact span:last-child{font-weight:500;text-align:right}
+
+.contact{background:var(--ink);color:var(--bg);padding:32px}
+.contact h2{color:var(--bg)}
+.contact .tc{color:var(--bg);opacity:.7}
+.lines{display:grid;gap:14px;margin-top:22px}
+.line{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;border-top:1px solid color-mix(in srgb,var(--bg) 25%,transparent);padding-top:14px}
+.line .val{font-size:1.25rem;font-weight:600;user-select:all;word-break:break-all}
+.copy{font:inherit;font-size:.85rem;padding:8px 14px;background:var(--bg);color:var(--ink);border:0;cursor:pointer;font-weight:600}
+
+footer{padding-block:28px}
+
+@media (max-width:760px){
+  .work,.about{grid-template-columns:1fr}
+  .track{grid-template-columns:56px 1fr}
+}
+@media (prefers-reduced-motion:reduce){.rec::before{animation:none}}
+</style>
+<style>img{max-width:100%}[hidden]{display:none!important}body{margin:0}</style>
+</head>
+<body>
+
+
+<header>
+  <div class="wrap">
+    <span class="brand">Haxhom Media</span>
+    <span class="rec">REC</span>
+  </div>
+</header>
+
+<main>
+<div class="hero">
+  <div class="wrap">
+    <p class="tc">00:00:00:01 · Zagorje, Hrvatska</p>
+    <h1>Video, web i motion za <em>lokalne</em> firme</h1>
+    <p class="lead">Ja sam Luka, medijski tehničar iz Zagorja. Radim web stranice, montažu videa i animacije za male firme, obrte i sportaše.</p>
+    <div class="meta">
+      <a class="btn fill" href="#kontakt">Javite se</a>
+      <a class="btn" href="#radovi">Pogledajte radove</a>
+    </div>
+  </div>
+</div>
+<div class="ruler" aria-hidden="true"></div>
+
+<section id="usluge">
+  <div class="wrap">
+    <div class="head"><h2>Usluge</h2><span class="tc">3 trake</span></div>
+    <div class="tracks">
+      <div class="track"><div class="lane">V1</div><div class="clip"><h3>Web stranice</h3><p>Jednostavne, brze stranice koje rade na mobitelu: usluge, galerija radova, kontakt i forma za upit.</p></div></div>
+      <div class="track"><div class="lane">V2</div><div class="clip"><h3>Video montaža</h3><p>Kratki videi za Instagram, TikTok i Facebook, promo spotovi i snimke s događaja.</p></div></div>
+      <div class="track"><div class="lane">A1</div><div class="clip"><h3>Motion design</h3><p>Animirani logotipi, naslovi i grafike za video, izrađeni kodom pa se lako prilagode.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="radovi">
+  <div class="wrap">
+    <div class="head"><h2>Radovi</h2><span class="tc">00:01:24:10</span></div>
+    <div class="work">
+      <article class="card">
+        <span class="status live">Pogledaj uživo</span>
+        <h3>Brežina Gradnja</h3>
+        <p>Primjer web stranice za građevinsku firmu: usluge po fazama gradnje, projekti, postupak rada i forma za upit.</p>
+        <a class="link" href="gradnja/">Otvori demo stranicu →</a>
+      </article>
+      <article class="card">
+        <span class="status">Iskustvo</span>
+        <h3>MMA prijenosi i promo</h3>
+        <p>Live prijenosi, sponzorski sadržaj i promotivni videi za profesionalnog MMA borca.</p>
+      </article>
+      <article class="card">
+        <span class="status">Uskoro</span>
+        <h3>Showreel 2026</h3>
+        <p>Kratki pregled video radova u pripremi.</p>
+      </article>
+      <article class="card">
+        <span class="status">Kod</span>
+        <h3>Automatizacija i botovi</h3>
+        <p>Discord botovi za zajednice i alati koji štede vrijeme. Isto znanje koristim za web i animacije.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="o-meni">
+  <div class="wrap about">
+    <div>
+      <div class="head"><h2>O meni</h2></div>
+      <p>Završio sam za medijskog tehničara u Zaboku, a video, 3D, zvuk i programiranje učim i radim sam godinama. Radim s firmama iz Zagorja koje žele bolje izgledati na internetu, bez agencijskih cijena.</p>
+    </div>
+    <div class="facts">
+      <div class="fact"><span class="tc">Škola</span><span>Medijski tehničar, Zabok</span></div>
+      <div class="fact"><span class="tc">Područje</span><span>Zabok, Zlatar i cijelo Zagorje</span></div>
+      <div class="fact"><span class="tc">Rad</span><span>Uživo i na daljinu</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="kontakt">
+  <div class="wrap">
+    <div class="contact">
+      <p class="tc">00:02:00:00 · Kraj</p>
+      <h2>Imate projekt? Javite se.</h2>
+      <div class="lines">
+        <div class="line"><div><p class="tc">E-mail</p><p class="val" id="mail">haxhom.media@gmail.com</p></div><button class="copy" data-target="mail" type="button">Kopiraj</button></div>
+        <div class="line"><div><p class="tc">Mobitel</p><p class="val" id="tel">099 845 9351</p></div><button class="copy" data-target="tel" type="button">Kopiraj</button></div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap tc">© 2026 Haxhom Media · Luka Bardi</div></footer>
+
+<script>
+document.querySelectorAll('.copy').forEach(function(b){
+  b.addEventListener('click',function(){
+    var el=document.getElementById(b.dataset.target);var t=el.textContent;
+    function done(){b.textContent='Kopirano';setTimeout(function(){b.textContent='Kopiraj'},1500)}
+    function fallback(){var r=document.createRange();r.selectNodeContents(el);var s=getSelection();s.removeAllRanges();s.addRange(r)}
+    try{navigator.clipboard.writeText(t).then(done,fallback)}catch(e){fallback()}
+  });
+});
+</script>
+
+</body>
+</html>
