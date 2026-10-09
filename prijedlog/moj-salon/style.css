@@ -1,17 +1,17 @@
 [hidden]{display:none!important}*{box-sizing:border-box}html{scroll-behavior:smooth}img{max-width:100%;display:block}p,h1,h2,h3,h4{margin:0}a{color:inherit}button{font:inherit}.concept{background:#111;color:#eee;font:13px/1.4 system-ui,sans-serif;text-align:center;padding:7px 16px}.concept b{color:var(--accent)}.lb{position:fixed;inset:0;z-index:80;background:rgba(6,6,6,.94);display:grid;place-items:center;padding:20px}.lb figure{margin:0}.lb img{max-height:80vh;width:auto;max-width:100%}.lb p{color:#fff;text-align:center;margin-top:10px;font-family:system-ui,sans-serif}.lbx{position:absolute;top:calc(14px + env(safe-area-inset-top,0px));right:16px;background:#fff;color:#111;border:0;font-weight:600;padding:8px 14px;cursor:pointer}.lbn{position:absolute;top:50%;transform:translateY(-50%);width:46px;height:46px;border:0;background:rgba(255,255,255,.9);color:#111;font-size:1.5rem;cursor:pointer}.lbp{left:10px}.lbnx{right:10px}
 /* Layout: a friendly hair-check card. Answer three questions, get a recommendation. Warm terracotta-free palette: sage and ink on paper. */
 :root{--bg:#F2F4EF;--card:#FFFFFF;--ink:#1F2A22;--muted:#5F6B62;--line:#D9DFD6;--accent:#2F7D5B;--on-accent:#fff;--sun:#F3C64B;
- --disp:"Fredoka",system-ui,sans-serif;--body:"Nunito",system-ui,sans-serif;color-scheme:light}
+ --disp:"Nunito",system-ui,sans-serif;--body:"Nunito",system-ui,sans-serif;color-scheme:light}
 body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 var(--body)}
 .wrap{max-width:1080px;margin:0 auto;padding-inline:20px}
-h1,h2,h3{font-family:var(--disp);font-weight:600;line-height:1.05;text-wrap:balance}
+h1,h2,h3{font-family:var(--disp);font-weight:900;letter-spacing:-.01em;line-height:1.05;text-wrap:balance}
 :focus-visible{outline:3px solid var(--accent);outline-offset:2px}
 header.m .wrap{display:flex;align-items:center;justify-content:space-between;gap:14px;min-height:70px}
-.brand{text-decoration:none;font:600 1.6rem var(--disp);display:flex;align-items:center;gap:8px}
+.brand{text-decoration:none;font:900 1.6rem var(--disp);display:flex;align-items:center;gap:8px}
 .brand i{width:30px;height:30px;border-radius:10px;background:var(--accent);display:grid;place-items:center;color:#fff;font-style:normal;font-size:1rem}
 .mn{display:flex;gap:6px}.mn a{text-decoration:none;font-weight:700;padding:8px 14px;border-radius:999px;color:var(--muted)}.mn a[aria-current]{background:var(--card);color:var(--ink);box-shadow:0 2px 0 var(--line)}
 .burger{display:none;background:none;border:0;font-size:1.5rem;cursor:pointer}
-.mnav{display:grid;padding:4px 20px 14px}.mnav a{text-decoration:none;font:600 1.6rem var(--disp);padding:5px 0}
+.mnav{display:grid;padding:4px 20px 14px}.mnav a{text-decoration:none;font:900 1.6rem var(--disp);padding:5px 0}
 .hero{display:grid;grid-template-columns:1fr 1.1fr;gap:34px;align-items:start;padding-block:24px 50px}
 .hero h1{font-size:clamp(2.6rem,6.5vw,4.4rem)}
 .hero h1 mark{background:linear-gradient(transparent 60%,var(--sun) 60%);color:inherit}
