@@ -11,6 +11,7 @@
 :root[data-theme="dark"]{
   --bg:#121615;--surface:#1A201E;--ink:#E8ECEA;--muted:#9DA8A3;--grout:#2A3330;
   --sage:#86AE97;--sage-deep:#1E3229;--on-sage:#EAF2ED;--stone:#6E685D;color-scheme:dark}
+[hidden]{display:none!important}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.65}

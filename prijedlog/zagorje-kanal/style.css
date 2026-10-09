@@ -11,6 +11,7 @@
 :root[data-theme="dark"]{
   --bg:#0A141C;--surface:#111F2A;--ink:#E6EEF3;--muted:#98A8B4;--line:#22323F;
   --navy:#0B2131;--on-navy:#E6EEF3;--orange:#FF7A33;--teal:#5FB3C4;color-scheme:dark}
+[hidden]{display:none!important}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6}
