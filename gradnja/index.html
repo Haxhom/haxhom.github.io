@@ -26,7 +26,7 @@
   color-scheme:light;
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:84px;-webkit-text-size-adjust:100%}
+html{scroll-behavior:smooth;scroll-padding-top:84px;scroll-padding-bottom:84px;-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--beton);color:var(--tinta);font-family:var(--font);font-size:17px;line-height:1.6;font-variation-settings:"wdth" 100}
 img,svg{display:block;max-width:100%}
 a{color:inherit}
@@ -35,6 +35,7 @@ p{margin:0}
 .wrap{width:min(1200px,100% - 40px);margin-inline:auto}
 :focus-visible{outline:3px solid var(--zuta);outline-offset:3px;border-radius:2px}
 [hidden]{display:none!important}
+#sadrzaj:focus{outline:none}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
 /* demo strip */
@@ -192,7 +193,10 @@ legend{font-weight:700;margin-bottom:10px}
 .two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
 label.f{display:grid;gap:6px;font-weight:700;font-size:.95rem}
 label.f input,label.f textarea{font:inherit;font-weight:400;font-size:1rem;padding:13px 14px;border:2px solid var(--linija);border-radius:8px;background:#fff;color:var(--tinta);width:100%}
-label.f input:focus,label.f textarea:focus{outline:none;border-color:var(--tinta)}
+label.f input:focus-visible,label.f textarea:focus-visible{outline:3px solid var(--zuta);outline-offset:2px;border-color:var(--tinta)}
+label.f input[aria-invalid="true"]{border-color:#A3261C}
+.skip{position:absolute;left:12px;top:-60px;z-index:100;background:var(--zuta);color:var(--tinta);padding:10px 16px;border-radius:6px;font-weight:700;text-decoration:none}
+.skip:focus{top:12px}
 label.f textarea{min-height:110px;resize:vertical}
 .opt{font-weight:400;color:var(--siva)}
 .sent{background:#E9F2EC;border-left:0;border-radius:8px;padding:14px 16px;color:var(--zelena);font-weight:600}
@@ -243,6 +247,7 @@ footer a{color:var(--zuta)}
 </style>
 </head>
 <body>
+<a class="skip" href="#sadrzaj">Preskoči na sadržaj</a>
 
 <div class="demo">Demo: Brežina Gradnja je izmišljena firma. Stranicu je izradio <a href="../">Haxhom Media</a>.</div>
 
@@ -266,11 +271,11 @@ footer a{color:var(--zuta)}
     <a href="#kako-gradimo">Kako gradimo</a>
     <a href="#radovi">Radovi</a>
     <a href="#upit">Upit</a>
-    <a href="tel:+38500000000">Nazovite +385 00 000 0000</a>
+    <a href="tel:+38500000000">Nazovite +385&nbsp;00&nbsp;000&nbsp;0000</a>
   </nav>
 </header>
 
-<main>
+<main id="sadrzaj" tabindex="-1">
 <section class="hero" aria-labelledby="h1">
   <div class="wrap">
     <div class="hero-copy">
@@ -294,11 +299,11 @@ footer a{color:var(--zuta)}
           <dl>
             <dt>Investitor</dt><dd>Privatni investitor</dd>
             <dt>Izvođač</dt><dd>Brežina Gradnja d.o.o.</dd>
-            <dt>Površina</dt><dd>148 m² BRP</dd>
+            <dt>Površina</dt><dd>148&nbsp;m² BRP</dd>
             <dt>Faza</dt><dd>Krovište</dd>
             <dt>Rok</dt><dd>Ožujak 2027.</dd>
           </dl>
-          <div class="progress" aria-label="Napredak gradnje 55 posto">
+          <div class="progress" role="progressbar" aria-label="Napredak gradnje" aria-valuemin="0" aria-valuemax="100" aria-valuenow="55">
             <div class="pt"><span>Napredak</span><span>55 %</span></div>
             <div class="tr"><i></i></div>
           </div>
@@ -345,7 +350,7 @@ footer a{color:var(--zuta)}
       </div>
       <div class="row">
         <h3>Fasade</h3>
-        <div><p>Fasada s izolacijom debljine 10 do 15 cm, uključujući skelu i završnu žbuku. Manji računi za grijanje već prve zime.</p>
+        <div><p>Fasada s izolacijom debljine 10 do 15&nbsp;cm, uključujući skelu i završnu žbuku. Manji računi za grijanje već prve zime.</p>
           <ul><li>Izolacija</li><li>Skela</li><li>Završna žbuka</li></ul></div>
         <a class="ask" href="#upit" data-pick="Fasada">Zatražite ponudu</a>
       </div>
@@ -362,7 +367,7 @@ footer a{color:var(--zuta)}
     <div class="seq">
       <div class="stage">
         <div class="plan">
-          <p class="plan-cap" aria-live="polite"><span>Faza <strong id="phase-n">1</strong> od 6</span><span id="phase-t">Izlazak na teren</span></p>
+          <p class="plan-cap"><span>Faza <strong id="phase-n">1</strong> od 6</span><span id="phase-t">Izlazak na teren</span></p>
           <svg id="house" class="s1 s2 s3 s4 s5 s6" viewBox="0 0 600 440" role="img" aria-label="Crtež kuće koja se gradi kroz šest faza">
             <!-- ground -->
             <path d="M20 372 H580" stroke="#7F8A86" stroke-width="2"/>
@@ -449,7 +454,7 @@ footer a{color:var(--zuta)}
           <span class="tag">Završeno</span>
           <h3>Kuća Bedekovčina</h3>
           <p>Moderna kuća s ravnim krovom za četveročlanu obitelj.</p>
-          <dl><dt>Površina</dt><dd>162 m²</dd><dt>Opseg</dt><dd>Ključ u ruke</dd><dt>Trajanje</dt><dd>9 mjeseci</dd></dl>
+          <dl><dt>Površina</dt><dd>162&nbsp;m²</dd><dt>Opseg</dt><dd>Ključ u ruke</dd><dt>Trajanje</dt><dd>9 mjeseci</dd></dl>
         </div>
       </article>
       <article class="work">
@@ -465,7 +470,7 @@ footer a{color:var(--zuta)}
           <span class="tag">Završeno</span>
           <h3>Obnova hiže, Zlatar</h3>
           <p>Stara drvena zagorska hiža: novi temelji, krovište i instalacije, a izgled je ostao isti.</p>
-          <dl><dt>Površina</dt><dd>96 m²</dd><dt>Opseg</dt><dd>Obnova</dd><dt>Trajanje</dt><dd>5 mjeseci</dd></dl>
+          <dl><dt>Površina</dt><dd>96&nbsp;m²</dd><dt>Opseg</dt><dd>Obnova</dd><dt>Trajanje</dt><dd>5 mjeseci</dd></dl>
         </div>
       </article>
       <article class="work">
@@ -479,7 +484,7 @@ footer a{color:var(--zuta)}
           <span class="tag go">U izgradnji</span>
           <h3>Kuća Zabok</h3>
           <p>Prizemnica s potkrovljem. Trenutno radimo krovište.</p>
-          <dl><dt>Površina</dt><dd>148 m²</dd><dt>Opseg</dt><dd>Roh-bau</dd><dt>Rok</dt><dd>03/2027.</dd></dl>
+          <dl><dt>Površina</dt><dd>148&nbsp;m²</dd><dt>Opseg</dt><dd>Roh-bau</dd><dt>Rok</dt><dd>03/2027.</dd></dl>
         </div>
       </article>
     </div>
@@ -505,7 +510,7 @@ footer a{color:var(--zuta)}
       <h2 id="h-upit">Zatražite ponudu</h2>
       <p class="intro">Opišite što planirate. Javljamo se u roku od dva radna dana i dogovaramo izlazak na teren.</p>
       <div class="lines">
-        <a href="tel:+38500000000"><small>Telefon</small>+385 00 000 0000</a>
+        <a href="tel:+38500000000"><small>Telefon</small>+385&nbsp;00&nbsp;000&nbsp;0000</a>
         <a href="mailto:info@brezina-gradnja.example"><small>E-mail</small>info@brezina-gradnja.example</a>
       </div>
       <svg class="map" viewBox="0 0 360 230" role="img" aria-label="Područje rada: Krapina, Pregrada, Zlatar, Klanjec, Zabok, Oroslavje i Donja Stubica">
@@ -532,17 +537,17 @@ footer a{color:var(--zuta)}
         </div>
       </fieldset>
       <div class="two">
-        <label class="f">Mjesto gradnje<input name="mjesto" autocomplete="address-level2" placeholder="npr. Zabok"></label>
-        <label class="f"><span>Površina <span class="opt">(ako znate)</span></span><input name="m2" inputmode="numeric" placeholder="npr. 120 m²"></label>
+        <label class="f">Mjesto gradnje<input name="mjesto" autocomplete="address-level2" placeholder="npr. Zabok…"></label>
+        <label class="f"><span>Površina <span class="opt">(ako znate)</span></span><input name="m2" inputmode="numeric" placeholder="npr. 120 m²…"></label>
       </div>
-      <label class="f">Opišite projekt<textarea name="opis" placeholder="npr. Kuća oko 120 m², imamo građevinsku dozvolu, htjeli bismo krenuti na proljeće."></textarea></label>
+      <label class="f">Opišite projekt<textarea name="opis" placeholder="npr. Kuća oko 120 m², imamo građevinsku dozvolu, htjeli bismo krenuti na proljeće…"></textarea></label>
       <div class="two">
-        <label class="f">Ime i prezime<input name="ime" autocomplete="name" required></label>
-        <label class="f">Telefon<input name="tel" type="tel" autocomplete="tel" required></label>
+        <label class="f">Ime i prezime<input name="ime" autocomplete="name" required aria-describedby="err"></label>
+        <label class="f">Telefon<input name="tel" type="tel" autocomplete="tel" required aria-describedby="err"></label>
       </div>
-      <p class="err" id="err" hidden>Upišite ime i telefon da vas možemo nazvati.</p>
+      <p class="err" id="err" role="alert" hidden>Upišite ime i telefon da vas možemo nazvati.</p>
       <button class="btn p" type="submit" style="justify-self:start">Pošaljite upit</button>
-      <p class="sent" id="sent" hidden>Upit je zaprimljen. Ovo je demo, pa ništa nije poslano. Na pravoj stranici upit stiže ravno na mail firme.</p>
+      <p class="sent" id="sent" role="status" hidden>Upit je zaprimljen. Ovo je demo, pa ništa nije poslano. Na pravoj stranici upit stiže ravno na mail firme.</p>
     </form>
   </div>
 </section>
@@ -565,6 +570,7 @@ footer a{color:var(--zuta)}
   // mobile menu
   var b=document.querySelector('.burger'),m=document.getElementById('mnav');
   b.addEventListener('click',function(){var o=b.getAttribute('aria-expanded')==='true';b.setAttribute('aria-expanded',String(!o));b.setAttribute('aria-label',o?'Otvori izbornik':'Zatvori izbornik');m.hidden=o});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!m.hidden){m.hidden=true;b.setAttribute('aria-expanded','false');b.setAttribute('aria-label','Otvori izbornik');b.focus()}});
   m.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){m.hidden=true;b.setAttribute('aria-expanded','false');b.setAttribute('aria-label','Otvori izbornik')})});
 
   // preselect service in form
@@ -592,6 +598,7 @@ footer a{color:var(--zuta)}
     e.preventDefault();
     var ok=f.ime.value.trim()&&f.tel.value.trim();
     document.getElementById('err').hidden=!!ok;
+    f.ime.setAttribute('aria-invalid',String(!f.ime.value.trim()));f.tel.setAttribute('aria-invalid',String(!f.tel.value.trim()));
     if(!ok){(f.ime.value.trim()?f.tel:f.ime).focus();return}
     document.getElementById('sent').hidden=false;
   });
