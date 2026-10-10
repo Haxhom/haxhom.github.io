@@ -1,0 +1,637 @@
+<!doctype html>
+<html lang="hr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Klet Lozica · Degustacija vina u Zagorju</title>
+<meta name="description" content="Demo stranica izmišljene obiteljske kleti Lozica: vina iz Zagorja, degustacija po vašem izboru i upit za termin. Izradio Haxhom Media.">
+<meta name="robots" content="noindex">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#EEF0E8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#12150F" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%233F4A26'/%3E%3Ccircle cx='12' cy='14' r='4' fill='%23E9ECE1'/%3E%3Ccircle cx='20' cy='14' r='4' fill='%23E9ECE1'/%3E%3Ccircle cx='16' cy='21' r='4' fill='%23C2483A'/%3E%3C/svg%3E">
+<link rel="preload" href="f/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="img/vinograd-1600.webp" as="image" imagesrcset="img/vinograd-900.webp 900w, img/vinograd-1600.webp 1600w" imagesizes="(max-width: 860px) 100vw, 58vw">
+<style>
+/* Design read: demo landing for a fictional family wine cellar (klet) in Zagorje, for locals and
+   weekend visitors who want to book a tasting. Language: olive + one brick-red accent on a cool
+   green-grey paper (no beige/brass). Signature: the tasting table, where every wine you pick pours
+   into a glass in its real colour, then carries into the booking form.
+   Dials: VARIANCE 7, MOTION 5, DENSITY 4.
+   Shape rule: photos are square-cornered, panels 6px, every control is a full pill. */
+@font-face{font-family:"Archivo";src:url("f/archivo-latin-ext.woff2") format("woff2");font-weight:100 900;font-stretch:62% 125%;font-display:swap;
+  unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Archivo";src:url("f/archivo-latin.woff2") format("woff2");font-weight:100 900;font-stretch:62% 125%;font-display:swap;
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+
+:root{
+  --paper:#EEF0E8;--panel:#F8F9F4;--ink:#171B13;--muted:#535A49;--line:#C9CFBC;
+  --olive:#3F4A26;--olive-soft:#DDE2CF;--on-olive:#EEF0E8;
+  --brick:#A8392A;--on-brick:#FBF4F1;--brick-soft:#F2DDD8;
+  --shadow:0 24px 50px -30px rgba(40,50,25,.45);
+  --font:"Archivo",ui-sans-serif,system-ui,sans-serif;
+  --gut:clamp(16px,4vw,40px);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#12150F;--panel:#1A1E16;--ink:#E9ECE1;--muted:#A3AA96;--line:#2E3528;
+  --olive:#B8C78F;--olive-soft:#232A1B;--on-olive:#12150F;
+  --brick:#E77B68;--on-brick:#1A0D0A;--brick-soft:#3A1D18;
+  --shadow:0 24px 50px -30px rgba(0,0,0,.8);color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#12150F;--panel:#1A1E16;--ink:#E9ECE1;--muted:#A3AA96;--line:#2E3528;
+  --olive:#B8C78F;--olive-soft:#232A1B;--on-olive:#12150F;
+  --brick:#E77B68;--on-brick:#1A0D0A;--brick-soft:#3A1D18;
+  --shadow:0 24px 50px -30px rgba(0,0,0,.8);color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font);font-size:17px;line-height:1.55;
+  font-feature-settings:"kern" 1;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration-thickness:1px;text-underline-offset:3px}
+h1,h2,h3{margin:0;font-weight:800;font-stretch:112%;line-height:1.02;letter-spacing:-.025em;text-wrap:balance;hyphens:none}
+p{margin:0}
+button,input,select,textarea{font:inherit;color:inherit}
+a,button,label{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+:focus-visible{outline:3px solid var(--brick);outline-offset:3px}
+[hidden]{display:none!important}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.skip{position:absolute;left:12px;top:-80px;z-index:30;background:var(--brick);color:var(--on-brick);padding:10px 18px;border-radius:999px;font-weight:600;text-decoration:none}
+.skip:focus{top:12px}
+main:focus{outline:none}
+.wrap{width:min(1240px,100% - 2*var(--gut));margin-inline:auto}
+
+.demo{background:var(--olive);color:var(--on-olive);font-size:.85rem;text-align:center;padding:7px 16px}
+
+/* Header */
+.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--paper) 88%,transparent);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid transparent;transition:border-color .3s}
+.top.scrolled{border-color:var(--line)}
+@media (prefers-reduced-transparency:reduce){.top{background:var(--paper)}}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;height:68px}
+.logo{display:inline-flex;align-items:center;gap:10px;font-weight:800;font-stretch:118%;font-size:1.2rem;letter-spacing:-.02em;text-decoration:none}
+.logo svg{width:26px;height:26px}
+.nav{display:flex;align-items:center;gap:26px}
+.nav a.l{text-decoration:none;font-weight:500;color:var(--muted);transition:color .2s}
+.nav a.l:hover{color:var(--ink)}
+@media (max-width:760px){.nav a.l{display:none}}
+
+/* Buttons: one pill system */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 24px;border-radius:999px;
+  border:1.5px solid var(--ink);background:none;font-weight:600;text-decoration:none;white-space:nowrap;cursor:pointer;
+  transition:transform .2s cubic-bezier(.16,1,.3,1),background-color .2s,color .2s,border-color .2s}
+.btn:active{transform:scale(.97)}
+.btn.main{background:var(--brick);border-color:var(--brick);color:var(--on-brick)}
+.btn.main:hover{background:color-mix(in srgb,var(--brick) 86%,var(--ink))}
+.btn:not(.main):hover{background:var(--ink);color:var(--paper)}
+.btn.sm{min-height:40px;padding:0 18px;font-size:.95rem}
+.btn[disabled]{opacity:.45;cursor:not-allowed;transform:none}
+.btn svg{width:18px;height:18px}
+
+/* Hero: text left, photo bleeding to the right edge */
+.hero{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);min-height:min(calc(100dvh - 101px),820px)}
+.hero .copy{display:flex;flex-direction:column;justify-content:center;gap:24px;
+  padding:48px clamp(20px,4vw,56px) 56px max(var(--gut),calc((100vw - 1240px)/2))}
+.hero h1{font-size:clamp(2.6rem,5.4vw,4.9rem)}
+.hero h1 em{font-style:normal;color:var(--brick)}
+.hero .lead{font-size:1.15rem;color:var(--muted);max-width:38ch}
+.hero .ctas{display:flex;gap:12px;flex-wrap:wrap}
+.hero figure{margin:0;position:relative;overflow:hidden;min-height:340px}
+.hero figure img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+@media (max-width:860px){
+  .hero{grid-template-columns:1fr;min-height:0;max-height:none}
+  .hero figure{order:-1;aspect-ratio:4/3;min-height:0}
+  .hero .copy{padding:32px var(--gut) 48px}
+}
+
+/* Section rhythm */
+section{padding-block:clamp(64px,9vw,120px)}
+.sh{display:grid;gap:14px;margin-bottom:40px;max-width:640px}
+.sh h2{font-size:clamp(2rem,4.2vw,3.2rem)}
+.sh p{color:var(--muted);font-size:1.08rem;max-width:56ch}
+.eyebrow{font-size:.78rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--brick)}
+
+/* Wines + tasting table */
+.taste{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:clamp(24px,4vw,48px);align-items:start}
+.wines{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;list-style:none;margin:0;padding:0}
+.wine{position:relative;display:grid;grid-template-columns:62px minmax(0,1fr);gap:18px;padding:18px;background:var(--panel);
+  border:1.5px solid var(--line);border-radius:6px;transition:border-color .25s,transform .25s cubic-bezier(.16,1,.3,1),box-shadow .25s}
+.wine:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+.wine.on{border-color:var(--brick)}
+.wine .pour{width:62px;height:96px;border-radius:4px;background:
+  linear-gradient(180deg,transparent 0 34%,var(--c) 34% 100%),var(--olive-soft);position:relative;overflow:hidden}
+.wine .pour::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,rgba(255,255,255,.35) 0 18%,transparent 34%)}
+.wine h3{font-size:1.3rem;font-stretch:108%}
+.wine .meta{font-size:.88rem;color:var(--muted);margin-top:4px}
+.wine .note{margin-top:8px;font-size:.98rem}
+.wine .row{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:14px;flex-wrap:wrap}
+.wine .price{font-weight:600;font-variant-numeric:tabular-nums}
+.add{min-height:38px;padding:0 16px;border-radius:999px;border:1.5px solid var(--ink);background:none;font-weight:600;font-size:.92rem;cursor:pointer;
+  display:inline-flex;align-items:center;gap:8px;transition:background-color .2s,color .2s,border-color .2s,transform .2s}
+.add:active{transform:scale(.96)}
+.add svg{width:16px;height:16px}
+.add[aria-pressed="true"]{background:var(--brick);border-color:var(--brick);color:var(--on-brick)}
+.add .yes{display:none}
+.add[aria-pressed="true"] .yes{display:inline}
+.add[aria-pressed="true"] .no{display:none}
+
+.table{position:sticky;top:96px;background:var(--panel);border:1.5px solid var(--line);border-radius:6px;padding:24px;display:grid;gap:18px}
+.table h3{font-size:1.45rem}
+.glasses{display:flex;gap:10px;align-items:flex-end;min-height:92px;padding:14px 12px 0;border-bottom:3px solid var(--olive);background:var(--olive-soft);border-radius:6px 6px 0 0}
+.glass{width:42px;flex:0 0 42px;display:grid;justify-items:center}
+.glass .bowl{width:42px;height:46px;border:2px solid color-mix(in srgb,var(--ink) 55%,transparent);border-top:0;border-radius:0 0 21px 21px;position:relative;overflow:hidden}
+.glass .wine-in{position:absolute;left:0;right:0;bottom:0;height:62%;background:var(--c,transparent);transform:scaleY(0);transform-origin:bottom;transition:transform .7s cubic-bezier(.16,1,.3,1)}
+.glass.full .wine-in{transform:none}
+.glass .stem{width:2px;height:20px;background:color-mix(in srgb,var(--ink) 55%,transparent)}
+.glass .foot{width:24px;height:2px;background:color-mix(in srgb,var(--ink) 55%,transparent)}
+.glass.empty{opacity:.35}
+.picked{display:grid;gap:6px;font-size:.95rem;list-style:none;margin:0;padding:0}
+.picked li{display:flex;justify-content:space-between;gap:10px}
+.picked .rm{background:none;border:0;padding:0;color:var(--muted);cursor:pointer;text-decoration:underline;text-underline-offset:3px;font-size:.88rem}
+.picked .rm:hover{color:var(--brick)}
+.hint{font-size:.93rem;color:var(--muted)}
+.sum{display:flex;justify-content:space-between;align-items:baseline;gap:12px;border-top:1px solid var(--line);padding-top:14px}
+.sum strong{font-size:1.7rem;font-stretch:110%;font-variant-numeric:tabular-nums}
+.check{display:flex;gap:12px;align-items:flex-start;font-size:.95rem;cursor:pointer}
+.check input{width:20px;height:20px;margin:2px 0 0;accent-color:var(--brick);flex-shrink:0}
+
+/* Mobile: table becomes a bottom bar */
+.bar{display:none}
+@media (max-width:980px){
+  .taste{grid-template-columns:1fr}
+  .table{position:static}
+}
+@media (max-width:640px){
+  .wines{grid-template-columns:1fr}
+  .bar{position:fixed;left:12px;right:12px;bottom:max(12px,env(safe-area-inset-bottom));z-index:15;display:flex;align-items:center;justify-content:space-between;gap:12px;
+    background:var(--ink);color:var(--paper);border-radius:999px;padding:8px 8px 8px 20px;box-shadow:0 16px 40px -18px rgba(0,0,0,.6);
+    transform:translateY(140%);visibility:hidden;transition:transform .4s cubic-bezier(.16,1,.3,1),visibility 0s .4s}
+  .bar.show{transform:none;visibility:visible;transition:transform .4s cubic-bezier(.16,1,.3,1)}
+  .bar .dots{display:flex;gap:5px}
+  .bar .dots i{width:12px;height:12px;border-radius:50%;background:var(--c);box-shadow:0 0 0 1.5px var(--paper)}
+  .bar .btn{min-height:42px;border-color:var(--brick)}
+}
+
+/* Story: photo pair + text, different family from the wine grid */
+.story{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:clamp(16px,2.4vw,28px);align-items:end}
+.story .big{grid-column:1/8;margin:0}
+.story .big img{aspect-ratio:4/3;object-fit:cover;width:100%}
+.story .side{grid-column:8/13;display:grid;gap:28px}
+.story .side img{aspect-ratio:4/3;object-fit:cover;width:100%}
+.story .side p{color:var(--muted);max-width:52ch}
+.story .side p + p{margin-top:12px}
+.story h2{font-size:clamp(2rem,4.2vw,3.2rem);margin-bottom:18px}
+figcaption{font-size:.85rem;color:var(--muted);margin-top:8px}
+@media (max-width:860px){.story .big,.story .side{grid-column:1/-1}}
+
+/* Booking */
+.book{background:var(--olive-soft)}
+.bookgrid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(24px,5vw,72px);align-items:start}
+.bookgrid .sh{margin:0}
+.facts{display:grid;gap:14px;margin-top:28px;max-width:420px}
+.facts div{display:flex;justify-content:space-between;gap:16px;border-bottom:1px solid var(--line);padding-bottom:10px}
+.facts dt{color:var(--muted)}
+.facts dd{margin:0;font-weight:600;text-align:right}
+.facts dl{margin:0}
+form{display:grid;gap:22px;background:var(--panel);border-radius:6px;padding:clamp(20px,3vw,32px);box-shadow:var(--shadow)}
+.f2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.field{display:grid;gap:8px;align-content:start}
+.field > label,.field legend{font-weight:600;font-size:.95rem;padding:0}
+fieldset{border:0;margin:0;padding:0;min-width:0}
+.in{width:100%;min-height:50px;padding:12px 14px;border:1.5px solid color-mix(in srgb,var(--ink) 38%,var(--panel));border-radius:6px;background:var(--paper);font-size:1rem}
+.in::placeholder{color:color-mix(in srgb,var(--muted) 85%,transparent)}
+.in:focus-visible{outline:none;border-color:var(--brick);box-shadow:0 0 0 3px color-mix(in srgb,var(--brick) 28%,transparent)}
+.in[aria-invalid="true"]{border-color:var(--brick)}
+textarea.in{min-height:90px;resize:vertical}
+.help{font-size:.88rem;color:var(--muted)}
+.err{font-size:.9rem;color:var(--brick);font-weight:600}
+.slots{display:flex;flex-wrap:wrap;gap:8px}
+.slots label{position:relative}
+.slots input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.slots span{display:inline-flex;align-items:center;min-height:42px;padding:0 16px;border-radius:999px;border:1.5px solid color-mix(in srgb,var(--ink) 38%,var(--panel));font-variant-numeric:tabular-nums;font-weight:500;transition:background-color .2s,color .2s,border-color .2s}
+.slots input:checked + span{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.slots input:focus-visible + span{outline:3px solid var(--brick);outline-offset:2px}
+.slots input:disabled + span{opacity:.4;text-decoration:line-through}
+.step{display:inline-flex;align-items:center;border:1.5px solid color-mix(in srgb,var(--ink) 38%,var(--panel));border-radius:999px;width:max-content}
+.step button{width:46px;height:46px;border:0;background:none;border-radius:999px;font-size:1.3rem;cursor:pointer}
+.step button:hover{background:var(--olive-soft)}
+.step output{min-width:44px;text-align:center;font-weight:700;font-variant-numeric:tabular-nums;font-size:1.1rem}
+.summary{display:grid;gap:4px;padding:16px;border-radius:6px;background:var(--olive-soft);font-size:.95rem}
+.summary b{font-weight:700}
+.done{display:grid;gap:16px;background:var(--panel);border-radius:6px;padding:clamp(24px,3vw,36px);box-shadow:var(--shadow)}
+.done h3{font-size:1.8rem}
+.done ul{margin:0;padding-left:1.1em;display:grid;gap:4px}
+.done .acts{display:flex;gap:10px;flex-wrap:wrap}
+@media (max-width:860px){.bookgrid,.f2{grid-template-columns:1fr}}
+
+/* Visit: full-bleed landscape with an info panel overlapping */
+.visit{padding-bottom:0}
+.visit figure{margin:0;position:relative}
+.visit figure img{width:100%;height:clamp(320px,52vw,620px);object-fit:cover}
+.visit .card{position:relative;margin-top:-140px;margin-left:auto;width:min(520px,100%);background:var(--panel);border-radius:6px;padding:clamp(22px,3vw,34px);box-shadow:var(--shadow);display:grid;gap:18px}
+.visit .card h2{font-size:clamp(1.8rem,3.4vw,2.6rem)}
+.visit .card p{color:var(--muted)}
+.hours{display:grid;grid-template-columns:auto 1fr;gap:6px 22px;margin:0}
+.hours dt{color:var(--muted)}
+.hours dd{margin:0;font-weight:600;font-variant-numeric:tabular-nums}
+@media (max-width:640px){.visit .card{margin-top:-60px}}
+
+footer{padding-block:72px 40px;font-size:.92rem;color:var(--muted)}
+footer .wrap{display:grid;gap:18px}
+footer .credits{font-size:.82rem;max-width:90ch}
+@media (max-width:640px){footer{padding-bottom:110px}}
+
+/* Motion: reveal on enter, only when JS runs and motion is allowed */
+@media (prefers-reduced-motion:no-preference){
+  .js .rv{opacity:0;transform:translateY(22px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1);transition-delay:calc(var(--i,0) * 70ms)}
+  .js .rv.seen{opacity:1;transform:none}
+  .hero .copy > *{animation:up .9s cubic-bezier(.16,1,.3,1) both;animation-delay:calc(var(--i,0) * 90ms)}
+  @keyframes up{from{opacity:0;transform:translateY(18px)}}
+  @supports (animation-timeline:view()){
+    .hero figure img{animation:drift linear both;animation-timeline:view();animation-range:exit 0% exit 100%}
+    @keyframes drift{to{transform:scale(1.08) translateY(4%)}}
+  }
+}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<a class="skip" href="#sadrzaj">Preskoči na sadržaj</a>
+<div class="demo">Demo: Klet Lozica je izmišljena, a vina i cijene su primjeri. Stranicu je izradio <a href="../">Haxhom Media</a>.</div>
+
+<header class="top" id="top">
+  <div class="wrap">
+    <a class="logo" href="#sadrzaj" aria-label="Klet Lozica, na vrh">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="11" cy="12" r="5" fill="var(--olive)"/><circle cx="21" cy="12" r="5" fill="var(--olive)"/><circle cx="16" cy="21" r="5" fill="var(--brick)"/></svg>
+      <span translate="no">Lozica</span>
+    </a>
+    <nav class="nav" aria-label="Glavna navigacija">
+      <a class="l" href="#vina">Vina</a>
+      <a class="l" href="#klet">Klet</a>
+      <a class="l" href="#dolazak">Dolazak</a>
+      <a class="btn main sm" href="#termin">Rezerviraj stol</a>
+    </nav>
+  </div>
+</header>
+
+<main id="sadrzaj" tabindex="-1">
+<div class="hero">
+  <div class="copy">
+    <h1 style="--i:0">Kraljevina s&nbsp;našeg <em>brijega</em></h1>
+    <p class="lead" style="--i:1">Obiteljska klet kod Zlatara. Vikendom točimo šest vina iz vlastitog vinograda, uz domaći sir i&nbsp;kruh.</p>
+    <div class="ctas" style="--i:2">
+      <a class="btn main" href="#termin">Rezerviraj stol</a>
+      <a class="btn" href="#vina">Pogledaj vina</a>
+    </div>
+  </div>
+  <figure>
+    <img src="img/vinograd-1600.webp" srcset="img/vinograd-900.webp 900w, img/vinograd-1600.webp 1600w" sizes="(max-width: 860px) 100vw, 58vw"
+         width="1600" height="901" alt="Redovi vinove loze na brijegu u Zagorju, iza njih šuma u jesenskoj magli" fetchpriority="high">
+  </figure>
+</div>
+
+<section id="vina">
+  <div class="wrap">
+    <div class="sh rv">
+      <span class="eyebrow">Degustacija po vašem izboru</span>
+      <h2>Složite svoj stol</h2>
+      <p>Odaberite tri do pet vina. Natočit ćemo ih tim redom, od najlakšeg prema najpunijem.</p>
+    </div>
+
+    <div class="taste">
+      <ul class="wines" id="wines"></ul>
+
+      <aside class="table rv" aria-labelledby="stol-naslov">
+        <h3 id="stol-naslov">Vaš stol</h3>
+        <div class="glasses" id="glasses" aria-hidden="true"></div>
+        <p class="hint" id="hint" aria-live="polite"></p>
+        <ul class="picked" id="picked"></ul>
+        <label class="check"><input type="checkbox" id="plata"> Zagorska plata uz vino: sir i vrhnje, domaća kobasica, kruh iz krušne peći (+9&nbsp;€ po osobi)</label>
+        <div class="sum"><span>Po osobi</span><strong id="perPerson">0&nbsp;€</strong></div>
+        <a class="btn main" id="toBook" href="#termin">Dalje na termin</a>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section id="klet">
+  <div class="wrap story">
+    <figure class="big rv">
+      <img src="img/bacve-1600.webp" srcset="img/bacve-900.webp 900w, img/bacve-1600.webp 1600w" sizes="(max-width: 860px) 100vw, 58vw"
+           width="1600" height="1067" alt="Stara zagorska klet s drvenim bačvama, stolom i bocama uz kameni zid" loading="lazy">
+    </figure>
+    <div class="side">
+      <div class="rv">
+        <h2>Klet u kojoj je djed točio</h2>
+        <p>Kamena klet stoji na brijegu od 1911. Bačve su i dalje drvene, a vino točimo ravno iz njih, za istim stolom za kojim se uvijek sjedilo.</p>
+        <p>Kraljevina je stara zagorska sorta koju danas rijetko tko sadi. Kod nas je ona prva čaša.</p>
+      </div>
+      <figure class="rv" style="--i:1;margin:0">
+        <img src="img/grozd-900.webp" width="900" height="675" alt="Zreli grozdovi crnog grožđa među jesenskim listovima loze" loading="lazy">
+        <figcaption>Berba počinje krajem rujna. Pomoć je dobrodošla, a ručak je na nama.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="book" id="termin">
+  <div class="wrap bookgrid">
+    <div class="rv">
+      <div class="sh">
+        <h2>Rezervirajte stol</h2>
+        <p>Pošaljite upit i javit ćemo vam se istog dana. Plaća se na licu mjesta, gotovinom ili karticom.</p>
+      </div>
+      <dl class="facts">
+        <div><dt>Degustacija</dt><dd>3 vina 12&nbsp;€, svako sljedeće +3&nbsp;€</dd></div>
+        <div><dt>Trajanje</dt><dd>Oko sat i pol</dd></div>
+        <div><dt>Grupe</dt><dd>2 do 12 osoba</dd></div>
+      </dl>
+    </div>
+
+    <div class="rv" style="--i:1">
+      <form id="form" novalidate>
+        <div class="summary" id="formSummary" aria-live="polite"></div>
+        <p class="err" id="errWines" hidden>Odaberite barem tri vina. <a href="#vina">Natrag na vina</a></p>
+
+        <div class="f2">
+          <div class="field">
+            <label for="datum">Datum</label>
+            <input class="in" type="date" id="datum" name="datum" autocomplete="off" required aria-describedby="datumHelp datumErr">
+            <p class="help" id="datumHelp">Otvoreno petkom, subotom i nedjeljom.</p>
+            <p class="err" id="datumErr" hidden></p>
+          </div>
+          <fieldset class="field">
+            <legend>Broj osoba</legend>
+            <div class="step">
+              <button type="button" id="minus" aria-label="Jedna osoba manje">&minus;</button>
+              <output id="osobe" aria-live="polite">2</output>
+              <button type="button" id="plus" aria-label="Jedna osoba više">+</button>
+            </div>
+          </fieldset>
+        </div>
+
+        <fieldset class="field" aria-describedby="vrijemeErr">
+          <legend>Vrijeme</legend>
+          <div class="slots" id="slots">
+            <label><input type="radio" name="vrijeme" value="13:00"><span>13:00</span></label>
+            <label><input type="radio" name="vrijeme" value="15:00"><span>15:00</span></label>
+            <label><input type="radio" name="vrijeme" value="17:00"><span>17:00</span></label>
+            <label><input type="radio" name="vrijeme" value="19:00"><span>19:00</span></label>
+          </div>
+          <p class="err" id="vrijemeErr" hidden></p>
+        </fieldset>
+
+        <div class="f2">
+          <div class="field">
+            <label for="ime">Ime i prezime</label>
+            <input class="in" id="ime" name="ime" autocomplete="name" required aria-describedby="imeErr">
+            <p class="err" id="imeErr" hidden></p>
+          </div>
+          <div class="field">
+            <label for="tel">Mobitel</label>
+            <input class="in" id="tel" name="tel" type="tel" inputmode="tel" autocomplete="tel" placeholder="091 234 5678" required aria-describedby="telErr">
+            <p class="err" id="telErr" hidden></p>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="napomena">Napomena</label>
+          <textarea class="in" id="napomena" name="napomena" autocomplete="off" aria-describedby="napHelp"></textarea>
+          <p class="help" id="napHelp">Neobavezno. Npr. rođendan, vegetarijanska plata ili dolazak biciklom.</p>
+        </div>
+
+        <button class="btn main" type="submit">Pošalji upit</button>
+      </form>
+
+      <div class="done" id="done" hidden tabindex="-1">
+        <h3>Upit je spreman</h3>
+        <p>Ovo je demo stranica pa upit nije stvarno poslan. Na pravoj stranici bi ovdje stigla potvrda na mobitel.</p>
+        <ul id="doneList"></ul>
+        <div class="acts">
+          <button class="btn" type="button" id="edit">Uredi upit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="visit" id="dolazak">
+  <figure>
+    <img src="img/zagorje-1600.webp" srcset="img/zagorje-900.webp 900w, img/zagorje-1600.webp 1600w" sizes="100vw"
+         width="1600" height="1200" alt="Zeleni brijegovi Zagorja s vinogradom u prvom planu i kućama na vrhu brda" loading="lazy">
+  </figure>
+  <div class="wrap">
+    <div class="card rv">
+      <h2>Dolazak</h2>
+      <p>Petnaest minuta od Zlatara, zadnji kilometar je makadam. Parking je uz klet.</p>
+      <dl class="hours">
+        <dt>Petak</dt><dd>15 do 21 h</dd>
+        <dt>Subota</dt><dd>12 do 21 h</dd>
+        <dt>Nedjelja</dt><dd>12 do 19 h</dd>
+      </dl>
+      <p>Radnim danom primamo samo najavljene grupe.</p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>&copy;&nbsp;2026 Klet Lozica je izmišljena klet. Demo stranicu je izradio <a href="../">Haxhom Media</a>.</p>
+    <p class="credits">Fotografije s Wikimedia Commonsa:
+      <a href="https://commons.wikimedia.org/wiki/File:Vineyard_in_Hrvatsko_Zagorje_2013.jpg" rel="noopener">vinograd u Zagorju</a> (Ratipok, CC0),
+      <a href="https://commons.wikimedia.org/wiki/File:Tonneaux_d%27une_cave_%C3%A0_Kumrovec,_Croatie.jpg" rel="noopener">klet u Kumrovcu</a> (Dennis G. Jarvis, <a href="https://creativecommons.org/licenses/by-sa/2.0/" rel="noopener">CC BY-SA 2.0</a>),
+      <a href="https://commons.wikimedia.org/wiki/File:Domina_grapes_on_the_vine.jpg" rel="noopener">grožđe</a> (Axel, <a href="https://creativecommons.org/licenses/by/2.0/" rel="noopener">CC BY 2.0</a>),
+      <a href="https://commons.wikimedia.org/wiki/File:Zeleno_Zagorje.jpg" rel="noopener">Zeleno Zagorje</a> (Ana Štimac, <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="noopener">CC BY-SA 4.0</a>).
+      Fotografije su smanjene. Font Archivo, <a href="f/OFL.txt">SIL Open Font License</a>.</p>
+  </div>
+</footer>
+
+<div class="bar" id="bar" aria-hidden="true">
+  <span class="dots" id="barDots"></span>
+  <span id="barText"></span>
+  <a class="btn main sm" href="#termin" tabindex="-1">Dalje</a>
+</div>
+
+<script>
+document.documentElement.classList.add('js');
+(function(){
+  var WINES=[
+    {id:'kra',name:'Kraljevina',year:2024,style:'Suho, lagano',note:'Svježa i pitka, s notom zelene jabuke. Stara zagorska sorta.',price:11,c:'#E7E2A6'},
+    {id:'gra',name:'Graševina',year:2024,style:'Suho',note:'Cvjetni miris i blaga gorčina badema na kraju.',price:12,c:'#E3CF72'},
+    {id:'riz',name:'Rizling rajnski',year:2023,style:'Suho',note:'Mineralan, s breskvom i živom kiselinom.',price:14,c:'#DCC660'},
+    {id:'pin',name:'Pinot sivi',year:2023,style:'Polusuho',note:'Puniji, s kruškom i blagim bakrenim odsjajem.',price:14,c:'#D7AF7E'},
+    {id:'ros',name:'Rosé',year:2024,style:'Suho, od portugisca',note:'Jagoda i malina, najbolji ohlađen ljeti.',price:12,c:'#E3929A'},
+    {id:'por',name:'Portugizac',year:2024,style:'Suho, crno',note:'Mlado crno vino, mekano, s višnjom.',price:13,c:'#7B2232'}
+  ];
+  var MIN=3,MAX=5;
+  var picked=[],people=2;
+  var $=function(id){return document.getElementById(id)};
+  var list=$('wines');
+
+  WINES.forEach(function(w,i){
+    var li=document.createElement('li');
+    li.className='wine rv';li.style.setProperty('--i',i%2);li.style.setProperty('--c',w.c);li.dataset.id=w.id;
+    li.innerHTML='<div class="pour" aria-hidden="true"></div><div><h3 translate="no">'+w.name+'</h3>'+
+      '<p class="meta">'+w.year+'. · '+w.style+'</p><p class="note">'+w.note+'</p>'+
+      '<div class="row"><span class="price">Boca '+w.price+' €</span>'+
+      '<button type="button" class="add" aria-pressed="false" aria-label="'+w.name+' na stol">'+
+      '<span class="no">Dodaj na stol</span><span class="yes">Na stolu</span></button></div></div>';
+    li.querySelector('.add').addEventListener('click',function(){toggle(w.id)});
+    list.appendChild(li);
+  });
+
+  function toggle(id){
+    var i=picked.indexOf(id);
+    if(i>-1){picked.splice(i,1)}
+    else{
+      if(picked.length>=MAX){$('hint').textContent='Najviše pet vina. Maknite jedno pa dodajte drugo.';return}
+      picked.push(id);
+    }
+    // pour from lightest to fullest, in list order
+    picked.sort(function(a,b){return idx(a)-idx(b)});
+    render();
+  }
+  function idx(id){for(var i=0;i<WINES.length;i++)if(WINES[i].id===id)return i}
+  function byId(id){return WINES[idx(id)]}
+  function perPerson(){
+    if(picked.length<MIN)return 0;
+    return 12+(picked.length-MIN)*3+($('plata').checked?9:0);
+  }
+
+  function render(){
+    // cards
+    list.querySelectorAll('.wine').forEach(function(li){
+      var on=picked.indexOf(li.dataset.id)>-1;
+      li.classList.toggle('on',on);
+      li.querySelector('.add').setAttribute('aria-pressed',on);
+    });
+    // glasses: always MAX slots, filled ones carry the wine colour
+    var g=$('glasses');
+    if(!g.children.length){for(var k=0;k<MAX;k++){var d=document.createElement('div');d.className='glass empty';d.innerHTML='<div class="bowl"><div class="wine-in"></div></div><div class="stem"></div><div class="foot"></div>';g.appendChild(d)}}
+    Array.prototype.forEach.call(g.children,function(el,k){
+      var w=picked[k]&&byId(picked[k]);
+      el.classList.toggle('empty',!w);
+      if(w){el.style.setProperty('--c',w.c);requestAnimationFrame(function(){el.classList.add('full')})}
+      else{el.classList.remove('full')}
+    });
+    // list
+    var ul=$('picked');ul.innerHTML='';
+    picked.forEach(function(id){
+      var w=byId(id),li=document.createElement('li');
+      li.innerHTML='<span>'+w.name+'</span>';
+      var b=document.createElement('button');b.type='button';b.className='rm';b.textContent='Makni';b.setAttribute('aria-label','Makni '+w.name);
+      b.addEventListener('click',function(){toggle(id)});li.appendChild(b);ul.appendChild(li);
+    });
+    var n=picked.length;
+    $('hint').textContent=n===0?'Stol je prazan. Dodajte vina s popisa.':
+      n<MIN?'Još '+(MIN-n)+(MIN-n===1?' vino':' vina')+' do degustacije.':
+      n<MAX?'Možete dodati još '+(MAX-n)+(MAX-n===1?' vino.':' vina.'):'Stol je pun.';
+    $('perPerson').textContent=perPerson()+' €';
+    var tb=$('toBook');
+    if(n<MIN){tb.setAttribute('aria-disabled','true');tb.style.opacity='.45'}else{tb.removeAttribute('aria-disabled');tb.style.opacity=''}
+    // mobile bar
+    var bar=$('bar');bar.classList.toggle('show',n>0&&!tableInView);bar.setAttribute('aria-hidden',n>0?'false':'true');
+    bar.querySelector('a').tabIndex=n>0?0:-1;
+    $('barDots').innerHTML=picked.map(function(id){return '<i style="--c:'+byId(id).c+'"></i>'}).join('');
+    $('barText').textContent=n<MIN?n+' od '+MIN+' vina':perPerson()+' € po osobi';
+    summary();
+  }
+  $('plata').addEventListener('change',render);
+  $('toBook').addEventListener('click',function(e){if(picked.length<MIN){e.preventDefault();$('hint').textContent='Odaberite barem tri vina za degustaciju.'}});
+
+  function summary(){
+    var s=$('formSummary');
+    if(picked.length<MIN){s.innerHTML='<span>Još niste složili stol. <a href="#vina">Odaberite vina</a>.</span>';return}
+    var total=perPerson()*people;
+    s.innerHTML='<span><b>'+picked.map(function(id){return byId(id).name}).join(', ')+'</b></span>'+
+      '<span>'+people+' '+(people<5?'osobe':'osoba')+(($('plata').checked)?' s platom':'')+', ukupno '+total+' €</span>';
+    $('errWines').hidden=true;
+  }
+
+  // people stepper
+  function setPeople(v){people=Math.max(2,Math.min(12,v));$('osobe').value=people;$('osobe').textContent=people;$('minus').disabled=people===2;$('plus').disabled=people===12;summary()}
+  $('minus').addEventListener('click',function(){setPeople(people-1)});
+  $('plus').addEventListener('click',function(){setPeople(people+1)});
+
+  // date rules: from today, Fri-Sun only; Sunday closes at 19 so no 19:00 slot
+  var d=$('datum'),today=new Date();
+  function iso(x){return x.getFullYear()+'-'+String(x.getMonth()+1).padStart(2,'0')+'-'+String(x.getDate()).padStart(2,'0')}
+  d.min=iso(today);
+  function day(){if(!d.value)return -1;var p=d.value.split('-');return new Date(+p[0],+p[1]-1,+p[2]).getDay()}
+  function slotRules(){
+    var dw=day(),late=document.querySelector('input[value="19:00"]');
+    late.disabled=dw===0;if(late.disabled&&late.checked)late.checked=false;
+  }
+  d.addEventListener('change',function(){slotRules();if(!$('datumErr').hidden)checkDate()});
+
+  function setErr(input,errId,msg){
+    var e=$(errId);e.textContent=msg||'';e.hidden=!msg;
+    if(input)input.setAttribute('aria-invalid',msg?'true':'false');
+    return !msg;
+  }
+  function checkDate(){
+    var dw=day();
+    if(dw<0)return setErr(d,'datumErr','Odaberite datum.');
+    if(d.value<d.min)return setErr(d,'datumErr','Datum je već prošao.');
+    if(dw!==5&&dw!==6&&dw!==0)return setErr(d,'datumErr','Taj dan je zatvoreno. Odaberite petak, subotu ili nedjelju.');
+    return setErr(d,'datumErr','');
+  }
+  function checkSlot(){
+    var c=document.querySelector('input[name="vrijeme"]:checked');
+    if(!c)return setErr(null,'vrijemeErr','Odaberite vrijeme.');
+    if(day()===5&&c.value==='13:00')return setErr(null,'vrijemeErr','Petkom otvaramo u 15 h.');
+    return setErr(null,'vrijemeErr','');
+  }
+  function checkName(){var v=$('ime').value.trim();return setErr($('ime'),'imeErr',v.length<2?'Upišite ime i prezime.':'')}
+  function checkTel(){var v=$('tel').value.replace(/[\s\/-]/g,'');return setErr($('tel'),'telErr',/^(\+385|0)\d{8,9}$/.test(v)?'':'Upišite broj mobitela, npr. 091 234 5678.')}
+  // errors clear while typing, so the layout is settled before the user reaches the submit button
+  [['ime',checkName,'imeErr'],['tel',checkTel,'telErr']].forEach(function(f){
+    var el=$(f[0]);
+    el.addEventListener('input',function(){if(!$(f[2]).hidden)f[1]()});
+    el.addEventListener('blur',function(){if(el.value&&$(f[2]).hidden)f[1]()});
+  });
+  document.querySelectorAll('input[name="vrijeme"]').forEach(function(r){r.addEventListener('change',function(){if(!$('vrijemeErr').hidden)checkSlot()})});
+
+  $('form').addEventListener('submit',function(e){
+    e.preventDefault();
+    var okW=picked.length>=MIN;$('errWines').hidden=okW;
+    var ok=[checkDate(),checkSlot(),checkName(),checkTel()];
+    if(!okW||ok.indexOf(false)>-1){
+      // focus the first field that needs fixing, in form order
+      var targets=[[!okW,$('errWines').querySelector('a')],[!ok[0],d],[!ok[1],document.querySelector('input[name="vrijeme"]:not(:disabled)')],[!ok[2],$('ime')],[!ok[3],$('tel')]];
+      for(var t=0;t<targets.length;t++){if(targets[t][0]){targets[t][1].scrollIntoView({block:'center'});targets[t][1].focus({preventScroll:true});break}}
+      return;
+    }
+    var p=d.value.split('-'),dt=new Date(+p[0],+p[1]-1,+p[2]);
+    var when=new Intl.DateTimeFormat('hr',{weekday:'long',day:'numeric',month:'long'}).format(dt);
+    var items=[
+      'Termin: '+when+' u '+document.querySelector('input[name="vrijeme"]:checked').value,
+      'Vina: '+picked.map(function(id){return byId(id).name}).join(', '),
+      people+' '+(people<5?'osobe':'osoba')+(($('plata').checked)?', s platom':'')+', ukupno '+perPerson()*people+' €',
+      'Kontakt: '+$('ime').value.trim()+', '+$('tel').value.trim()
+    ];
+    $('doneList').innerHTML='';
+    items.forEach(function(t){var li=document.createElement('li');li.textContent=t;$('doneList').appendChild(li)});
+    $('form').hidden=true;$('done').hidden=false;$('done').focus();
+  });
+  $('edit').addEventListener('click',function(){$('done').hidden=true;$('form').hidden=false;$('datum').focus()});
+
+  // header border after scrolling past the top
+  var top=$('top'),sentinel=document.createElement('div');sentinel.style.cssText='position:absolute;top:0;height:1px;width:1px';document.body.prepend(sentinel);
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(es){top.classList.toggle('scrolled',!es[0].isIntersecting)},{rootMargin:'-40px 0px 0px 0px'}).observe(sentinel);
+    var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('seen');io.unobserve(en.target)}})},{threshold:.15,rootMargin:'0px 0px -40px 0px'});
+    document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+  }else{document.querySelectorAll('.rv').forEach(function(el){el.classList.add('seen')})}
+
+  // the bottom bar repeats the table, so hide it while the table itself is on screen
+  var tableInView=false;
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(es){tableInView=es[0].isIntersecting;render()},{threshold:.25}).observe(document.querySelector('.table'));
+  }
+  setPeople(2);render();
+})();
+</script>
+</body>
+</html>
