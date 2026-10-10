@@ -149,3 +149,15 @@ body{padding-bottom:96px}
  .hero-st h1{font-size:clamp(2.1rem,9vw,2.8rem)}
  .hero-st .ph{max-width:280px}
 }
+
+/* brand colours from the salon's own flyer: blush background, dusty-rose script M */
+:root{--bg:#F6E9E6;--line:#E8D3CF;--kosa:#F0D6CF;--nokti:#E7DAEC;--accent:#94565D;--muted:#6F6064;--rose:#B98488}
+body{background:var(--bg) radial-gradient(70% 45% at 0% 0%,rgba(214,170,166,.38),transparent 70%) no-repeat;background-attachment:scroll}
+.brand{display:flex;align-items:center;gap:10px}
+.brand .bm{font:400 2.6rem/1 "Allura",cursive;color:var(--rose);margin-top:4px}
+.brand .bt{display:block;font:400 1.15rem/1.1 var(--disp);letter-spacing:.06em;text-transform:uppercase}
+.brand .bt small{letter-spacing:.24em}
+.ph-who i{font:400 1.2rem/1 "Allura",cursive}
+.bk,.cbar{border-color:var(--line)}
+.bk-c span,.bk-f input{background:#FBF5F3}
+.hero-st .ctas{display:flex;flex-direction:row;flex-wrap:wrap;align-items:center;justify-content:flex-start}
