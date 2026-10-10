@@ -9,9 +9,10 @@
 (function(){
   var lb=document.querySelector('[data-lb]');if(!lb)return;
   var items=[].slice.call(document.querySelectorAll('[data-lbitem]')),i=0,im=lb.querySelector('img'),cap=lb.querySelector('p');
-  function show(n){i=(n+items.length)%items.length;var s=items[i].querySelector('img');im.src=s.src.replace(/w=\d+/,'w=1800');im.alt=s.alt;cap.textContent=s.alt}
-  items.forEach(function(it,n){it.addEventListener('click',function(){show(n);lb.hidden=false;lb.querySelector('[data-x]').focus()})});
-  function close(){lb.hidden=true}
+  function show(n){i=(n+items.length)%items.length;var s=items[i].querySelector('img');var W=+s.getAttribute('width'),H=+s.getAttribute('height');im.src=s.src.replace(/w=\d+/,'w=1600').replace(/h=\d+/,'h='+Math.round(1600*H/W));im.alt=s.alt;cap.textContent=s.alt}
+  var opener=null;
+  items.forEach(function(it,n){it.addEventListener('click',function(){opener=it;show(n);lb.hidden=false;lb.querySelector('[data-x]').focus()})});
+  function close(){lb.hidden=true;if(opener)opener.focus()}
   lb.querySelector('[data-x]').addEventListener('click',close);
   lb.querySelector('[data-prev]').addEventListener('click',function(){show(i-1)});
   lb.querySelector('[data-next]').addEventListener('click',function(){show(i+1)});
@@ -27,7 +28,7 @@
 
 (function(){
   var ph=document.getElementById('ph');if(!ph)return;
-  var imgs=[].slice.call(ph.querySelectorAll('img')),bars=[].slice.call(ph.querySelectorAll('.ph-bars b')),cap=document.getElementById('ph-cap'),pb=ph.querySelector('.ph-pause');
+  var imgs=[].slice.call(ph.querySelectorAll(':scope>img')),bars=[].slice.call(ph.querySelectorAll('.ph-bars b')),cap=document.getElementById('ph-cap'),pb=ph.querySelector('.ph-pause');
   var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches,i=0,t0=null,dur=4500,paused=reduce,visible=true,raf;
   function go(n){i=(n+imgs.length)%imgs.length;imgs.forEach(function(im,k){im.classList.toggle('on',k===i);if(k===(i+1)%imgs.length)im.loading='eager'});bars.forEach(function(b,k){b.style.width=k<i?'100%':'0'});if(paused)bars[i].style.width='100%';cap.textContent=imgs[i].dataset.cap;t0=null}
   function tick(t){if(!paused&&visible){if(t0===null)t0=t;var p=Math.min((t-t0)/dur,1);bars[i].style.width=(p*100)+'%';if(p>=1)go(i+1)}raf=requestAnimationFrame(tick)}
