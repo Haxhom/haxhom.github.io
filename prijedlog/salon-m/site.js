@@ -24,3 +24,19 @@
  if(t&&h>=t[0]&&h<t[1])txt='Danas radimo do '+t[1]+':00';
  else{for(var k=0;k<8;k++){var w=(wd+k)%7,x=H[w];if(x&&(k>0||h<x[0])){var dn=['ponedjeljak','utorak','srijedu','četvrtak','petak','subotu','nedjelju'][w];txt=(k===0?'Otvaramo danas u ':k===1?'Otvaramo sutra u ':'Otvaramo u '+dn+' u ')+x[0]+':00';break}}}
  el.forEach(function(e){e.textContent=txt;e.classList.toggle('isopen',!!(t&&h>=t[0]&&h<t[1]))})})();
+
+(function(){
+  var ph=document.getElementById('ph');if(!ph)return;
+  var imgs=[].slice.call(ph.querySelectorAll('img')),bars=[].slice.call(ph.querySelectorAll('.ph-bars b')),cap=document.getElementById('ph-cap'),pb=ph.querySelector('.ph-pause');
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches,i=0,t0=null,dur=4500,paused=reduce,visible=true,raf;
+  function go(n){i=(n+imgs.length)%imgs.length;imgs.forEach(function(im,k){im.classList.toggle('on',k===i);if(k===(i+1)%imgs.length)im.loading='eager'});bars.forEach(function(b,k){b.style.width=k<i?'100%':'0'});if(paused)bars[i].style.width='100%';cap.textContent=imgs[i].dataset.cap;t0=null}
+  function tick(t){if(!paused&&visible){if(t0===null)t0=t;var p=Math.min((t-t0)/dur,1);bars[i].style.width=(p*100)+'%';if(p>=1)go(i+1)}raf=requestAnimationFrame(tick)}
+  function setPaused(v){paused=v;pb.setAttribute('aria-label',v?'Pokreni priče':'Zaustavi priče');pb.firstChild.textContent=v?'▶':'❚❚';t0=null;if(v)bars[i].style.width='100%'}
+  ph.querySelector('.ph-tap.l').addEventListener('click',function(){go(i-1)});
+  ph.querySelector('.ph-tap.r').addEventListener('click',function(){go(i+1)});
+  pb.addEventListener('click',function(){setPaused(!paused)});
+  ph.addEventListener('keydown',function(e){if(e.key==='ArrowRight'){go(i+1);e.preventDefault()}if(e.key==='ArrowLeft'){go(i-1);e.preventDefault()}});
+  if('IntersectionObserver' in window)new IntersectionObserver(function(es){visible=es[0].isIntersecting;t0=null}).observe(ph);
+  document.addEventListener('visibilitychange',function(){visible=!document.hidden;t0=null});
+  setPaused(paused);go(0);raf=requestAnimationFrame(tick);
+})();
