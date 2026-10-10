@@ -161,3 +161,4 @@ body{background:var(--bg) radial-gradient(70% 45% at 0% 0%,rgba(214,170,166,.38)
 .bk,.cbar{border-color:var(--line)}
 .bk-c span,.bk-f input{background:#FBF5F3}
 .hero-st .ctas{display:flex;flex-direction:row;flex-wrap:wrap;align-items:center;justify-content:flex-start}
+.hero-st .st-tx .ctas{justify-content:flex-start!important}
