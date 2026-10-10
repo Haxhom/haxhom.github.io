@@ -40,3 +40,32 @@
   document.addEventListener('visibilitychange',function(){visible=!document.hidden;t0=null});
   setPaused(paused);go(0);raf=requestAnimationFrame(tick);
 })();
+
+(function(){
+  var f=document.getElementById('bk');if(!f)return;
+  var H={1:[12,19],2:[12,19],3:[12,19],4:[8,15],5:[8,15],6:[7,12]};
+  function chip(n,v,l,dis){return '<label class="bk-c"><input type="radio" name="'+n+'" value="'+v+'"'+(dis?' disabled':'')+'><span>'+l+'</span></label>'}
+  f.querySelectorAll('[data-list]').forEach(function(g){g.innerHTML=g.dataset.list.split('|').map(function(x){return chip('usluga',x,x)}).join('')});
+  var now=new Date(),days=[],fw=new Intl.DateTimeFormat('hr-HR',{weekday:'short'}),fl=new Intl.DateTimeFormat('hr-HR',{weekday:'long',day:'numeric',month:'numeric'});
+  for(var i=0;i<10;i++)days.push(new Date(now.getFullYear(),now.getMonth(),now.getDate()+i));
+  var dEl=document.getElementById('bk-days'),sEl=document.getElementById('bk-slots'),pv=document.getElementById('bk-prev'),er=document.getElementById('bk-err');
+  dEl.innerHTML=days.map(function(d,i){var h=H[d.getDay()],last=h&&i===0&&now.getHours()>=h[1]-1;return chip('dan',i,'<small>'+(i===0?'danas':i===1?'sutra':fw.format(d).replace('.',''))+'</small><b>'+d.getDate()+'.</b>',!h||last)}).join('');
+  var st={usluga:null,dan:null,vrijeme:null};
+  function slots(){
+    if(st.dan===null){sEl.innerHTML='<p class="bk-empty">Prvo odaberite dan.</p>';return}
+    var d=days[st.dan],h=H[d.getDay()],out=[];
+    for(var t=h[0];t<h[1];t++){var past=st.dan===0&&t<=now.getHours();out.push(chip('vrijeme',t+':00',t+':00',past))}
+    sEl.innerHTML=out.join('')+chip('vrijeme','svejedno','Svejedno');st.vrijeme=null;
+  }
+  function msg(){
+    return 'Pozdrav, željela bih termin: '+st.usluga.toLowerCase()+', '+fl.format(days[st.dan])+(st.vrijeme==='svejedno'?', bilo kada':' oko '+st.vrijeme)+'.'+(f.ime.value.trim()?' '+f.ime.value.trim():'');
+  }
+  function prev(){pv.textContent=(st.usluga&&st.dan!==null&&st.vrijeme)?msg():'Odaberite uslugu, dan i vrijeme.'}
+  f.addEventListener('change',function(e){var n=e.target.name;if(n in st){st[n]=n==='dan'?+e.target.value:e.target.value;if(n==='dan')slots()}er.hidden=true;prev()});
+  f.ime.addEventListener('input',prev);
+  f.addEventListener('submit',function(e){e.preventDefault();
+    var miss=!st.usluga?'uslugu':st.dan===null?'dan':!st.vrijeme?'vrijeme':null;
+    if(miss){er.textContent='Odaberite '+miss+'.';er.hidden=false;var q=!st.usluga?'[name=usluga]':st.dan===null?'[name=dan]:not(:disabled)':'[name=vrijeme]:not(:disabled)';var el=f.querySelector(q);if(el)el.focus();return}
+    window.open('https://wa.me/385977531914?text='+encodeURIComponent(msg()),'_blank','noopener');
+  });
+})();

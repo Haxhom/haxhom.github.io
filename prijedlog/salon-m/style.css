@@ -96,3 +96,56 @@ body{padding-bottom:96px}
  .cb{flex:1}
 }
 @media (prefers-reduced-motion:reduce){.cb{transition:none}}
+
+/* booking request via WhatsApp */
+.bk-sec{padding-block:20px 60px}
+.bk-lede{color:var(--muted);text-align:center;max-width:44ch;margin:-8px auto 26px}
+.bk{max-width:860px;margin:0 auto;background:#fff;border:1px solid var(--line);border-radius:28px;padding:clamp(20px,4vw,40px);display:grid;gap:26px}
+.bk fieldset{border:0;margin:0;padding:0;min-width:0}
+.bk legend{font:400 1.45rem var(--disp);margin-bottom:12px}
+.bk-group{display:grid;grid-template-columns:70px minmax(0,1fr);gap:10px;align-items:start;margin-bottom:10px}
+.bk-k{font-weight:700;color:var(--muted);padding-top:11px;font-size:.92rem}
+.bk-chips,.bk-slots{display:flex;flex-wrap:wrap;gap:8px}
+.bk-c{position:relative}
+.bk-c input{position:absolute;opacity:0;width:1px;height:1px}
+.bk-c span{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;min-height:44px;padding:0 16px;border-radius:999px;border:1px solid var(--line);background:var(--bg);cursor:pointer;font-weight:600;line-height:1.15;transition:background-color .15s,border-color .15s,color .15s}
+.bk-group:first-child .bk-c input:checked+span{background:var(--kosa);border-color:var(--accent)}
+.bk-group:last-child .bk-c input:checked+span{background:var(--nokti);border-color:var(--accent)}
+.bk-days .bk-c input:checked+span,.bk-slots .bk-c input:checked+span{background:var(--ink);border-color:var(--ink);color:#fff}
+.bk-c input:focus-visible+span{outline:2px solid var(--accent);outline-offset:2px}
+.bk-c input:disabled+span{opacity:.35;cursor:not-allowed}
+.bk-days{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(70px,1fr);gap:8px;overflow-x:auto;padding-bottom:6px;scroll-snap-type:x mandatory;overscroll-behavior-x:contain}
+.bk-days .bk-c{scroll-snap-align:start}
+.bk-days .bk-c span{border-radius:18px;min-height:66px;width:100%;padding:6px}
+.bk-days small{font-weight:500;color:inherit;opacity:.75;font-size:.8rem}
+.bk-days b{font:400 1.35rem var(--disp)}
+.bk-slots .bk-c span{font-variant-numeric:tabular-nums}
+.bk-empty{color:var(--muted)}
+.bk-f{display:grid;gap:6px;max-width:360px}
+.bk-f label{font-weight:700;font-size:.95rem}
+.bk-f input{font:inherit;padding:12px 14px;border:1px solid var(--line);border-radius:14px;background:var(--bg);color:var(--ink)}
+.bk-f input:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+.bk-out{border-top:1px solid var(--line);padding-top:20px;display:grid;gap:14px;justify-items:start}
+.bk-prev{background:#E7F6EC;border-radius:16px 16px 16px 4px;padding:12px 16px;max-width:52ch;color:#173d27}
+.bk-send{display:inline-flex;align-items:center;gap:10px;background:#1F8F4E;color:#fff;border:0;cursor:pointer;font:inherit;font-weight:700;min-height:52px}
+.bk-send svg{width:20px;height:20px}
+.bk-err{color:#A3261C;font-weight:600}
+@media (max-width:600px){.bk-group{grid-template-columns:minmax(0,1fr);gap:6px}.bk-k{padding-top:0}.bk-send{width:100%;justify-content:center}}
+
+/* stories as the hero (replaces the two doors) */
+.hero-st{padding-block:clamp(24px,5vw,56px) 40px}
+.hero-st .st-grid{grid-template-columns:minmax(0,340px) minmax(0,1fr)}
+.hero-st h1{font-size:clamp(2.4rem,5vw,3.8rem);text-align:left;margin:0}
+.hero-st .st-tx>p:not(.open):not(.jump){color:var(--muted);margin-top:14px;max-width:40ch;font-size:1.1rem}
+.hero-st .ctas{margin-top:24px}
+.hero-st .open{margin-top:16px;text-align:left}
+.jump{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.jump a{text-decoration:none;font-weight:700;font-size:.92rem;padding:8px 16px;border-radius:999px;border:1px solid var(--line)}
+.jump a:nth-child(1){background:var(--kosa)}.jump a:nth-child(2){background:var(--nokti)}
+.jump a:hover{border-color:var(--accent)}
+@media (max-width:720px){
+ .hero-st .st-grid{grid-template-columns:minmax(0,1fr)}
+ .hero-st .st-tx{order:-1;text-align:left}
+ .hero-st h1{font-size:clamp(2.1rem,9vw,2.8rem)}
+ .hero-st .ph{max-width:280px}
+}
