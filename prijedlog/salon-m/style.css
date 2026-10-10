@@ -82,3 +82,17 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 .ph .ph-cap{color:#fff;text-align:left;margin:0;text-shadow:0 2px 12px rgba(0,0,0,.5)}
 .st-tx .h2{text-align:left;margin:0}
 @media (max-width:720px){.st-tx .h2{text-align:center}}
+
+/* always-visible contact bar */
+.cbar{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(16px + env(safe-area-inset-bottom));z-index:60;display:flex;gap:8px;padding:8px;border-radius:999px;background:rgba(255,255,255,.86);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 18px 40px -18px rgba(43,34,38,.45);border:1px solid var(--line)}
+.cb{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 22px;border-radius:999px;font-weight:700;text-decoration:none;touch-action:manipulation;transition:transform .15s ease}
+.cb:active{transform:scale(.97)}
+.cb svg{width:20px;height:20px}
+.cb.call{background:var(--ink);color:#fff}
+.cb.wa{background:#1F8F4E;color:#fff}
+body{padding-bottom:96px}
+@media (max-width:600px){
+ .cbar{left:10px;right:10px;transform:none;bottom:calc(10px + env(safe-area-inset-bottom));border-radius:20px}
+ .cb{flex:1}
+}
+@media (prefers-reduced-motion:reduce){.cb{transition:none}}
